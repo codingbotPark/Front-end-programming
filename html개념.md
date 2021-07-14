@@ -171,7 +171,34 @@ img태그는 html2부터 시작된 태그이다
 예) \<img scr = "이미지 소스의 url" alt = "이미지의 대체 텍스트" width = "지정할 넓이" length = "지정할 높이">
 
 ## \<td>, \<tr>, \<table>
-###
+### \<td> (table data)
+표에 넣을 내용들을 각각 td태그에 넣는다
+
+예)  
+\<td>이름\</td> \<td>나이\</td> \<td>키\</td>  
+\<td>박병관\</td> \<td>17\</td> \<td>168\</td>
+
+### \<tr> (table row)
+td태그에 넣은 내용들의 열을 tr태그로 나누어 준다
+예)  
+\<tr>  
+\<td>이름\</td> \<td>나이\</td> \<td>키\</td>  
+\</tr>  
+\<tr>  
+\<td>박병관\</td> \<td>17\</td> \<td>168\</td>
+\</tr>  
+
+### \<table>
+table태그로 앞의 내용들을 전부 감싼다  
+예)  
+\<table>  
+\<tr>  
+\<td>이름\</td> \<td>나이\</td> \<td>키\</td>  
+\</tr>  
+\<tr>  
+\<td>박병관\</td> \<td>17\</td> \<td>168\</td>
+\</tr>  
+\</table>  
 
 
 
