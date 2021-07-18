@@ -213,9 +213,6 @@ table태그로 앞의 내용들을 전부 감싼다
 </tr>
 </table>  
 ```
-
-<br>
-
 <table>  
 <tr>  
 <td>이름</td> <td>나이</td> <td>키</td>  
@@ -245,9 +242,6 @@ table태그로 앞의 내용들을 전부 감싼다
 </tr>
 </table>
 ```
-
-<br>
-
 <table border = "1">
 <tr>
 <td>이름</td> <td>나이</td> <td>키</td>
@@ -282,9 +276,6 @@ table태그로 앞의 내용들을 전부 감싼다
 </tbody>
 </table>
 ```
-
-<br>
-
 <table border = "1">
 <thead>
 <tr>
@@ -323,9 +314,6 @@ table태그로 앞의 내용들을 전부 감싼다
 </tbody>
 </table>
 ```
-
-<br>
-
 <table border = "1">
 <thead>
 <tr>
@@ -341,8 +329,6 @@ table태그로 앞의 내용들을 전부 감싼다
 </tr>
 </tbody>
 </table>
-
-<br>
 
 
 
