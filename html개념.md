@@ -691,13 +691,25 @@ method를 정해주지 않으면 기본적으로 get방식으로 된다
 
 <br>
 
+## file
+파일 업로드를 할 수 있다
 
+```html
+<form action = "전송할 주소" method = "post" enctype = "multipart/form-data">
+    <input type = "file" name = "profile">
+    <input type = "submit">
+</form>
+```
+file의 타입으로 파일을 선택하는 ui를 만들 수 있다
 
+<br>
 
+<form action = "전송할 주소" method = "post" enctype = "multipart/form-data">
+    <input type = "file" name = "profile">
+    <input type = "submit">
+</form>
 
-
-
-
+<br>
 
 
 
