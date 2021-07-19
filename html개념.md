@@ -351,7 +351,7 @@ type으로 사용자로부터 입력받는 정보의 형태를 변환할 수 있
 사용자가 입력한 정보를 서버로 전송할 수 있다
 
 ```html
-<form action = "">
+<form action = "전송할 ">
 <p>아이디 = <input type = "text" name = "id"></p>
 <p>비밀번호 = <input type = "password" name = "pwd"></p>
 <p><input type = "submit" name = "address"></p>
