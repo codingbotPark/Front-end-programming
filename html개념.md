@@ -330,7 +330,366 @@ table태그로 앞의 내용들을 전부 감싼다
 </tbody>
 </table>
 
+## \<input>, \<form>
+### \<input>
+사용자로부터 정보를 입력받는다
 
+```html
+<p>아이디 = <input type = "text"></p>
+<p>비밀번호 = <input type = "password"></p>
+<p><input type = "submit"></p>
+```
+type으로 사용자로부터 입력받는 정보의 형태를 변환할 수 있다
+
+<br>
+
+이 때 사용자에게 입력받는 정보가 어디에 있는 서버로 전송할지에 대한 정보가 불충분 하다
+
+<br>
+
+### \<form>
+사용자가 입력한 정보를 서버로 전송할 수 있다
+
+```html
+<form action = "">
+<p>아이디 = <input type = "text" name = "id"></p>
+<p>비밀번호 = <input type = "password" name = "pwd"></p>
+<p><input type = "submit" name = "address"></p>
+</form>
+```
+action안에 주소를 입력하면 사용자에게 입력된 정보가 주소로 전송된다  
+name을 정해줘서 전송되는 정보의 이름을 정해준다  
+
+<br>
+
+```html
+<form action = "전송할 주소">
+<p>아이디 = <input type = "text" name = "id"></p>
+<p>비밀번호 = <input type = "password" name = "pwd"></p>
+<p><input type = "submit" name = "address"></p>
+</form>
+```
+<form action = "전송할 주소">
+<p>아이디 = <input type = "text" name = "id"></p>
+<p>비밀번호 = <input type = "password" name = "pwd"></p>
+<p><input type = "submit" name = "address"></p>
+</form>
+
+<br>
+
+### +value
+기본값을 설정할 수 있다
+
+```html
+<form action = "전송할 주소">
+<p>아이디 = <input type = "text" name = "id" value = "id"></p>
+<p>비밀번호 = <input type = "password" name = "pwd" value = "password"></p>
+<p><input type = "submit" name = "address"></p>
+</form>
+```
+<form action = "전송할 주소">
+<p>아이디 = <input type = "text" name = "id" value = "id"></p>
+<p>비밀번호 = <input type = "password" name = "pwd" value = "password"></p>
+<p><input type = "submit" name = "address"></p>
+</form>
+
+<br>
+
+### +textarea
+여러줄을 입력할 수 있는 텍스트 필드를 만들 수 있다
+
+```html
+<form action = "전송할 주소">
+<p>아이디 = <input type = "text" name = "id" value = "id"></p>
+<p>비밀번호 = <input type = "password" name = "pwd" value = "password"></p>
+<p>메모 = <textarea cols = "50" rows = "10">기본값</textarea></p>
+<p><input type = "submit" name = "address"></p>
+</form>
+```
+cols는 가로, rows는 세로 의 길이를 변경할 수 있다
+
+<br>
+
+<form action = "전송할 주소">
+<p>아이디 = <input type = "text" name = "id" value = "id"></p>
+<p>비밀번호 = <input type = "password" name = "pwd" value = "password"></p>
+<p>메모 = <textarea cols = "50" rows = "10">기본값</textarea></p>
+<p><input type = "submit" name = "address"></p>
+</form>
+
+<br>
+
+## \<select>, \<option>
+**dropdown list(콤보박스)를 만들 수 있다**
+
+```html
+<form action = "전송할 주소">
+<select name = "color">
+    <option value = "green">초록색</option>
+    <option value = "blue">파란색</option>
+    <option value = "red">빨간색</option>
+</select>
+<input type = "submit">
+</form>
+```
+value로 선택은 초록색, 파란색, 빨간색 을 하겠지만 선택후 서버로 전송되는 값을 변경할 수 있다
+
+<br>
+
+<form action = "전송할 주소">
+<select name = "color">
+    <option value = "green">초록색</option>
+    <option value = "blue">파란색</option>
+    <option value = "red">빨간색</option>
+</select>
+<input type = "submit">
+</form>
+
+<br>
+
+### +콤보박스 다중선택
+
+```html
+<form action = "전송할 주소">
+<select name = "color" multiple>
+    <option value = "green">초록색</option>
+    <option value = "blue">파란색</option>
+    <option value = "red">빨간색</option>
+</select>
+<input type = "submit">
+</form>
+```
+multiple 을 추가하여 ctrl을 누르면 다중선택이 가능한 콤보박스를 만들 수 있다
+
+<br>
+
+<form action = "전송할 주소">
+<select name = "color" multiple>
+    <option value = "green">초록색</option>
+    <option value = "blue">파란색</option>
+    <option value = "red">빨간색</option>
+</select>
+<input type = "submit">
+</form>
+
+<br>
+
+이 때 콤보박스를 활용해도 되지만 **체크박스** 가 더 좋을 수 있다
+
+<br>
+
+## radio
+**체크박스를 만들 수 있다**
+
+```html
+<input type = "radio">
+<input type = "radio">
+```
+<input type = "radio">
+<input type = "radio">
+
+<br>
+
+```html
+<input type = "radio" name = "color">
+<input type = "radio" name = "color">
+```
+같은 이름을 주면 하나의 버튼만 선택된다
+
+<br>
+
+<input type = "radio" name = "color">
+<input type = "radio" name = "color">
+
+<br>
+
+```html
+<p>
+<input type = "radio" name = "color1">
+<input type = "radio" name = "color1">
+</p>
+<p>
+<input type = "radio" name = "color2">
+<input type = "radio" name = "color2">
+</p>
+```
+name값이 같은 것 끼리 그루핑이 되고 같은 그룹에 속하는 것 중 하나가 선택되면 나머지 선택이 해제되는 형태 
+
+<br>
+
+<p>
+<input type = "radio" name = "color1">
+<input type = "radio" name = "color1">
+</p>
+<p>
+<input type = "radio" name = "color2">
+<input type = "radio" name = "color2">
+</p>
+
+<br>
+
+### +checkbox
+name값이 같은 것끼리 다중선택이 가능하다 
+
+```html
+<p>
+초록색 = <input type = "radio" name = "color" value = "green">
+파란색 = <input type = "radio" name = "color" value = "blue">
+빨간색 = <input type = "radio" name = "color" value = "red">
+</p>
+<p>
+초록색 = <input type = "checkbox" name = "color" value = "green">
+파란색 = <input type = "checkbox" name = "color" value = "blue">
+빨간색 = <input type = "checkbox" name = "color" value = "red">
+</p>
+```
+radio와 달리 checkbox는 이름이 같은 것 끼리 다중선택이 가능하다
+
+<br>
+
+초록색 = <input type = "radio" name = "color" value = "green">
+파란색 = <input type = "radio" name = "color" value = "blue">
+빨간색 = <input type = "radio" name = "color" value = "red">
+</p>
+<p>
+초록색 = <input type = "checkbox" name = "color" value = "green">
+파란색 = <input type = "checkbox" name = "color" value = "blue">
+빨간색 = <input type = "checkbox" name = "color" value = "red">
+</p>
+
+### +checked
+사용자가 웹 페이지를 열었을 때 기본적으로 항목이 선택되어있게 할 수 있다
+
+```html
+<form action = "전송할 주소">
+초록색 = <input type = "radio" name = "color" value = "green" checked>
+파란색 = <input type = "radio" name = "color" value = "blue">
+빨간색 = <input type = "radio" name = "color" value = "red">
+</p>
+<p>
+초록색 = <input type = "checkbox" name = "color" value = "green" checked>
+파란색 = <input type = "checkbox" name = "color" value = "blue">
+빨간색 = <input type = "checkbox" name = "color" value = "red">
+</p>
+<input type = "submit">
+</form>
+```
+<form action = "전송할 주소">
+초록색 = <input type = "radio" name = "color" value = "green1" checked>
+파란색 = <input type = "radio" name = "color" value = "blue1">
+빨간색 = <input type = "radio" name = "color" value = "red1">
+</p>
+<p>
+초록색 = <input type = "checkbox" name = "color" value = "green2" checked>
+파란색 = <input type = "checkbox" name = "color" value = "blue2">
+빨간색 = <input type = "checkbox" name = "color" value = "red2">
+</p>
+<input type = "submit">
+</form>
+
+<br>
+
+## hidden field
+눈에 보이진 않지만 서버쪽으로 어떤 데이터를 전송할 수 있다
+
+```html
+<form action = "전송할 주소">
+    <input type = "text" name = "id"> 
+    <input type = "hidden" name = "hide" value = "H">
+    <input type = "submit">
+</form>
+```
+타입이 hidden인 hide는 UI가 없지만 H라는 데이터를 전송할 수 있다
+
+<br>
+
+<form action = "전송할 주소">
+    <input type = "text" name = "id"> 
+    <input type = "hidden" name = "hide" value = "H">
+    <input type = "submit">
+</form>
+
+<br>
+
+## \<label>
+UI요소를 정의할 수 있다  
+정의를 해줘서 웹 페이지를 좀더 정보로서의 가치를 줄 수 있다
+
+```html
+<form action = "전송할 주소">
+    <p>
+        <label for = "id">아이디 =</label>
+        <input id = "id" type = "text" name = "id" value = "id">
+    </p>
+    <p>
+        <label for = "pw">비밀번호 =</label>
+        <input id = "pw" type = "password" name = "pwd" value = "password">
+    </p>
+    <p>
+        <label for = "mm">메모 =</label> 
+        <textarea if = "mm" cols = "30" rows = "2">기본값</textarea>
+    </p>
+    <p>
+        <label>
+        <input type = "checkbox" name = "agree" value = "yes">동의
+        </label>
+    </p>
+</form>
+```
+id를 활용해서 각각의 레이블들이 무엇의 레이블인지 나타낸다 (for = "", id = "")  
+label로 checkbox를 묶어줘서 label을 눌러도 체크가 됨
+
+<br>
+
+<form action = "전송할 주소">
+    <p>
+        <label for = "id">아이디 =</label>
+        <input id = "id" type = "text" name = "id" value = "id">
+    </p>
+    <p>
+        <label for = "pw">비밀번호 =</label>
+        <input id = "pw" type = "password" name = "pwd" value = "password">
+    </p>
+    <p>
+        <label for = "mm">메모 =</label> 
+        <textarea if = "mm" cols = "30" rows = "2">기본값</textarea>
+    </p>
+    <p>
+        <label>
+        <input type = "checkbox" name = "agree" value = "yes">동의
+        </label>
+    </p>
+</form>
+
+<br>
+
+## method
+데이터를 전송하는 방법들에는 get방식과 post방식 등이 있다
+
+get 방식 = url을 통해서 데이터를 전송하는 방식  
+post 방식 = url이 아닌 방식으로 데이터를 숨겨서 전송하는 방식  
+
+[get방식과 post방식의 차이](https://mommoo.tistory.com/60)
+
+```html
+<form action = "전송할 주소" method = "post">
+<input type = "text" name = "id">
+<input type = "password" name = "pwd">
+<input type = "submit">
+</form>
+```
+method에 전송할 방법을 넣는다
+method를 정해주지 않으면 기본적으로 get방식으로 된다  
+
+<br>
+
+<form action = "전송할 주소" method = "post">
+<input type = "text" name = "id">
+<input type = "password" name = "pwd">
+<input type = "submit">
+</form>
+
+<br>
 
 
 
