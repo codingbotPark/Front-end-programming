@@ -711,6 +711,162 @@ file의 타입으로 파일을 선택하는 ui를 만들 수 있다
 
 <br>
 
+## 정보로서의 HTML
+HTML이 처음 고안되었을 때는 단지 웹페이지를 표현하기 위한 언어였다
+웹이 폭발적으로 성장하면서 인류의 많은 정보들이 '웹 화' 된다
+그러면서 HTML이라고 하는 것은 중요한 사회적 역할을 담당한다
+'인류의 지식을 담아내는 그릇같은 역할'을 한다
+그러면 이런 역할을 더 잘 수행하기 위해서 무엇을 해야될까?
+그 과정에서 HTML이라고 하는 것이 정보를 담아내는 역할에 집중할 수 있고 전념할 수 있게 하기 위한 여러가지 조치들이 취해지게 된다
+
+앞으로 HTML을 '정보'답게 하는, HTML의 조치들에 대해 알아간다
+
+## \<font>
+HTML은 세월의 흐름에 따라 태그가 추가, 의미변화, 퇴출이 발생한다
+
+font태그는 대표적인 퇴출된 태그 중 하나이다
+
+`이 태그가 왜 퇴출되었는가'를 통해서 HTML이 정보로서 중요하다 라는 내용에 접근
+
+```html
+<font size = "1">Hello</font> World
+<font size = "2" color = green>Hello</font> World
+<font size = "5" color = "blue">Hello</font> World
+```
+font태그로 감싸주면 문자를 꾸며줄 수 있다
+
+<br>
+
+<font size = "1" color = "red">Hello</font> World  
+<font size = "2" color = "green">Hello</font> World  
+<font size = "5" color = "blue">Hello</font> World  
+
+이 font태그는 아무런 의미를 가지고 있지 않다는 문제점이 있다
+이러한 문제점은 코드의 해석능력을 떨어뜨리고 HTML용량의 크기를 키웠다
+
+이처럼 HTML에서 디자인과 관련된 태그들을 퇴출시키면서 css라고 하는 별도의 프로그래밍 언어를 고안
+
+이를 보면 HTML이 정보에 집중하도록 하는 것이 굉장히 중요했다 는 것을 생각해볼 수 있다
+
+<br>
+
+## \<meta>
+어떤 데이터를 설명할 수 있다
+
+글의 본문에 표현되지는 않지만 웹 페이지를 설명하는 정보를 적을 수 있다
+
+```html
+<head>
+    <meta charset = "utf-8">
+</head>
+<body>
+    meta태그에 대한 내용입니다
+</body>
+```
+charset = "ut-8" 은 웹프라우저가 작성한 내용을 읽고 화면에 표시하려고 하면 utf-8이라는 방식읽는다
+
+이 정보들을 컴퓨터에 저장하는 것을 인코딩(Encoding)이라고 한다
+이 저장되어있는 정보들을 꺼내서 화면에 표시하는 과정을 디코딩(Decoding)이라고 한다
+
+<br>
+
+```html
+<head>
+    <meta charset = "utf-8">
+    <meta name = "description" content = "생활코딩의 소개자료">
+    <meta name = "keywords" content = "코딩,html">
+    <meta name = "author" content = "박병관">
+    <meta http-equiv = "refresh" content = "30">
+</head>
+<body>
+    meta태그에 대한 내용입니다
+</body>
+```
+`<meta name = "description" content = "생활코딩의 소개자료">`는 웹페이지 상에서는 표시가 되지 않지만 웹페이지에 대한 어떤 요약된 자료로 사용될 수 있다
+
+`<meta name = "keywords" content = "코딩,html">`도 마찬가지로 웹페이지를 분류하는데 영향을 줄 수 있다
+
+`<meta name = "author" content = "박병관">`는 웹페이지의 저자를 표시할 수 있다
+
+`<meta http-equiv = "refresh" content = "30">`는 이 웹페이지를 30초마다 새로고침 할 수 있다
+
+이런식으로 meta태그는 웹 페이지의 내용은 아니지만 내용을, 웹페이지를 설명하는 역할을 하는 태그이다
+
+이러한 태그들을 잘 작성하면 웹 페이지가 가치있는정보가 될 수 있다
+
+<br>
+
+## semantic
+html5가 되면서 각각의 어떤 정보들을 명확하게 표현해주는 태그들이 등장한다 이러한 태그들을 semantic태그라고 표현한다
+
+```html
+<header>
+    <h1>제목</h1>
+</header>
+
+<nav>
+<ol>
+    <li>
+        <a href = "연결할 웹 페이지">1번째 내용의 제목</a>
+    </li>
+    <li>
+        <a href = "연결할 웹 페이지">2번째 내용의 제목</a>
+    </li>
+    <li>
+        <a href = "연결할 웹 페이지">3번째 내용의 제목</a>
+    </li>
+    <li>
+        <a href = "연결할 웹 페이지">4번째 내용의 제목</a>
+    </li>
+</ol>
+</nav>
+
+<section>
+    <article>
+        본문의 내용 1
+    </article>
+    <article>
+        본문의 내용 2
+    </article>
+</section>
+
+<footer>
+    <ul>
+    <li>
+        <a href = "연결할 웹 페이지">1 번째 하단내용</a>
+    </li>
+    <li>
+        <a href = "연결할 웹 페이지">2 번째 하단내용</a>
+    </li>
+    </ul>
+</footer>
+```
+header태그는 '가장 중요한 정보들이 있는'부분이 이부분이다 라는 의미만 가지고 있는 태그이다
+
+nav태그는 '웹페이지 상에서 내비게이션 역할'을 하는 부분이다 라는 의미만 가지고 있는 태그이다
+
+article태그는 본문이라는 것을 의미론적으로 표현할 수 있다
+
+footer태그는 '웹페이지의 하단에 위치하는 정보' 라는 의미만 가지고 있는 태그이다
+
+[생활코딩<의미론적태그>](https://opentutorials.org/module/1892/10954)
+
+<br>
+
+## 검색엔진 최적화
+검색엔진 = SEO = Search Engine Optimization 
+
+검색엔진이 동작하는 방법은 어떤 웹사이트를 만들어서 공개한다면 검색엔진을 만드는 회사들이 어떠한 소프트웨어를 보낸다  
+이 소프트웨어가 사이트에 브라우저처럼 접속해서 사이트에 있는 html파일을 다운로드 받아서 그 정보를 해석, 기준에 따라 분류한다  
+사용자가 검색했을 때 검색한 것에 가장 적합한 컨텐츠를 제공한다
+
+이 검색엔진 최적화라는 것은 이 검색엔진들이 사이트를 잘 해석할 수 있도록, 사이트가 사용자들에게 검색되었을 때 상위에 노출될 수 있도록 하는 여러가지 노력들을 말한다
+
+검색엔진을 최적화 하기 위해서는 무엇을 해야 하는가
+
+결론적으로 html코드를 의미론적으로 타당한 태그로 잘 설명하는 것이 검색엔진 최적화의 기본이다 (적정한 수준의 검색엔진 최적화의 균형을 잡는게 중요하다)
+
+### [구글의 검색엔진 최적화 가이드](http://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf)
 
 
 
