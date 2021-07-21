@@ -351,7 +351,7 @@ type으로 사용자로부터 입력받는 정보의 형태를 변환할 수 있
 사용자가 입력한 정보를 서버로 전송할 수 있다
 
 ```html
-<form action = "전송할 ">
+<form action = "">
 <p>아이디 = <input type = "text" name = "id"></p>
 <p>비밀번호 = <input type = "password" name = "pwd"></p>
 <p><input type = "submit" name = "address"></p>
@@ -711,6 +711,13 @@ file의 타입으로 파일을 선택하는 ui를 만들 수 있다
 
 <br>
 
+
+
+
+
+
+
+
 ## 정보로서의 HTML
 HTML이 처음 고안되었을 때는 단지 웹페이지를 표현하기 위한 언어였다
 웹이 폭발적으로 성장하면서 인류의 많은 정보들이 '웹 화' 된다
@@ -878,12 +885,16 @@ title태그 권장사항
 * 페이지마다 고유한 title태그 작성
 * 간결하면서 내용을 포함한 제목 작성
 
+<br>
+
 #### "description" 메타 태그 활용하기
 meta태그안에 포함돼 있는 내용들은 검색할 때 중요한 검색대상이 된다  
 
 descrition 태그 권장사항
 * 페이지의 내용을 정확하게 요약하기
 * 각 페이지마다 내용에 맞는 고유한 설명 사용 
+
+<br>
 
 #### 페이지의 url구조를 개선하기
 url의 주소를 조금 더 알아보기 좋은 형태로 만들면 검색엔진 최적화에도 도움이 되고, 유저도 자신이 방문한 웹 페이지가 어떤 정보를 갖고 있는지도 알기쉽고, url을 다른사람에게 공유했을 때 받은 사람이 어떤 내용을 담고 있는지 예측하는 데에도 도움이 된다  
@@ -892,6 +903,8 @@ url 구조를 위한 권장사항
 * URL에 단어 사용
 * 단순 디렉토리 구조 만들기
 * 특정 문서에 도달하기 위한 한 가지 형태의 url제공(canonical, 리다이렉션)
+
+<br>
 
 #### 사이트 내에서 이동하기 쉽게 만들기
 검색엔진입장에서 페이지의 전체 데이터가 링크로 잘 조직화되어 있어야 사이트에 있는 정보를 잘 가져갈 수 있다
@@ -905,14 +918,20 @@ url 구조를 위한 권장사항
 * 자연스러운 계층 구조 만들기
 * 이동 경로를 위해 텍스트 링크를 사용
 
+<br>
+
 #### 우수한 품질의 콘텐츠와 서비스 제공
 검색 엔진을 위한 것이 아닌 사용자를 위한 콘텐츠 작성
+
+<br>
 
 #### 보다 나은 앵커 텍스트(a) 작성
 앵커 텍스트를 위한 권장사항 
 * 내용을 함축하는 텍스트 선택
 * 간결한 텍스트 작성 
 * 링크를 눈에 띄기 쉽게 포맷하기
+
+<br>
 
 #### 이미지 사용 최적화
 * 이미지 관련 정보는 'alt' 속성을 이용해 제공
@@ -922,8 +941,12 @@ url 구조를 위한 권장사항
 * 간결하면서 설명적인 파일 이름과 alt텍스트의 활용
 * 이미지 사이트맵 제공
 
+<br>
+
 #### 제목 태그의 적절한 활용
 제목테그는 웹 페이지에서 중요한 의미를 가진다
+
+<br>
 
 #### robots.txt를 효과적으로 활용하기
 웹 페이지에 접근하는 봇들(크롤러)에게 접근에 대해 요청할 수 있는데 그 때 사용하는 것이 robots.txt파일이다
@@ -932,6 +955,8 @@ robots.txt 권장 사항
 * rovots.txt를 보안 도구로 사용하지 않기
 * 민감한 콘텐츠는 보다 안정한 방법 사용하기
 * 웹마스터를 위한 무료 도구 사용하기
+
+<br>
 
 #### 페이지랭크
 똑같은 단어를 두 개의 사이트가 동시에 가지고 있을 때 어떤 사이트를 먼저 검색 결과에 노출하는 것의 기준이 페이지랭크 이다
@@ -943,10 +968,256 @@ F12 > Toggle device toolbar 으로 각 디바이스크기로 웹 페이지를 �
 
 F12 > Network 는 웹서버에 설치되어있는 html을 웹서버로부터 받아서 화면에 표시해준다
 
+<br>
+
+## 모바일 지원
+데스크탑 = 화면을 넓게씀
+모바일폰 = 화면을 좁게씀
+이것을 브라우저가 알아서 처리
+
+```html
+<head>
+    <meta name = "viewport" content = "width=device-width,initial-scale=1.0">
+</head>
+<body>
+
+</body>
+```
+`<meta name = "viewport" content = "width=device-width">`에서
+`width=device-width`는 화면의 폭을 디바이스의 폭만큼 지정할 수 있다
+`initial-scale=1.0`는 화면을 확대, 축소 하지 않은 상태(1.0)에서 시작할 수 있다
+
+<br>
+
+## 새로운 제출 양식들
+HTML5에 들어오면서 사용자들이 웹을 사용하는 것과 관련된 편의 기능들이 대폭 향상 된다 
+
+그 중에서 사용자가 어떤 정보를 서버 쪽으로 전송할 때 사용하는 form과 관련해서도 개선이 있었다
+
+다양한 타입을 사용함으로써 모바일에서 편리해진다(맞는 UI) 
+
+#### number
+
+```html
+<form action = "전송할 주소">
+    <input type = "number">
+</form>
+```
+사용자가 입력을 할 때 숫자만 입력하게 할 수 있는 기능
+
+```html
+<form action = "전송할 주소">
+    <input type = "number" min = "10" max = "15">
+    <input type = "submit">
+</form>
+```
+min과 max를 정해줘서 입력값을 제한할 수 있다
+사용자가 유효하지 않은 값을 입력하게 되면 제출을 거부한다
+
+<br>
+
+#### color
+사용자가 쉽게 색을 선택할 수 있다
+
+<br>
+
+#### date
+날짜를 입력하는 화면이 뜬다
+
+```html
+<form action = "전송할 주소">
+    <input type = "date" name = "datev">
+    <input type = "submit">
+</form>
+```
+
+<br>
+
+#### datetime (지원 X)
+서버로 데이터가 전송될 때 **국제표준시**라고 하는 방식으로 전송된다
+
+<br>
+
+#### datetime-local (지원 X)
+서버로 데이터가 전송될 때 현재 살고 있는 지역에 해당하는 시간으로 전송이 된다
+
+<br>
+
+#### email
+이메일 정보만 입력할 수 있도록한다
+
+```html
+<form action = "전송할 주소">
+    <input type = "email" name = "emailv">
+    <input type = "submit">
+</form>
+```
+이메일형식이 아닐 때 제출을 거부
+
+<br>
+
+#### month
+월을 지정하는 것
+
+```html
+<form action = "전송할 주소">
+    <input type = "month" name = "monthv">
+    <input type = "submit">
+</form>
+```
+
+<br>
+
+#### range
+숫자의 범위를 지정, 사용자가 움직이면서 지정할 수 있게 하는 것
+
+```html
+<form action = "전송할 주소">
+    <input type = "range" name = "rangev" min = "0" max = "10"> 
+    <input type = "submit">
+</form>
+```
+슬라이더가 나타나고 min값과 max값을 지정할 수 있다
+
+<br>
+
+#### search
+특별한 기능은 없지만 검색기능을 찾거나 할 때 좋다
+
+```html
+<form action = "전송할 주소">
+    <input type = "search" name = "searchv">
+    <input type = "submit">
+</form>
+```
+정보로서의 기능을 높인다
+
+<br>
+
+#### tel
+전화번호와 관련
+
+```html
+<form action = "전송할 주소">
+    <input type = "tel" name = "telv">
+    <input type = "submit">
+</form>
+```
+
+<br>
+
+#### time
+date는 날짜 라고 한다면 time은 시간을 의미한다
+
+```html
+<form action = "전송할 주소">
+    <input type = "time" name = "timev">
+    <input type = "submit">
+</form>
+```
+
+<br>
+
+#### url
+url정보를 입력할 때 쓰는 것 
+
+```html
+<form action = "전송할 주소">
+    <input type = "url" name = "urlv">
+    <input type = "submit">
+</form>
+```
+url이 아닐 때 제출을 거부
+
+<br>
+
+#### week
+주를 입력할 때 쓰는 것
+
+```html
+<form action = "전송할 주소">
+    <input type = "week" name = "weekv">
+    <input type = "submit">
+</form>
+```
+
+<br>
+
+[생활코딩<HTML5의 입력양식>](https://opentutorials.org/module/1892/11038)
+
+<br>
+
+## 새로운 속성들
+
+```html
+<form action = "전송할 주소" autocomplete = "on">
+    <input type = "text" name = "id">
+    <input type = "password" name = "password" autocomplete = "off">
+    <input type = "submit">
+</form>
+```
+자동완성기능 = auto complete
+명시적으로 활성화, 비활성화 할 수 있다
+
+기본적으로 `<form action = "전송할 주소" autocomplete = "on">`에 의해서 전체적으로 자동완성이 이루어 지는데 ` <input type = "password" name = "password" autocomplete = "off">`에 의해서 비밀번호는 자동완성을 비활성화된다
+
+```html
+<form action = "전송활 주소">
+    <input type = "text" name = "id" placeholder = "id를 입력해주세요" autofocus>
+    <input type = "password" name = "password" placeholder = "비밀번호를 입력해주세요">
+    <input type = "submit">
+</form>
+```
+placeholder는 사용자가 입력을 시작하기 전까지 표시되는 글
+
+autofocus는 웹페이지가 열였을 때 자동으로 사용자의 커서가 첫번째 입력양식에 포커싱 되도록 할 수 있다
+
+<br>
+
+## 입력 값 체크
+사용자가 입력한 값들을 체크하는 것을 유효성검사, 밸리데이션(validation)이라고 한다
+
+HTML5에서는 이러한 입력 값 체크와 관련된 개선이 있었다
+이런 기능을 활용하면 JS없이 HTML코드만으로 유효성검사를 할 수 있다
+
+```html
+<form action = "전송할 주소">
+    <input type = "text" name = "id" placeholder = "아이디를 입력해주세요" required pattern = "">
+    <input type = "email" name = "email" placeholder = "이메일 입력">
+    <input type = "submit">
+</form>
+```
+요기서 타입의 값과 다른 값이 입력됐을 때 제출을 거부하는 것도 유효성검사라 할 수 있다
+
+required는 입력이 꼭 필요한사항을 만들 수 있다
+
+pattern이라는 속성의 속성 값으로 **정규표현식**이라는 것이 들어온다
+정규표현식은 html과 다른 목적, 문법을 가지고 있다
+정규표현식이 하는 역할은 어떠한 문자에서 패턴을 찾아내서 그 패턴이 문자에 있는지 확인하는 역할을 한다
+
+정규표현식에서
+첫번째 문자는 알파벳이여야 한다 = [a-zA-Z]
+=> 두글자의 알파벳을 입력하면 성립되지 않는다
+=> []는 알파벳 한 개를 의미하기 때문이다
+=> [a-zA-Z][a-zA-Z]
+
+첫번째 문자는 알파벳, 두번째는 아무거나 상관없다 = [a-zA-Z].
+정규표현식에서 . 은 모든 문자 라는 뜻
+
+[a-zA-Z].+ = 어떠한 문자건 하나이상 와야한다
+a22 = O
+a1 = O
+a = X
+
+가장 마지막 문자는 숫자여야 한다 = [a-zA-Z].+[0-9]
+
+[생활코딩<입력 값 체크>](https://opentutorials.org/module/1892/11090)  
+[생활코딩<정규표현식>](https://opentutorials.org/course/909/5143)
 
 
+HTML쪽에서 아무리 제한을 걸어도 실제 데이터를 전송하는 것을 기술적으로 막을 수는 없다
 
+결국에는 사용자가 입력한 정보를 받는 서버쪽에서 반드시 사용자가 입력한 정보에대헤서 테스트를 해서 데이터로 받아들여야 한다
 
-
-
+폼 밸리데이션(form validation)은 그냥 사용자에게 편의를 제공한다의 느낌으로 활용해야 한다
 
