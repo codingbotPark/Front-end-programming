@@ -871,8 +871,6 @@ footer태그는 '웹페이지의 하단에 위치하는 정보' 라는 의미만
 
 ### [구글의 검색엔진 최적화 가이드](http://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf)
 
-<br>
-
 #### 명확하고 독창적인 타이틀의 사용  
 자신의 컨탠츠를 잘 대표하는 title태그를 작성하는 것은 중요하다  
 
