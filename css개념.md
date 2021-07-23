@@ -112,7 +112,7 @@ html파일
 <br>
 
 ## 선택자의 종류
-선택자가 css가 발전함에 따라 다양한 선택자가 나타났다. 모든 선택자를 외울 필요는 없기 때문에 <a href = "https://flukeout.github.io/" target = "_blank" title = "">간단한 게임</a>, cheat sheet를 활용할 수 있다.
+선택자가 css가 발전함에 따라 다양한 선택자가 나타났다. 모든 선택자를 외울 필요는 없기 때문에 <a href = "https://flukeout.github.io/" target = "_blank" title = "flukeout.github.io">간단한 게임</a>, cheat sheet를 활용할 수 있다.
 
 ![css cheat sheet](https://stylishwebdesigner.com/wp-content/uploads/2011/04/Most-Practical-CSS-Cheat-Sheet-Yet.png)
 
