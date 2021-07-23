@@ -1,7 +1,7 @@
 # HTML
-HTML = Hyper Text Markup Language
-Hyper Text = 웹브라우저를 통해서 어떤 웹 페이지를 보면 '링크'를 보게 된다. 이 '링크'라는 기능이 Hyper Text이다.
-Markup = HTML은 이 Markup이라는 문법적인 형식, 특성에 따른다
+HTML = Hyper Text Markup Language  
+Hyper Text = 웹브라우저를 통해서 어떤 웹 페이지를 보면 **링크 (Hyper Text)** 를 보게 된다  
+Markup = HTML은 이 Markup이라는 문법적인 형식, 특성에 따른다  
 Language = 컴퓨터 프로그래밍 언어
 
 ## 역사
