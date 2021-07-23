@@ -868,8 +868,7 @@ footer태그는 '웹페이지의 하단에 위치하는 정보' 라는 의미만
 검색엔진을 최적화 하기 위해서는 무엇을 해야 할까?
 
 결론적으로 html코드를 의미론적으로 타당한 태그로 잘 설명하는 것이 검색엔진 최적화의 기본이다 (적정한 수준의 검색엔진 최적화의 균형을 잡는게 중요하다)
-
-### [구글의 검색엔진 최적화 가이드](http://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf)  
+ 
 ### <a href = "http://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf" target = "_blank" title = "">구글의 검색엔진 최적화 가이드</a>
 
 #### 명확하고 독창적인 타이틀의 사용  
