@@ -9,7 +9,7 @@ Language = 컴퓨터 프로그래밍 언어
 * '팀 버너스 리'라는 사람이 '유럽 입자 물리연구소'에서 비공식적으로 웹을 만드는 작업을 하면서 선행기술인 **SGMLguid** 을 익숙하게 사용하고 있었다
 * 1990년도에 **'팀 버너스 리'**가**SGMLguid** 에서 **\<a>** 태그를 추가하여 **HTML** 을만들었다
 
-[위키백과<HTML역사>](https://ko.wikipedia.org/wiki/HTML#%EC%97%AD%EC%82%AC)
+<a href = "https://ko.wikipedia.org/wiki/HTML#%EC%97%AD%EC%82%AC" target = "_blank" title = "참고자료">위키백과<HTML역사></a>
 
 
 <br>
@@ -35,7 +35,7 @@ HTML이 세월의 흐름에 따라 태그가 추가, 삭제, 의미가 바뀌기
 ## \<head>
 **웹 페이지 정보, 외부 파일을 링크할 때 사용**  
 링크 = 컴퓨터상에서 어떤 대상의 연결이나 그와 연관한 복사본을 가리킨다  
-[위키백과<링크>](https://ko.wikipedia.org/wiki/%EB%A7%81%ED%81%AC)
+<a href = "https://ko.wikipedia.org/wiki/%EB%A7%81%ED%81%AC" target = "_blank" title = "참고자료">위키백과<링크></a>  
 
 <br>
 
@@ -669,7 +669,7 @@ label로 checkbox를 묶어줘서 label을 눌러도 체크가 됨
 get 방식 = url을 통해서 데이터를 전송하는 방식  
 post 방식 = url이 아닌 방식으로 데이터를 숨겨서 전송하는 방식  
 
-[get방식과 post방식의 차이](https://mommoo.tistory.com/60)
+<a href = "https://mommoo.tistory.com/60" target = "_blank" title = "참고자료">get방식과 post방식의 차이</a>  
 
 ```html
 <form action = "전송할 주소" method = "post">
@@ -769,8 +769,8 @@ charset = "ut-8" 은 웹프라우저가 작성한 내용을 읽고 화면에 표
 이 정보들을 컴퓨터에 저장하는 것을 **인코딩(Encoding)** 이라고 한다  
 이 저장되어있는 정보들을 꺼내서 화면에 표시하는 과정을 **디코딩(Decoding)** 이라고 한다
 
-[meta태그](https://webclub.tistory.com/354)
-
+<a href = "https://webclub.tistory.com/354" target = "_blank" title = "참고자료">meta태그</a>
+  
 <br>
 
 ```html
@@ -852,7 +852,7 @@ article태그는 본문이라는 것을 의미론적으로 표현할 수 있다
 
 footer태그는 '웹페이지의 하단에 위치하는 정보' 라는 의미만 가지고 있는 태그이다
 
-[생활코딩<의미론적태그>](https://opentutorials.org/module/1892/10954)
+<a href = "https://opentutorials.org/module/1892/10954" target = "_blank" title = "참고자료">생활코딩<의미론적태그></a>
 
 <br>
 
@@ -869,7 +869,8 @@ footer태그는 '웹페이지의 하단에 위치하는 정보' 라는 의미만
 
 결론적으로 html코드를 의미론적으로 타당한 태그로 잘 설명하는 것이 검색엔진 최적화의 기본이다 (적정한 수준의 검색엔진 최적화의 균형을 잡는게 중요하다)
 
-### [구글의 검색엔진 최적화 가이드](http://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf)
+### [구글의 검색엔진 최적화 가이드](http://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf)  
+### <a href = "http://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf" target = "_blank" title = "">구글의 검색엔진 최적화 가이드</a>
 
 #### 명확하고 독창적인 타이틀의 사용  
 자신의 컨탠츠를 잘 대표하는 title태그를 작성하는 것은 중요하다  
@@ -1137,7 +1138,7 @@ url이 아닐 때 제출을 거부
 
 <br>
 
-[생활코딩<HTML5의 입력양식>](https://opentutorials.org/module/1892/11038)
+<a href = "https://opentutorials.org/module/1892/11038" target = "_blank" title = "참고자료">생활코딩<HTML5의 입력양식></a>
 
 <br>
 
@@ -1192,8 +1193,8 @@ pattern이라는 속성의 속성 값으로 **정규표현식**이라는 것이 
 정규표현식은 html과 다른 목적, 문법을 가지고 있다  
 정규표현식이 하는 역할은 어떠한 문자에서 패턴을 찾아내서 그 패턴이 문자에 있는지 확인하는 역할을 한다
 
-[생활코딩<입력 값 체크>](https://opentutorials.org/module/1892/11090)  
-[생활코딩<정규표현식>](https://opentutorials.org/course/909/5143)
+<a href = "https://opentutorials.org/module/1892/11090" target = "_blank" title = "참고자료">생활코딩<입력 값 체크></a>
+<a href = "https://opentutorials.org/course/909/5143" target = "_blank" title = "참고자료">생활코딩<정규표현식></a>
 
 **[a-zA-Z]** = 첫번째 문자는 알파벳이여야 한다  
 => 정규표현식에서 **[] 는 문자 한 개를 의미한다**  
