@@ -117,6 +117,10 @@ html파일
 ![css cheat sheet](https://mblogthumb-phinf.pstatic.net/MjAyMDA1MTVfMTI0/MDAxNTg5NTI0NzE0OTgz.R5TZVafo9iyY9LYq-qv5_SLjjYuCbyCOHoKfpQ-KhAUg.Zs21xDfHjoBaGUrawm5oA9b3nWdZb6hxECstcTLYdpYg.JPEG.dongbak90/css_cheat_sheet.JPG?type=w800)
 ![css chaat sheet](https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20100225_21%2Fluckychhan_1267079027904SnWAa_png%2Fcss-cheat-sheet-v2_luckychhan.png&type=sc960_832)
     
+<img alt = "CSS Cheat Sheet" src = "https://mblogthumb-phinf.pstatic.net/MjAyMDA1MTVfMTI0/MDAxNTg5NTI0NzE0OTgz.R5TZVafo9iyY9LYq-qv5_SLjjYuCbyCOHoKfpQ-KhAUg.Zs21xDfHjoBaGUrawm5oA9b3nWdZb6hxECstcTLYdpYg.JPEG.dongbak90/css_cheat_sheet.JPG?type=w800" length = "200" title = "참고자료">  
+    
+<img alt = "CSS Cheat Sheet" src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20100225_21%2Fluckychhan_1267079027904SnWAa_png%2Fcss-cheat-sheet-v2_luckychhan.png&type=sc960_832" length = "200" title = "참고자료">
+    
 <br>
 
 ### <a href = "https://www.nextree.co.kr/p8468/" target = "_blank" title = "참고자료">선택자의 종류</a>
