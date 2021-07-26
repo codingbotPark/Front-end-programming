@@ -659,9 +659,7 @@ font태그로 감싸주면 문자를 꾸며줄 수 있다
 
 <br>
 
-<font size = "1" color = "red">Hello</font> World  
-<font size = "2" color = "green">Hello</font> World  
-<font size = "5" color = "blue">Hello</font> World  
+<!--예시-->
 
 이 font태그는 아무런 의미를 가지고 있지 않다는 문제점이 있다
 이러한 문제점은 코드의 해석능력을 떨어뜨리고 HTML용량의 크기를 키웠다
