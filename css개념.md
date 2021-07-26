@@ -58,7 +58,7 @@ li {
 ## HTML과 CSS가 만나는 법
 CSS를 실행하는 방법에는 세가지가 있다
 
-<a href = "https://www.codingfactory.net/10529" target = "_blank" title = "참고자료">css를 html에 적용시키는 방법</a>
+<a href = "https://www.codingfactory.net/10529" target = "blank" title = "참고자료">css를 html에 적용시키는 방법</a>
 
 ### 1. 인 라인(Inline)
 **HTML태그의 style속성에 CSS코드를 넣는 방법**
