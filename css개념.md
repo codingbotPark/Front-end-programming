@@ -58,7 +58,7 @@ li {
 ## HTML과 CSS가 만나는 법
 CSS를 실행하는 방법에는 세가지가 있다
 
-<a href = "https://www.codingfactory.net/10529" target = "blank" title = "참고자료">css를 html에 적용시키는 방법</a>
+<a href = "https://www.codingfactory.net/10529" target = "_blank" title = "참고자료">css를 html에 적용시키는 방법</a>
 
 ### 1. 인 라인(Inline)
 **HTML태그의 style속성에 CSS코드를 넣는 방법**
@@ -253,10 +253,10 @@ class라는 것은 어떠한 대상을 관리하기 쉽도록 그룹핑 하는 �
 ```
 선택자 두 개가 동급이면 CSS는 뒤쪽에 있는 선언을 선택한다
 
-**`:active` = 마우스를 클릭했을 때**
-**`:hover` = 마우스를 올려놓았을 때**
-**`:visited` = 방문한 적이 있을 때**
-**`:focus` = 포커스가 되었을 때**
+**`:active` = 마우스를 클릭했을 때**  
+**`:hover` = 마우스를 올려놓았을 때**  
+**`:visited` = 방문한 적이 있을 때**  
+**`:focus` = 포커스가 되었을 때**  
 
 <br>
 
@@ -287,10 +287,200 @@ em, rem = 상대적
 ## color
 컬러를 지정하는 방식에는 크게 세 가지가 있다
 
-<a href = "https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wooin21s&logNo=221318040166" target = "_blank" title = "참고자료">CSS color</a>]
+* color name
+* RGB
+* HSL
+
+<a href = "https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wooin21s&logNo=221318040166" target = "_blank" title = "참고자료">CSS color</a>
+
+<br>
 
 ### 1. color name
+**색상의 이름을 정해주는 방법**
 
-### 2. hex
+```html
+<style>
+#color-colorname{
+    color:powderblue;
+}
+</style>
 
-### 3. rgb
+<p id = "color-colorname">Color Name</p>
+```
+<style>
+#color-colorname{
+    color:powderblue;
+}
+</style>
+
+<p id = "color-colorname">Color Name</p>
+
+색상에 이름을 짓는 것에는 한정이 있다  <a href = "https://www.w3schools.com/colors/colors_names.asp" target = "_blank" title = "참고자료">(CSS Color Name)</a>
+
+<br>
+
+### 2. RGB (Red, Green, Blue)
+<a href = "https://www.google.com/search?q=%EB%B9%9B%EC%9D%98+%EC%82%BC%EC%9B%90%EC%83%89&oq=%EB%B9%9B%EC%9D%98+%EC%82%BC%EC%9B%90%EC%83%89&aqs=chrome..69i57j35i39i362l7j0l2...7.1696j0j15&sourceid=chrome&ie=UTF-8" target = "_blank" title = "단어">빛의 삼원색</a> 을 조합하여 색을 나타내는 방법 <a href = "https://www.w3schools.com/colors/colors_rgb.asp" target = "_blank" title = "참고자료">(CSS RGB Test)</a>
+
+```html
+<style>
+#color-RGB{
+    color:rgb(20,195,80);
+}
+</style>
+
+<p id = "color-RGB">RGB</p>
+```
+<style>
+#color-RGB{
+    color:rgb(20,195,80);
+}
+</style>
+
+<p id = "color-RGB">RGB</p>
+
+
+#### + HEX (HEXadecimal) 
+RGB값을 16지수로 표시해 사용하는 방법 <a href = "https://www.w3schools.com/colors/colors_hexadecimal.asp" target = "_blank" title = "참고자료">(CSS HEX Test)</a>
+
+```html
+<style>
+#color-HEX{
+    color:#d2c310;
+}
+</style>
+
+<p id = "color-HEX">HEX</p>
+```
+<style>
+#color-HEX{
+    color:#d2c310;
+}
+</style>
+
+<p id = "color-HEX">HEX</p>
+
+<br>
+
+### 3. HSL (Hue Saturation Lightness)
+CSS3에서 새롭게 표준으로 소개된 색 표현 방법  <a href = "https://www.w3schools.com/colors/colors_hsl.asp" target = "_blank" title = "참고자료">(CSS HSL Test)</a>
+
+* Hue (색조) (색상환 0~36)
+* Saturation (포화도) (회색이 들어간 정도 0~100%)
+* Lightness (빛) (흰색이 들어간 정도 0~100%)
+
+```html
+<style>
+#color-HSL{
+    color:hsl(235, 100%, 35%);
+}
+</style>
+
+<p id = "color-HSL">HSL</p>
+```
+<style>
+#color-HSL{
+    color:hsl(235, 100%, 35%);
+}
+</style>
+
+<p id = "color-HSL">HSL</p>
+
+<br>
+
+## Text-Align
+<a href = "https://ofcourse.kr/css-course/text-align-%EC%86%8D%EC%84%B1" target = "_blank" title = "참고자료">CSS Test-Align</a>
+
+```html
+<style>
+#Text-Align-right
+{ text-align:right; }
+#Text-Align-left
+{ text-align:left; }
+#Text-Align-center
+{ text-align:center; }
+</style>
+
+<p id = "Text-Align-right">I am on the right side</p>
+<p id = "Text-Align-left">I am on the left side</p>
+<p id = "Text-Align-center">I am on the center</p>
+```
+<style>
+#Text-Align-right
+{ text-align:right; }
+#Text-Align-left
+{ text-align:left; }
+#Text-Align-center
+{ text-align:center; }
+</style>
+
+<p id = "Text-Align-right">I am on the right side</p>
+<p id = "Text-Align-left">I am on the left side</p>
+<p id = "Text-Align-center">I am on the center</p>
+
+<br>
+
+## font
+폰트를 정의하는 속성이다  
+
+<a href = "https://ofcourse.kr/css-course/font-%EC%86%8D%EC%84%B1" target = "_blank" title = "참고자료">CSS font</a>
+
+* **font-style** = 글꼴의 스타일 
+* **font-weight** = 글자 두께
+* **font-variant** = 글꼴 변형
+* **font-size** = 글자 크기
+* **line-height** = 줄 간격
+* **font-family** = 글꼴
+<!--표 + 각각의 항목마다 값
+
+순서 = 
+style
+variant
+weight
+size
+height
+family
+
+family에 글꼴사항
+-->
+
+이 6개의 글골 관련속성을 font라는 하나의 속성에 한번에 사용 할 수 있다
+
+```html
+<style>
+#font {
+    font-style:italic
+    font-weight:600;
+    font-size:36px;
+    line-height:3;
+    font-family: "돋움", serif: 
+}
+</style>
+
+<p id = "font">
+스타일 = 이탈릭체
+글자 두께 = 36px
+36px
+줄 간격 = 3
+글꼴 = serif
+</p>
+```
+<style>
+#font {
+    font-style:italic
+    font-weight:600;
+    font-size:36px;
+    line-height:3;
+    font-family: "돋움", serif: 
+}
+</style>
+
+<p id = "font">
+스타일 = 이탈릭체
+글자 두께 = 36px 
+줄 간격 = 3
+글꼴 = serif
+</p>
+
+<!-- 글꼴-->
+
