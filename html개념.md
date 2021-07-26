@@ -15,7 +15,7 @@ Language = 컴퓨터 프로그래밍 언어
 <br>
 
 # 문법
-![html 요소](https://www.google.com/url?sa=i&url=http%3A%2F%2Ftcpschool.com%2Fhtml%2Fhtml_intro_elementStructure&psig=AOvVaw2tlmlt4oXiWKg7DCfZfKEF&ust=1627381375077000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPinpZvCgPICFQAAAAAdAAAAABAD)  
+![html 요소](http://tcpschool.com/lectures/img_html_tag_structure.png)  
   
 태그 = Tag = HTML에서 가장 중요한 문법, 프로그래밍 언어를 규정하는 가장 중요한 특징, HTML에서 MarkUp과 밀접한 관계  
 
