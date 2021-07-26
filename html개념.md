@@ -371,11 +371,8 @@ name을 정해줘서 전송되는 정보의 이름을 정해준다
 <p><input type = "submit" name = "address"></p>
 </form>
 ```
-<form action = "전송할 주소">
-<p>아이디 = <input type = "text" name = "id"></p>
-<p>비밀번호 = <input type = "password" name = "pwd"></p>
-<p><input type = "submit" name = "address"></p>
-</form>
+  
+<!--예시-->
 
 <br>
 
@@ -389,11 +386,7 @@ name을 정해줘서 전송되는 정보의 이름을 정해준다
 <p><input type = "submit" name = "address"></p>
 </form>
 ```
-<form action = "전송할 주소">
-<p>아이디 = <input type = "text" name = "id" value = "id"></p>
-<p>비밀번호 = <input type = "password" name = "pwd" value = "password"></p>
-<p><input type = "submit" name = "address"></p>
-</form>
+<!--예시-->
 
 <br>
 
@@ -412,12 +405,7 @@ cols는 가로, rows는 세로 의 길이를 변경할 수 있다
 
 <br>
 
-<form action = "전송할 주소">
-<p>아이디 = <input type = "text" name = "id" value = "id"></p>
-<p>비밀번호 = <input type = "password" name = "pwd" value = "password"></p>
-<p>메모 = <textarea cols = "50" rows = "10">기본값</textarea></p>
-<p><input type = "submit" name = "address"></p>
-</form>
+<!--예시-->
 
 <br>
 
@@ -438,14 +426,7 @@ value로 선택은 초록색, 파란색, 빨간색 을 하겠지만 선택후 �
 
 <br>
 
-<form action = "전송할 주소">
-<select name = "color">
-    <option value = "green">초록색</option>
-    <option value = "blue">파란색</option>
-    <option value = "red">빨간색</option>
-</select>
-<input type = "submit">
-</form>
+<!--예시-->
 
 <br>
 
@@ -465,14 +446,7 @@ multiple 을 추가하여 ctrl을 누르면 다중선택이 가능한 콤보박�
 
 <br>
 
-<form action = "전송할 주소">
-<select name = "color" multiple>
-    <option value = "green">초록색</option>
-    <option value = "blue">파란색</option>
-    <option value = "red">빨간색</option>
-</select>
-<input type = "submit">
-</form>
+<!--예시-->
 
 <br>
 
@@ -487,9 +461,8 @@ multiple 을 추가하여 ctrl을 누르면 다중선택이 가능한 콤보박�
 <input type = "radio">
 <input type = "radio">
 ```
-<input type = "radio">
-<input type = "radio">
-
+<!--예시-->
+  
 <br>
 
 ```html
@@ -500,8 +473,7 @@ multiple 을 추가하여 ctrl을 누르면 다중선택이 가능한 콤보박�
 
 <br>
 
-<input type = "radio" name = "color">
-<input type = "radio" name = "color">
+<!--예시-->
 
 <br>
 
@@ -519,14 +491,7 @@ name값이 같은 것 끼리 그루핑이 되고 같은 그룹에 속하는 것 
 
 <br>
 
-<p>
-<input type = "radio" name = "color1">
-<input type = "radio" name = "color1">
-</p>
-<p>
-<input type = "radio" name = "color2">
-<input type = "radio" name = "color2">
-</p>
+<!--예시-->
 
 <br>
 
@@ -549,15 +514,9 @@ radio와 달리 checkbox는 이름이 같은 것 끼리 다중선택이 가능�
 
 <br>
 
-초록색 = <input type = "radio" name = "color" value = "green">
-파란색 = <input type = "radio" name = "color" value = "blue">
-빨간색 = <input type = "radio" name = "color" value = "red">
-</p>
-<p>
-초록색 = <input type = "checkbox" name = "color" value = "green">
-파란색 = <input type = "checkbox" name = "color" value = "blue">
-빨간색 = <input type = "checkbox" name = "color" value = "red">
-</p>
+<!--예시-->
+  
+<br>
 
 ### +checked
 사용자가 웹 페이지를 열었을 때 기본적으로 항목이 선택되어있게 할 수 있다
@@ -576,18 +535,7 @@ radio와 달리 checkbox는 이름이 같은 것 끼리 다중선택이 가능�
 <input type = "submit">
 </form>
 ```
-<form action = "전송할 주소">
-초록색 = <input type = "radio" name = "color" value = "green1" checked>
-파란색 = <input type = "radio" name = "color" value = "blue1">
-빨간색 = <input type = "radio" name = "color" value = "red1">
-</p>
-<p>
-초록색 = <input type = "checkbox" name = "color" value = "green2" checked>
-파란색 = <input type = "checkbox" name = "color" value = "blue2">
-빨간색 = <input type = "checkbox" name = "color" value = "red2">
-</p>
-<input type = "submit">
-</form>
+<!--예시-->
 
 <br>
 
@@ -605,11 +553,7 @@ radio와 달리 checkbox는 이름이 같은 것 끼리 다중선택이 가능�
 
 <br>
 
-<form action = "전송할 주소">
-    <input type = "text" name = "id"> 
-    <input type = "hidden" name = "hide" value = "H">
-    <input type = "submit">
-</form>
+<!--예시-->
 
 <br>
 
@@ -643,25 +587,7 @@ label로 checkbox를 묶어줘서 label을 눌러도 체크가 됨
 
 <br>
 
-<form action = "전송할 주소">
-    <p>
-        <label for = "id">아이디 =</label>
-        <input id = "id" type = "text" name = "id" value = "id">
-    </p>
-    <p>
-        <label for = "pw">비밀번호 =</label>
-        <input id = "pw" type = "password" name = "pwd" value = "password">
-    </p>
-    <p>
-        <label for = "mm">메모 =</label> 
-        <textarea if = "mm" cols = "30" rows = "2">기본값</textarea>
-    </p>
-    <p>
-        <label>
-        <input type = "checkbox" name = "agree" value = "yes">동의
-        </label>
-    </p>
-</form>
+<!--예시-->
 
 <br>
 
@@ -685,11 +611,7 @@ method를 정해주지 않으면 기본적으로 get방식으로 된다
 
 <br>
 
-<form action = "전송할 주소" method = "post">
-<input type = "text" name = "id">
-<input type = "password" name = "pwd">
-<input type = "submit">
-</form>
+<!--예시-->
 
 <br>
 
@@ -706,10 +628,7 @@ file의 타입으로 파일을 선택하는 ui를 만들 수 있다
 
 <br>
 
-<form action = "전송할 주소" method = "post" enctype = "multipart/form-data">
-    <input type = "file" name = "profile">
-    <input type = "submit">
-</form>
+<!--예시-->
 
 <br>
 
