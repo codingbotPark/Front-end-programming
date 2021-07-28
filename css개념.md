@@ -448,39 +448,278 @@ family에 글꼴사항
 
 ```html
 <style>
-#font {
-    font-style:italic
+.font {
+    font-style:italic;
     font-weight:600;
     font-size:36px;
-    line-height:3;
-    font-family: "돋움", serif: 
+    line-height:2;
+    font-family: "돋움", "궁서", serif;
 }
 </style>
 
-<p id = "font">
-스타일 = 이탈릭체
-글자 두께 = 36px
-36px
-줄 간격 = 3
-글꼴 = serif
-</p>
+<p class = "font">스타일 = 이탈릭체글자</p>
+<p class = "font">두께 = 36px </p>
+<p class = "font">줄 간격 = 2</p>
+<p class = "font">글꼴 = 돋움, 궁서, serif</p>
+```
+family에서 여러개의 글꼴을 넣어서줌으로써 글꼴이 없다면 뒤에있는 글꼴이 적용된다
+
+<style>
+.font {
+    font-style:italic;
+    font-weight:600;
+    font-size:36px;
+    line-height:2;
+    font-family: "돋움", "궁서", serif;
+}
+</style>
+
+<p class = "font">스타일 = 이탈릭체글자</p>
+<p class = "font">두께 = 36px </p>
+<p class = "font">줄 간격 = 2</p>
+<p class = "font">글꼴 = 돋움, 궁서, serif</p>
+
+<br>
+
+## Web Font
+사용자가 폰트를 가지고 있지 않는 경우 **서버에서 그 폰트를 사용자의 웹브라우저가 다운로드해서 폰트를 사용할 수 있도록 하는 방법**  
+
+<br>
+
+#### 웹폰트의 단점  
+<a href = "https://isme2n.github.io/devlog/2017/07/26/problem-of-webfont/" target ="_blank" title = "참고자료">Web Font의 장단점</a>
+
+* **용량**  
+한글 웹폰트는 영문 웹폰트에비해 용량이 크다 이는 초기 로딩시간을 늘린다
+
+* 확장성  
+용량문제로 한글 웹폰트는 대부분 경량화를 거친다, 이 과정에서 자주쓰지 않는 글자들이 빠진다
+
+* FOIT (Flash Of Invisible Text)  
+글자가 보이지 않다가 보이는 현상, 웹폰트를 다운로드 하는 동안 글자가 보이지 않는다
+
+* FOUT (Flash Of Unstyled Text)  
+글꼴이 깜빡이면서 바뀌는 현상, 웹폰트를 다운로드가 완료되면 폰트가 바뀐다
+
+<a href = "https://fonts.google.com/" target = "_blank" title = "참고자료">google font</a> 
+
+<!-- 구글폰트에서 웹폰트로 설정하는 과정 (css 19강)-->
+
+<br>
+
+## 상속
+HTML구성요소에 효과를 주게 되면 그 태그의 하위의 구성요소가 효과를 이어받게 되는 것
+
+내용을 전부 바꾸려면 각각의 구성요소들을 하나하나 바꾸어도 되지만 상위 구성요소를 바꾸어 줄 수 있다
+```html
+    <style>
+        #inherited{
+            color:skyblue;
+        }
+    </style>
+
+<ul id = "inherited">
+    <li>html</li>
+    <li>css</li>
+    <li>JS</li>
+</ul>
+```
+ul태그 안에 있는 내용들은 모두 효과를 이어받는다
+
+<style>
+#inherited{
+    color:skyblue;
+}
+</style>
+
+<ul id = "inherited">
+    <li>html</li>
+    <li>css</li>
+    <li>JS</li>
+</ul>
+
+**상속**이라는 개념을 활용해서 더 효율적일 수 있다
+ 
+### +<a href = "https://www.w3.org/TR/CSS21/propidx.html" target = "_blank" title = "참고자료">속성별 상속여부</a>
+상속이 적용되는 속성이 있고 안되는 속성이 있다
+
+```html
+<style>
+#inherited{
+    color:skyblue;
+    border:1px solid red;
+}
+</style>
+
+<ul id = "inherited">
+    <li>html</li>
+    <li>css</li>
+    <li>JS</li>
+</ul>
+```
+`border:1px solid red` = 1px두께의 빨간색 테두리
+<style>
+#inherited{
+    color:skyblue;
+    border:1px solid tomato;
+}
+</style>
+
+<ul id = "inherited">
+    <li>html</li>
+    <li>css</li>
+    <li>JS</li>
+</ul>
+
+
+상속이 이루어 진다면 li태그들도 영향을 받아야 하지만 받지 않는다
+
+<!-- border는 상속 x color은 상속 o 사진 -->
+
+<br>
+
+## Stylish
+지금까지 배웠던 것들을 바탕으로해서 '스타일리쉬'라고 하는 플러그인, 유저스타일이라고 하는 서비스를 활용
+
+<!--
+ 순서그림 
+생활코딩21강
+-->
+
+<br>
+
+## Cascading
+CSS(Cascading style Sheet)의 **Cascading**이라는 기능, 규칙은 CSS의 이름에서 알 수 있듯이 중요한 기능이다
+
+1990년에 html이 등장하고 디자인을 하는 언어들 중 CSS기술이 채택된 중요한 측면을 웹의 창시자들은 **Cascading**에 두고있다
+
+<a href = "https://victorydntmd.tistory.com/190" target = "_blank" title = "참고자료">CSS 캐스케이딩</a>
+
+캐스케이딩은 3가지에 의해 결정된다
+* 중요도 (css가 어디에서 선언되었는지)
+* 명시도 (대상을 구체적으로 지정할수록)
+* 코드 순서
+
+<br>
+
+### 중요도
+* 웹브라우저는 기본적으로 html을 해석하는 기계이고 기본적인 디자인이 되어있다 ex) h태그
+
+* 웹브라우저 사용자도 웹페이지의 디자인에 대한 결정권이 있다
+
+* 웹페이지를 만드는 저자도 웹페이지가 어떤 모습으로 보여야 할지에 대한 결정권이 있다
+
+**즉 이 3자가 서로 조화를 이뤄서 웹을 만들어간다 는 철학을 가지고 있었다**
+
+이 철학을 기반으로 웹의 창시자들이 CSS를 선택했다
+
+이 조화에는 **우선 순위**가 기반으로 있다  
+
+<a href = "https://opentutorials.org/course/1237/4149" target = "_blank" title = "참고자료">CSS 캐스케이딩 중요도</a>
+
+!important 선언을 한 사용자 스타일 > !important 선언을 한 저자 스타일  
+<span style = "color:gold">저자 스타일</span> > <span style = "color:gold">사용자 스타일</span> > <span style = "color:gold">User Agent선언 (브라우저 자체의 선언)</span>
+
+<br>
+
+## 명시도
+```html
+<style>
+li{ color:yellowgreen; }
+#idsel { color:blue; }
+.classsel { color:yellow }
+</style>
+        
+<ul>
+<li>html</li>
+<li id = "idsel" class = "classsel" style ="color:orange">css</li>
+<li>JS</li>
+</ul>
+```
+태그, id, class, 인라인 기법으로 디자인을 지정
+
+<!-- 결과사진 -->
+
+하나의 요소에 여러 디자인이 적용되었을 때 웹브라우저가 표현하는 디자인은 우선순위에 의해 결정된다
+
+![CSS 케스케이딩 명시도](https://res.cloudinary.com/eightcruz/image/upload/v1522747066/y1voylqixc5kf07ipckr.png)
+
+**즉 구체적이고 일반적인 규칙일수록 우선순위가 높다**
+
+<br>
+
+## 코드 순서
+같은 선택자끼리라면 늦게 선언된 스타일이 우선 적용된다  
+<a href = "https://victorydntmd.tistory.com/190" target = "_blank" title = "참고자료">CSS 캐스케이딩 코드 순서</a>
+
+```html
+<style>
+#CSSCascading{
+    color:slategray;
+}
+
+#CSSCascading{
+    color:yellowgreen;
+}
+</style>
+
+<p id = "CSSCascading"></p>
 ```
 <style>
-#font {
-    font-style:italic
-    font-weight:600;
-    font-size:36px;
-    line-height:3;
-    font-family: "돋움", serif: 
+#CSSCascading{
+    color:slategray;
+}
+
+#CSSCascading{
+    color:yellowgreen;
 }
 </style>
 
-<p id = "font">
-스타일 = 이탈릭체
-글자 두께 = 36px 
-줄 간격 = 3
-글꼴 = serif
-</p>
+<p id = "CSSCascading">I am yellowgreen</p>
 
-<!-- 글꼴-->
+<br>
 
+### +Specificity Calculator
+CSS는 어떤 스타일이 적용이 될지 일종의 점수를 매기는 것  
+**선택자가 같다면 구체적일수록 우선순위가 높다**
+
+<a href = "https://victorydntmd.tistory.com/190" target = "_blank" title = "참고자료">CSS 캐스케이딩 Specificity Calculator</a>
+
+```html
+<style>
+#yellow #yellowgreen{
+    color:yellowgreen;
+}
+
+#yellow{
+    color:yellow;
+}
+</style>
+
+<div id = "yellow">
+<p id = "yellowgreen">What is my color?</p>
+</div>
+```
+<style>
+#yellow #yellowgreen{
+    color:yellowgreen;
+}
+
+#yellow{
+    color:yellow;
+}
+</style>
+
+<div id = "yellow">
+<p id = "yellowgreen">What is my color?</p>
+</div>
+
+코드 순서에 따르면 늦게 선언된 스타일에 따르지만 **Specificity Calculator** 에 의해 구체적인 선택자에 따른다
+
+<br>
+
+## inline VS block level
+html의 여러 태그들은 태그의 성격에 따라 화면 전체를 쓰는 태그와 자기자신의 크기만큼을 사용하는 태그로 나누어진다
+
+하나는 inlin
+하나는 block level
