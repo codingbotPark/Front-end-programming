@@ -718,8 +718,99 @@ CSS는 어떤 스타일이 적용이 될지 일종의 점수를 매기는 것
 
 <br>
 
-## inline VS block level
+## inline, block
 html의 여러 태그들은 태그의 성격에 따라 화면 전체를 쓰는 태그와 자기자신의 크기만큼을 사용하는 태그로 나누어진다
 
-하나는 inlin
-하나는 block level
+<a href = "https://www.daleseo.com/css-display-inline-block/" target = "_blank" title ="참고자료">inline, block, inline-block</a>  
+<a href = "http://www.homejjang.com/09/block_inline.php" target = "_blank" title = "참고자료">block과 inline 태그</a>
+
+### inline
+줄바꿈 없이 한 줄에 다른 요소(element)들과 나란히 배치된다
+width, height속성을 지정해도 무시된다
+
+```html
+<style>
+.inline{
+    border:1px solid yellowgreen
+}
+</style>
+
+<a href = "https://github.com/codingbotPark" class = "inline">inline</a>
+<a href = "https://www.instagram.com/0b0ut/" class = "inline">inline</a>
+```
+<style>
+.inline{
+    border:1px solid yellowgreen
+}
+</style>
+
+<a href = "https://github.com/codingbotPark" target = "blank" title = "깃허브" class = "inline">inline</a>
+<a href = "https://www.instagram.com/0b0ut/" target = "blank" title = "인스타그램" class = "inline">inline</a>
+
+테두리가 자기자신의 크기만큼 있는 것을 확인할 수 있다
+
+<br>
+
+### block
+줄바꿈이 들어가서 다른 요소(element)들을 밀어낸다
+
+```html
+<style>
+.block{
+    border:1px solid yellowgreen;
+}
+</style>
+
+<p class = "block">1block</p><p class = "block">2block</p>
+```
+<style>
+.block{
+    border:1px solid yellowgreen;
+}
+</style>
+
+<p class = "block">1block</p><p class = "block">2block</p>
+
+테두리가 화면 전체로 있는 것을 확인할 수 있다
+
+<br>
+
+### +inline, block변경
+inline, block으로 변경할 수 있다
+
+```html
+<style>
+.inlineblock{
+    border:1px solid yellowgreen;
+}
+#inline-block{
+    display:block;
+}
+#block-inline{
+    display:inline;
+}
+</style>
+
+<a href = "https://github.com/codingbotPark" class = "inlineblock" id ="inline-block">inline</a>
+<p class = "inlineblock" id = "block-inline">1block</p>
+```
+display를 설정해줘서 inline과 block을 바꾼다
+
+<style>
+.inlineblock{
+    border:1px solid yellowgreen;
+}
+#inline-block{
+    display:block;
+}
+#block-inline{
+    display:inline;
+}
+</style>
+
+<a href = "https://github.com/codingbotPark" class = "inlineblock" id ="inline-block">inline</a>
+<p class = "inlineblock" id = "block-inline">1block</p>
+
+`inline`과 `block`의 형태가 바뀐 것을 볼 수 있다
+
+<br>
