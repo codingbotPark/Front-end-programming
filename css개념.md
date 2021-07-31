@@ -260,8 +260,11 @@ class라는 것은 어떠한 대상을 관리하기 쉽도록 그룹핑 하는 �
 
 <br>
 
-# 속성
-> 속성들의 사용도에 따른 순서
+
+
+
+
+
 
 ## font-size
 단위 (px, em, rem, ...)  
@@ -814,3 +817,48 @@ display를 설정해줘서 inline과 block을 바꾼다
 `inline`과 `block`의 형태가 바뀐 것을 볼 수 있다
 
 <br>
+
+## Box model
+각각의 태그들이 웹페이지에 표현될 때 태그의 부피감을 결정한다
+
+<a href = "http://tcpschool.com/css/css_boxmodel_boxmodel" target = "_blank" title = "참고자료">Box model</a>
+
+```html
+<style>
+.BoxModel{
+    border:10px solid red;
+    padding:60px;
+    margin:30px;
+    width:120px;
+}
+</style>
+
+<p class = "BoxModel">border = 테두리</p>
+<p class = "BoxModel">padding = 내용과 테두리의 간격</p>
+
+<a href = "http://tcpschool.com/css/css_boxmodel_boxmodel">참고자료</a>입니다
+```
+`border` = 내용을 감싸는 테두리  
+`padding` = 내용과 테두리의 간격   
+`margin` = 테두리와 이웃하는 요소 사이의 간격   
+
+<img alt = "박스모델" src = "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2306503858ED857C2D" height = "200
+" width = "400">
+
+<style>
+.BoxModel{
+    border:7px solid red;
+    padding:20px;
+    margin:40px;
+    width:120px;
+}
+</style>
+
+<p class = "BoxModel">border = 테두리</p>
+<p class = "BoxModel">padding = 내용과 테두리의 간격</p>
+
+<a href = "http://tcpschool.com/css/css_boxmodel_boxmodel" class = "BoxModel">참고자료</a>입니다
+
+<br>
+텍스트와 떨어진 간격을 보면 a태그도 `margin`이 적용되는 것을 확인할 수 있다  
+inline방식인 a태그가 width와 height와 같은 값들이 무시되는 것을 확인할 수 있다
