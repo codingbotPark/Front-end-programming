@@ -1132,3 +1132,17 @@ margin-top:100px;
 
 ## 포지션
 요소(element)들이 화면상의 어디에 위치할 것인가 를 결정
+    
+    
+<html>
+<head>
+    <style>
+        #test{
+            color:yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <p id = "test">test</p>
+</body>
+</html>
