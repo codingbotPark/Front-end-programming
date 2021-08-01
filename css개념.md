@@ -860,5 +860,275 @@ display를 설정해줘서 inline과 block을 바꾼다
 <a href = "http://tcpschool.com/css/css_boxmodel_boxmodel" class = "BoxModel">참고자료</a>입니다
 
 <br>
+
 텍스트와 떨어진 간격을 보면 a태그도 `margin`이 적용되는 것을 확인할 수 있다  
 inline방식인 a태그가 width와 height와 같은 값들이 무시되는 것을 확인할 수 있다
+
+<br>
+
+## box-sizing
+만약 박스 크기를 지정할 때, 그 요소(element)가 만약 `padding`이나 `border`와 같은 값들을 가지고 있을 때 사이즈는 예상한 것과 다른 경우가 나온다
+  
+이러한 요소(element)들의 크기를 예측하기 어려워지는 문제를 `box-sizing`으로 해결할 수 있다
+
+<a href = "https://ofcourse.kr/css-course/box-sizing-%EC%86%8D%EC%84%B1" target = "_blank" title = "참고자료">box-sizing</a>
+
+```html
+<style>
+.box-sizing{
+    margin:10px;
+    width:150px;
+}
+#box-sizing-small{
+    border:5px solid red;
+}
+#box-sizing-large{
+    border:20px solid red;
+}
+</style>
+
+<p class = "box-sizing" id = "box-sizing-small">box-sizing</p>
+<p class = "box-sizing" id = "box-sizing-large">box-sizing</p>
+```
+<style>
+.box-sizing{
+    margin:10px;
+    width:150px;
+}
+#box-sizing-small{
+    border:5px solid red;
+}
+#box-sizing-large{
+    border:20px solid red;
+}
+</style>
+
+<p class = "box-sizing" id = "box-sizing-small">box-sizing</p>
+<p class = "box-sizing" id = "box-sizing-large">box-sizing</p>
+
+기본적으로 content의 넓이와 높이가 설정된다
+
+```html
+<style>
+.box-sizing-B{
+    box-sizing:border-box;
+    margin:10px;
+    width:150px;
+}
+#box-sizing-small{
+    border:5px solid red;
+}
+#box-sizing-large{
+    border:20px solid red;
+}
+</style>
+
+<p class = "box-sizing-B" id = "box-sizing-small">box-sizing</p>
+<p class = "box-sizing-B" id = "box-sizing-large">box-sizing</p>
+```
+<style>
+.box-sizing-B{
+    margin:10px;
+    width:150px;
+    box-sizing:border-box;
+}
+#box-sizing-small{
+    border:5px solid red;
+}
+#box-sizing-large{
+    border:20px solid red;
+}
+</style>
+
+<p class = "box-sizing-B" id = "box-sizing-small">box-sizing</p>
+<p class = "box-sizing-B" id = "box-sizing-large">box-sizing</p>
+
+`box-sizing:border-box;`로 border의 `width`가 150px로 나타나는 것을 확인할 수 있다
+
+<br>
+
+## 마진겹침
+테두리와 다른 요소(element)의 테두리와의 간격, `margin`이 어떤 경우에는 사라져버리는 현상을 마진겹침 현상이라 한다
+
+<a href = "https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4" target = "_blank" title = "참고자료">마진겹침</a>
+<!-- 닫기 -->
+
+#### 마진 상쇄 규칙 사용
+* 마진 상쇄는 인접한 두 박스가 온전한 `block-level`요소일 경우에만 적용된다
+* 마진 값이 0이더라도 상쇄 규칙은 적용된다
+* 좌우 마진은 겹치더라도 상쇄되지 않는다
+
+<br>
+
+## <a href = "https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4" target = "_blank" title = "참고자료">마진겹침현상 3가지</a>
+
+### 1. 인접 형제 박스 간 상하 마진이 겹칠 때
+* 겹처진 두 `margin` 중 더 큰 `margin`값이 `margin`값이 된다
+* 겹쳐진 두 값이 동일할 경우 중복을 상쇄한다
+
+<img alt = "인접 형제 박스 간 상하 마진이 겹칠 때 - 겹쳐진 두 값이 동일할 때" src = "https://media.vlpt.us/post-images/raram2/97e16a40-121f-11ea-aaba-65695302c179/01-margin-collapsing-sibling-case.png" height = "300">
+
+```html
+<style>
+.margin-collapsing1{
+    margin:20px;
+}
+</style>
+
+<ul>
+<li class = "margin-collapsing1">html</li>
+<li class = "margin-collapsing1">css</li>
+<li class = "margin-collapsing1">js</li>
+</ul>
+```
+<style>
+.margin-collapsing1{
+    margin:20px;
+}
+</style>
+
+<ul>
+<li class = "margin-collapsing1">html</li>
+<li class = "margin-collapsing1">css</li>
+<li class = "margin-collapsing1">js</li>
+</ul>
+
+리스트에서 위아래의 마진이 겹치는 것을 확인할 수 있다
+
+<br>
+
+### 2. 빈 요소의 상하 마진이 겹칠 때
+* border와 같이 상하로 늘어나는 프로퍼티 값을 명시적으로 주지 않음
+* 내부에 inline콘텐츠가 존재하지 않음  
+
+이와같이 높이(height)가 0인 상태의 블록 요소(element)를 **빈 요소**라 말한다
+
+* 위와 아래를 가르는 경계가 없어서 자신의 상단 마진의 값과 하단 마진의 값을 비교해 더 큰 값으로 상쇄한다
+* 겹쳐진 두 값이 동일할 경우 중복을 상쇄한다
+* 빈 요소와 인접 박스들의 마진 겹침이 일어나는 구조에서는 아래와 같이 여러번 상쇄한다
+
+<img alt = "빈 요소의 상하 마진이 겹칠 때 - 빈 요소와 인접 박스들의 마진 겹침" src = "https://media.vlpt.us/post-images/raram2/ffac75c0-121f-11ea-aaba-65695302c179/02-margin-collapsing-emptybox-case.png" height = "300">
+
+```html
+<style>
+#margin-collapsing2-1{
+    /* border:1px solid yellowgreen; */
+    margin-top:100px;
+}
+#margin-collapsing2-2{
+    background-color:yellowgreen;
+    margin-top:50px;
+}
+</style>
+
+<div id = "margin-collapsing2-1">
+    <div id = "margin-collapsing2-2">
+        테두리 X
+    </div>
+</div>
+```
+<style>
+#margin-collapsing2-1{
+    margin-top:100px;
+}
+#margin-collapsing2-2{
+    background-color:yellowgreen;
+    margin-top:50px;
+}
+</style>
+
+<div id = "margin-collapsing2-1">
+    <div id = "margin-collapsing2-2">
+        테두리 X
+    </div>
+</div>
+
+<style>
+#margin-collapsing2-3{
+    border:1px solid yellowgreen;
+    margin-top:100px;
+}
+#margin-collapsing2-4{
+    background-color:yellowgreen;
+    margin-top:50px;
+}
+</style>
+
+<div id = "margin-collapsing2-3">
+    <div id = "margin-collapsing2-4">
+        테두리 O
+    </div>
+</div>
+
+테두리가 없을 때 테두리만큼의 공간이 상쇄되는 것을 확인할 수 있다
+
+<br>
+
+### 3. 부모 박스와 첫 번째 자식 박스의 상단 마진이 겹칠 때
+콘텐츠 간의 간격을 벌리는 경계를 브라우저는 부모 박스와 첫 번째 자식 간의 경계를 그 사이에 있는 `border`, `padding`, `inline`콘텐츠 유무로 판단한다
+
+* 부모의 `margin`이 첫 번째 자식의 `margin` 보다 **클 때** 자식의 `margin` 을 상쇄한다
+* 부모의 `margin`이 첫 번째 자식의 `margin` 보다 **작을 때** 부모의 `margin` 을 상쇄한다
+* 부모의 `margin`과 첫 번째 자식의 `margin`과 **같을 때** 중복을 상쇄한다
+
+<img alt = "부모 박스와 첫 번째 자식 박스의 상단 마진이 겹칠 때 - 부모와 자식의 마진값이 같을 때" src = "https://media.vlpt.us/post-images/raram2/42b57370-1221-11ea-aaba-65695302c179/05-margin-collapsing-firstchild-case3.png" height = "300">
+
+```html
+<style>
+#margin-collapsing3-1{
+margin-top:50px;
+margin-bottom:100px;
+border:1px solid yellowgreen;
+}
+#margin-collapsing3-2{
+background-color:yellowgreen;
+margin-top:100px;
+}
+</style>
+
+<div id = "margin-collapsing3-1"></div>
+<div id = "margin-collapsing3-2">텍스트</div>
+```
+<style>
+#margin-collapsing3-1{
+margin-top:50px;
+margin-bottom:100px;
+border:1px solid yellowgreen;
+}
+#margin-collapsing3-2{
+background-color:yellowgreen;
+margin-top:100px;
+}
+</style>
+
+<div id = "margin-collapsing3-1"></div>
+<div id = "margin-collapsing3-2">테두리 O</div>
+
+<style>
+#margin-collapsing3-3{
+margin-top:50px;
+margin-bottom:100px;
+}
+#margin-collapsing3-4{
+background-color:yellowgreen;
+margin-top:100px;
+}
+</style>
+
+<div id = "margin-collapsing3-3"></div>
+<div id = "margin-collapsing3-4">테두리 X</div>
+
+
+테두리가 없을 때 부모의 `margin`과 자식의 `margin`의 중복이 상쇄되는 것을 확인할 수 있다
+
+<br>
+
+#### +부모의 박스와 마지막 자식 박스의 하단 마진이 나란히 겹칠 때
+상단 마진끼리 겹칠 때와 같은 원리이다
+
+<img alt = "부모의 박스와 마지막 자식 박스의 하단 마진이 나란히 겹칠 때 - 부모의 마진이 더 클 때" src = "https://media.vlpt.us/post-images/raram2/59ea9cf0-1221-11ea-aaba-65695302c179/06-margin-collapsing-lastchild-case.png" height = "300">
+
+<br>
+
+## 포지션
+요소(element)들이 화면상의 어디에 위치할 것인가 를 결정
