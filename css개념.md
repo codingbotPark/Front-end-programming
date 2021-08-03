@@ -1027,6 +1027,23 @@ inline방식인 a태그가 width와 height와 같은 값들이 무시되는 것�
     </div>
 </div>
 ```
+
+<style>
+#margin-collapsing2-3{
+    border:1px solid yellowgreen;
+    margin-top:100px;
+}
+#margin-collapsing2-4{
+    background-color:yellowgreen;
+    margin-top:50px;
+}
+</style>        
+<div id = "margin-collapsing2-3">
+    <div id = "margin-collapsing2-4">
+        테두리 O
+    </div>
+</div>
+
 <style>
 #margin-collapsing2-1{
     margin-top:100px;
@@ -1043,22 +1060,6 @@ inline방식인 a태그가 width와 height와 같은 값들이 무시되는 것�
     </div>
 </div>
 
-<style>
-#margin-collapsing2-3{
-    border:1px solid yellowgreen;
-    margin-top:100px;
-}
-#margin-collapsing2-4{
-    background-color:yellowgreen;
-    margin-top:50px;
-}
-</style>
-
-<div id = "margin-collapsing2-3">
-    <div id = "margin-collapsing2-4">
-        테두리 O
-    </div>
-</div>
 
 테두리가 없을 때 테두리만큼의 공간이 상쇄되는 것을 확인할 수 있다
 
@@ -1075,19 +1076,19 @@ inline방식인 a태그가 width와 height와 같은 값들이 무시되는 것�
 
 ```html
 <style>
-#margin-collapsing3-1{
+#margin-collapsing3-3{
 margin-top:50px;
 margin-bottom:100px;
-border:1px solid yellowgreen;
+/* border:1px solid yellowgreen; */
 }
-#margin-collapsing3-2{
+#margin-collapsing3-4{
 background-color:yellowgreen;
 margin-top:100px;
 }
 </style>
 
-<div id = "margin-collapsing3-1"></div>
-<div id = "margin-collapsing3-2">텍스트</div>
+<div id = "margin-collapsing3-3"></div>
+<div id = "margin-collapsing3-4">테두리 X</div>
 ```
 <style>
 #margin-collapsing3-1{
@@ -1126,10 +1127,319 @@ margin-top:100px;
 #### +부모의 박스와 마지막 자식 박스의 하단 마진이 나란히 겹칠 때
 상단 마진끼리 겹칠 때와 같은 원리이다
 
-<img alt = "부모의 박스와 마지막 자식 박스의 하단 마진이 나란히 겹칠 때 - 부모의 마진이 더 클 때" src = "https://media.vlpt.us/post-images/raram2/59ea9cf0-1221-11ea-aaba-65695302c179/06-margin-collapsing-lastchild-case.png" height = "300">
+<img alt = "부모의 박스와 마지막 자식 박스의 하단 마진이 나란히 겹칠 때 - 부모의 마진이 더 클 때" src = "https://media.vlpt.us/post-images/raram2/59ea9cf0-1221-11ea-aaba-65695302c179/06-margin-collapsing-lastchild-case.png" height = "300">  
 
+<br>
 <br>
 
 ## 포지션
 요소(element)들이 화면상의 어디에 위치할 것인가 를 결정
-    
+
+<a href = "https://victorydntmd.tistory.com/185" target = "_blank" title = "참고자료">CSS 포지션</a>
+
+포지션 | 설명
+|:---:| --- |
+static | 기본
+relative | 상대적인 크기
+absolute |절대적인 크기
+fixed | 스크롤과 상관없이 화면에 고정
+
+<br>
+
+### static
+`left`, `top`, `right`와 같은 **offset**값을 무시하고 자기가 원래 위치해야 하는 위치에 정적으로 위치하게 한다  
+각각의 요소(element)들은 `position:static;`을 기본 값으로 가지고 있다
+
+```html
+<style>
+.position-1-1{
+    border:1px solid yellowgreen;
+    margin:10px;
+}
+/* #position-1-2{
+    left:100px;
+    top:100px;
+} */
+</style>
+
+<div class = "position-1-1">other</div>
+<div class = "position-1-1">
+    parent
+    <div class = "position-1-1" id = "position-1-2">me X</div>
+</div>
+```
+me의 `position`을 정해주지 않았다 = `position:static;`
+
+<style>
+.position-1-1{
+    border:1px solid yellowgreen;
+    margin:10px;
+}
+/* #position-1-2{
+    left:100px;
+    top:100px;
+} */
+</style>
+
+<div class = "position-1-1">other</div>
+<div class = "position-1-1">
+    parent
+    <div class = "position-1-1" id = "position-1-2">me X</div>
+</div>
+
+<br>
+
+<style>
+.position-1-1{
+    border:1px solid yellowgreen;
+    margin:10px;
+}
+#position-1-2{
+    left:100px;
+    top:100px;
+}
+</style>
+
+<div class = "position-1-1">other</div>
+<div class = "position-1-1">
+    parent
+    <div class = "position-1-1" id = "position-1-2">me O</div>
+</div>
+
+차이점이 없는 것을 확인할 수 있다
+
+<br>
+
+### relative
+자기가 원래 위치해야 하는 위치를 기준으로 상대적인 offset 거리만큼 이동한다
+
+```html
+<style>
+.position-2-1{
+    border:1px solid yellowgreen;
+    margin:10px;
+}
+#position-2-2{
+    /* position: relative; */
+    left:100px;
+    top:100px;
+}
+</style>
+
+<div class = "position-2-1">other</div>
+<div class = "position-2-1">
+    parent
+    <div class = "position-2-1" id = "position-2-2">me X</div>
+</div>
+```
+`me`에 `position:relative;` 를 지정했다
+
+<style>
+.position-2-1{
+    border:1px solid yellowgreen;
+    margin:10px;
+}
+#position-2-2{
+    /* position: relative; */
+    left:100px;
+    top:100px;
+}
+</style>
+
+<div class = "position-2-1">other</div>
+<div class = "position-2-1">
+    parent
+    <div class = "position-2-1" id = "position-2-2">me X</div>
+</div>
+
+<style>
+.position-2-3{
+    border:1px solid yellowgreen;
+    margin:10px;
+}
+#position-2-4{
+    position:relative;
+    left:100px;
+    top:100px;
+}
+</style>
+
+<div class = "position-2-3">other</div>
+<div class = "position-2-3">
+    parent
+    <div class = "position-2-3" id = "position-2-4">me O</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+`me`의 위치가 오른쪽으로 `100px` , 아래로 `100px` 바뀐 것을 확인할 수 있다
+
+<br>
+
+### absolute
+부모를 기준으로 상대적으로 위치를 지정할 수 있는 `relative` 와 달리 **`absolute` 는 html 요소(element)를 기준으로 절대적으로 위치를 지정할 수 있다**
+
+```html
+<style>
+#position-3-1, #position-3-2{
+    border:5px solid yellowgreen;
+}
+#position-3-3{
+    background-color:gray;
+    color:white;
+
+    /* position:absolute; */
+}
+</style>
+
+<div id = "position-3-1">other</div>
+<div id = "position-3-2">
+    parent
+    <div id = "position-3-3">me (absolute X)</div>
+</div>
+```
+`me`에 `position:absolute;`를 지정했다
+
+<style>
+#position-3-1, #position-3-2{
+    border:5px solid yellowgreen;
+}
+#position-3-3{
+    background-color:gray;
+    color:white;
+
+    /* position:absolute; */
+}
+</style>
+
+<div id = "position-3-1">other</div>
+<div id = "position-3-2">
+    parent
+    <div id = "position-3-3">me (absolute X)</div>
+</div>
+
+<br>
+
+<style>
+#position-3-4, #position-3-5{
+    border:5px solid yellowgreen;
+}
+#position-3-6{
+    background-color:gray;
+    color:white;
+
+    position:absolute;
+}
+</style>
+
+<div id = "position-3-4">other</div>
+<div id = "position-3-5">
+    parent
+    <div id = "position-3-6">me (absolute O)</div>
+</div>
+
+<br>
+
+요소(element)에 `absolute` 를 지정하게 되면 그 요소(element)는 부모와 링크가 끊기기 때문에 **테두리가 부모만 감싸게 되고, 배경의 크기는 자신의 컨텐츠 만해지는** 것을 확인할 수 있다
+
+<br>
+
+```html
+<style>
+#position-3-7, #position-3-8{
+    border:5px solid yellowgreen;
+}
+#position-3-9{
+    background-color:gray;
+    color:white;
+
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+#position-3-8{
+    position:relative;
+}
+</style>
+
+<div id = "position-3-7">other</div>
+<div id = "position-3-8">
+    parent
+    <div id = "position-3-9">me</div>
+</div>
+```
+`parent` 에 `postition:relative` 를 지정했다
+
+<style>
+#position-3-7, #position-3-8{
+    border:5px solid yellowgreen;
+}
+#position-3-9{
+    background-color:gray;
+    color:white;
+
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+#position-3-8{
+    position:relative;
+}
+</style>
+
+<div id = "position-3-7">other</div>
+<div id = "position-3-8">
+    parent
+    <div id = "position-3-9">me</div>
+</div>
+
+**`absolute`는 `static`이 아닌 조상**의 위치에 offset이 적용되는 것을 확인할 수 있다
+
+<br>
+
+### fixed
+특정 요소(element)를 화면에 그 위치에 고정시켜서 스크롤로 완전히 독립하게 한다
+
+```html
+<style>
+#position-4-1, #position-4-2{
+border:5px solid yellowgreen;
+}
+#position-4-4{
+height:10000px;
+background-color:yellowgreen;
+}
+#position-4-3{
+background-color:black;
+color:white;
+            
+position:fixed;
+left:0;
+bottom:0;
+width:100%;
+height:30px;
+text-align:center;
+}
+</style>
+        
+<div id = "position-4-1">other</div>
+    <div id = "position-4-2">
+        parent
+            <div id = "position-4-3">me</div>
+    </div>
+<div id = "position-4-4">large</div>
+```
+`me`에 `position:fixed;`를 지정했다
+
+<!-- 사진 -->
+
+요소(element)가 화면에 고정되는 것을 확인할 수 있다
+
+`absolute` 와 같이 부모와 링크가 끊기기 때문에 **`width` 와 `height` 값을 지정해주지 않으면 컨텐츠 크기만큼 된다**
+
+<br>
+
+##
