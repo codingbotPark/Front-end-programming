@@ -1480,67 +1480,67 @@ text-align:center;
 
 ```html
 <style>
-.flex-container-1-1{
+.flex-container-1-1-1{
     background-color:gray;
     /* display:flex; */
 }
-.flex-item-1-1{
+.flex-item-1-1-1{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-1">
-    <div class = "flex-item-1-1">X</div>
-    <div class = "flex-item-1-1">1</div>
-    <div class = "flex-item-1-1">2</div>
-    <div class = "flex-item-1-1">3</div>
-    <div class = "flex-item-1-1">4</div>
+<div class = "flex-container-1-1-1">
+    <div class = "flex-item-1-1-1">X</div>
+    <div class = "flex-item-1-1-1">1</div>
+    <div class = "flex-item-1-1-1">2</div>
+    <div class = "flex-item-1-1-1">3</div>
+    <div class = "flex-item-1-1-1">4</div>
 </div>
 ```
 부모에게 `display:flex;`를 지정한다
 
 <style>
-.flex-container-1-1{
+.flex-container-1-1-1{
     background-color:gray;
     /* display:flex; */
 }
-.flex-item-1-1{
+.flex-item-1-1-1{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-1">
-    <div class = "flex-item-1-1">X</div>
-    <div class = "flex-item-1-1">1</div>
-    <div class = "flex-item-1-1">2</div>
-    <div class = "flex-item-1-1">3</div>
-    <div class = "flex-item-1-1">4</div>
+<div class = "flex-container-1-1-1">
+    <div class = "flex-item-1-1-1">X</div>
+    <div class = "flex-item-1-1-1">1</div>
+    <div class = "flex-item-1-1-1">2</div>
+    <div class = "flex-item-1-1-1">3</div>
+    <div class = "flex-item-1-1-1">4</div>
 </div>
 
 <br>
 
 <style>
-.flex-container-1-2{
+.flex-container-1-1-2{
     background-color:gray;
     display:flex;
 }
-.flex-item-1-2{
+.flex-item-1-1-2{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-2">
-    <div class = "flex-item-1-2">O</div>
-    <div class = "flex-item-1-2">1</div>
-    <div class = "flex-item-1-2">2</div>
-    <div class = "flex-item-1-2">3</div>
-    <div class = "flex-item-1-2">4</div>
+<div class = "flex-container-1-1-2">
+    <div class = "flex-item-1-1-2">O</div>
+    <div class = "flex-item-1-1-2">1</div>
+    <div class = "flex-item-1-1-2">2</div>
+    <div class = "flex-item-1-1-2">3</div>
+    <div class = "flex-item-1-1-2">4</div>
 </div>
 
 `display:flex;`를 주면 자식들이 자기 성격(div = block-level)을 자유자제로 배치할 수 있게되는 것을 확인할 수 있다  
@@ -1552,54 +1552,54 @@ text-align:center;
 
 <img alt = "flex-direction" src = "https://studiomeal.com/wp-content/uploads/2020/01/05-1.jpg">
 
-<br>`
+<br>
 
 #### row
 기본값, 아이템(item)들을 가로방향으로 배치된다
 
 ```html
 <style>
-.flex-container-1-3{
+.flex-container-1-2-1{
     background-color:gray;
     display:flex;
     flex-direction:row;
 }
-.flex-item-1-3{
+.flex-item-1-2-1{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen;
 }
 </style>
 
-<div class = "flex-container-1-3">
-    <div class = "flex-item-1-3">1</div>
-    <div class = "flex-item-1-3">2</div>
-    <div class = "flex-item-1-3">3</div>
-    <div class = "flex-item-1-3">4</div>
-    <div class = "flex-item-1-3">5</div>
+<div class = "flex-container-1-2-1">
+    <div class = "flex-item-1-2-1">1</div>
+    <div class = "flex-item-1-2-1">2</div>
+    <div class = "flex-item-1-2-1">3</div>
+    <div class = "flex-item-1-2-1">4</div>
+    <div class = "flex-item-1-2-1">5</div>
 </div>
 ```
 `flex-direction:row;` 을 추가했다
 
 <style>
-.flex-container-1-3{
+.flex-container-1-2-1{
     background-color:gray;
     display:flex;
     flex-direction:row;
 }
-.flex-item-1-3{
+.flex-item-1-2-1{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen;
 }
 </style>
 
-<div class = "flex-container-1-3">
-    <div class = "flex-item-1-3">1</div>
-    <div class = "flex-item-1-3">2</div>
-    <div class = "flex-item-1-3">3</div>
-    <div class = "flex-item-1-3">4</div>
-    <div class = "flex-item-1-3">5</div>
+<div class = "flex-container-1-2-1">
+    <div class = "flex-item-1-2-1">1</div>
+    <div class = "flex-item-1-2-1">2</div>
+    <div class = "flex-item-1-2-1">3</div>
+    <div class = "flex-item-1-2-1">4</div>
+    <div class = "flex-item-1-2-1">5</div>
 </div>
 
 <br>
@@ -1609,47 +1609,47 @@ text-align:center;
 
 ```html
 <style>
-.flex-container-1-4{
+.flex-container-1-2-2{
     background-color:gray;
     display:flex;
     flex-direction:row-reverse;
 }
-.flex-item-1-4{
+.flex-item-1-2-2{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-4">
-    <div class = "flex-item-1-4">1</div>
-    <div class = "flex-item-1-4">2</div>
-    <div class = "flex-item-1-4">3</div>
-    <div class = "flex-item-1-4">4</div>
-    <div class = "flex-item-1-4">5</div>
+<div class = "flex-container-1-2-2">
+    <div class = "flex-item-1-2-2">1</div>
+    <div class = "flex-item-1-2-2">2</div>
+    <div class = "flex-item-1-2-2">3</div>
+    <div class = "flex-item-1-2-2">4</div>
+    <div class = "flex-item-1-2-2">5</div>
 </div>
 ```
 `flex-direction:row-reverse;`을 추가했다
 
 <style>
-.flex-container-1-4{
+.flex-container-1-2-2{
     background-color:gray;
     display:flex;
     flex-direction:row-reverse;
 }
-.flex-item-1-4{
+.flex-item-1-2-2{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-4">
-    <div class = "flex-item-1-4">1</div>
-    <div class = "flex-item-1-4">2</div>
-    <div class = "flex-item-1-4">3</div>
-    <div class = "flex-item-1-4">4</div>
-    <div class = "flex-item-1-4">5</div>
+<div class = "flex-container-1-2-2">
+    <div class = "flex-item-1-2-2">1</div>
+    <div class = "flex-item-1-2-2">2</div>
+    <div class = "flex-item-1-2-2">3</div>
+    <div class = "flex-item-1-2-2">4</div>
+    <div class = "flex-item-1-2-2">5</div>
 </div>
 
 <br>
@@ -1659,49 +1659,49 @@ text-align:center;
 
 ```html
 <style>
-.flex-container-1-5{
+.flex-container-1-2-3{
     background-color:gray;
     height:150px;
     display:flex;
     flex-direction:column;
 }
-.flex-item-1-5{
+.flex-item-1-2-3{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-5">
-    <div class = "flex-item-1-5">1</div>
-    <div class = "flex-item-1-5">2</div>
-    <div class = "flex-item-1-5">3</div>
-    <div class = "flex-item-1-5">4</div>
-    <div class = "flex-item-1-5">5</div>
+<div class = "flex-container-1-2-3">
+    <div class = "flex-item-1-2-3">1</div>
+    <div class = "flex-item-1-2-3">2</div>
+    <div class = "flex-item-1-2-3">3</div>
+    <div class = "flex-item-1-2-3">4</div>
+    <div class = "flex-item-1-2-3">5</div>
 </div>
 ```
 `flex-direction:column` , `height:150px;` 을 추가했다
 
 <style>
-.flex-container-1-5{
+.flex-container-1-2-3{
     background-color:gray;
     height:150px;
     display:flex;
     flex-direction:column;
 }
-.flex-item-1-5{
+.flex-item-1-2-3{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-5">
-    <div class = "flex-item-1-5">1</div>
-    <div class = "flex-item-1-5">2</div>
-    <div class = "flex-item-1-5">3</div>
-    <div class = "flex-item-1-5">4</div>
-    <div class = "flex-item-1-5">5</div>
+<div class = "flex-container-1-2-3">
+    <div class = "flex-item-1-2-3">1</div>
+    <div class = "flex-item-1-2-3">2</div>
+    <div class = "flex-item-1-2-3">3</div>
+    <div class = "flex-item-1-2-3">4</div>
+    <div class = "flex-item-1-2-3">5</div>
 </div>
 
 <br>
@@ -1711,49 +1711,49 @@ text-align:center;
 
 ```html
 <style>
-.flex-container-1-6{
+.flex-container-1-2-4{
     background-color:gray;
     height:150px;
     display:flex;
     flex-direction:column-reverse;
 }
-.flex-item-1-6{
+.flex-item-1-2-4{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-6">
-    <div class = "flex-item-1-6">1</div>
-    <div class = "flex-item-1-6">2</div>
-    <div class = "flex-item-1-6">3</div>
-    <div class = "flex-item-1-6">4</div>
-    <div class = "flex-item-1-6">5</div>
+<div class = "flex-container-1-2-4">
+    <div class = "flex-item-1-2-4">1</div>
+    <div class = "flex-item-1-2-4">2</div>
+    <div class = "flex-item-1-2-4">3</div>
+    <div class = "flex-item-1-2-4">4</div>
+    <div class = "flex-item-1-2-4">5</div>
 </div>
 ```
 `flex:direction:column-reverse` , `height:150px` 을 추가했다
 
 <style>
-.flex-container-1-6{
+.flex-container-1-2-4{
     background-color:gray;
     height:150px;
     display:flex;
     flex-direction:column-reverse;
 }
-.flex-item-1-6{
+.flex-item-1-2-4{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1-6">
-    <div class = "flex-item-1-6">1</div>
-    <div class = "flex-item-1-6">2</div>
-    <div class = "flex-item-1-6">3</div>
-    <div class = "flex-item-1-6">4</div>
-    <div class = "flex-item-1-6">5</div>
+<div class = "flex-container-1-2-4">
+    <div class = "flex-item-1-2-4">1</div>
+    <div class = "flex-item-1-2-4">2</div>
+    <div class = "flex-item-1-2-4">3</div>
+    <div class = "flex-item-1-2-4">4</div>
+    <div class = "flex-item-1-2-4">5</div>
 </div>
 
 <br>
@@ -1763,15 +1763,247 @@ text-align:center;
 
 <img alt = "flex-wrap" src = "https://studiomeal.com/wp-content/uploads/2020/01/06-1.jpg" width = "500">
 
+<a href = "https://codepen.io/enxaneta/pen/adLPwv" target = "_blank" title = "참고자료">Flex 테스트</a>
+
 <br>
 
+#### nowrap
+기본값, 줄바꿈을 하지않고 넘치면 아이템(item)들이 작아진다
+(컨테이너의 크기가 아이템들의 크기의 합보다 작으면)
 
+```html
+<style>
+.flex-container-1-3-1{
+    background-color:gray;
+    display:flex;
+    flex-wrap:nowrap;
+}
+.flex-item-1-3-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
 
+<div class = "flex-container-1-3-1">
+    <div class = "flex-item-1-3-1">1</div>
+    <div class = "flex-item-1-3-1">2</div>
+    <div class = "flex-item-1-3-1">3</div>
+</div>
+```
+`flex-wrap:nowrap;` 을 추가했다
 
+<style>
+.flex-container-1-3-1{
+    background-color:gray;
+    display:flex;
+    flex-wrap:nowrap;
+    width:200px;
+}
+.flex-item-1-3-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
 
+<div class = "flex-container-1-3-1">
+    <div class = "flex-item-1-3-1">1</div>
+    <div class = "flex-item-1-3-1">2</div>
+    <div class = "flex-item-1-3-1">3</div>
+</div>
 
+아이템(item)들이 줄어든 것을 확인할 수 있다
 
+<br>
 
+#### wrap
+넘치면 아이템(item)들이 줄바꿈을 하고 밑으로 넘어간다  
+(컨테이너의 크기가 아이템들의 크기의 합보다 작으면)
+
+```html
+<style>
+.flex-container-1-3-2{
+    background-color:gray;
+    display:flex;
+    flex-wrap:wrap;
+}
+.flex-item-1-3-2{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
+
+<div class = "flex-container-1-3-2">
+    <div class = "flex-item-1-3-2">1</div>
+    <div class = "flex-item-1-3-2">2</div>
+    <div class = "flex-item-1-3-2">3</div>
+</div>
+```
+`flex-wrap:wrap;` 을 추가했다
+
+<style>
+.flex-container-1-3-2{
+    background-color:gray;
+    display:flex;
+    flex-wrap:wrap;
+    width:300px;
+}
+.flex-item-1-3-2{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
+
+<div class = "flex-container-1-3-2">
+    <div class = "flex-item-1-3-2">1</div>
+    <div class = "flex-item-1-3-2">2</div>
+    <div class = "flex-item-1-3-2">3</div>
+</div>
+
+줄바꿈, 아래로 내려가는 것을 확인할 수 있다
+
+<br>
+
+#### wrap-reverse
+넘치면 아이템(item)들이 줄바꿈을 하고 위로 올라간다
+(컨테이너의 크기가 아이템들의 크기의 합보다 작으면)
+
+```html
+<style>
+.flex-container-1-3-3{
+    background-color:gray;
+    display:flex;
+    flex-wrap:wrap-reverse;
+    width:300px;
+}
+.flex-item-1-3-3{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
+
+<div class = "flex-container-1-3-3">
+    <div class = "flex-item-1-3-3">1</div>
+    <div class = "flex-item-1-3-3">2</div>
+    <div class = "flex-item-1-3-3">3</div>
+</div>
+```
+`flex-wrap:wrap-reverse;` 을 추가했다
+
+<style>
+.flex-container-1-3-2{
+    background-color:gray;
+    display:flex;
+    flex-wrap:wrap-reverse;
+    width:300px;
+}
+.flex-item-1-3-2{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
+
+<div class = "flex-container-1-3-2">
+    <div class = "flex-item-1-3-2">1</div>
+    <div class = "flex-item-1-3-2">2</div>
+    <div class = "flex-item-1-3-2">3</div>
+</div>
+
+줄바꿈, 위로 올라가는 것을 확인할수 있다
+
+<br>
+
+### flex-flow
+`flex-direction` 과 `flex-wrap` 을 같이 지정할 수 있다  
+`flex-direction` , `flex-wrap` 의 순서로 한 칸 씩 떼고 적는다
+
+```html
+<style>
+.flex-container-1-4-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row-reverse wrap;
+    width:300px;
+}
+.flex-item-1-4-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
+
+<div class = "flex-container-1-4-1">
+    <div class = "flex-item-1-4-1">1</div>
+    <div class = "flex-item-1-4-1">2</div>
+    <div class = "flex-item-1-4-1">3</div>
+</div>
+```
+`flex-flow:row-reverse wrap;` 을 추가했다
+
+<style>
+.flex-container-1-4-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row-reverse wrap;
+    width:300px;
+}
+.flex-item-1-4-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    width:100px;
+    height:100px;
+    margin:5px;
+}
+</style>
+
+<div class = "flex-container-1-4-1">
+    <div class = "flex-item-1-4-1">1</div>
+    <div class = "flex-item-1-4-1">2</div>
+    <div class = "flex-item-1-4-1">3</div>
+</div>
+
+`flex-direction:row-reverse` + `flex-wrap:wrap` 와 같은 효과를 확인할 수 있다
+
+<br>
+
+### justify-content, aling-items
+justify-content 는 메인축(main axis)으로 정렬  
+aling-items 는 교차축(cross axis)으로 정렬
+
+<img alt = "flex main axis, cross axis" src = "https://studiomeal.com/wp-content/uploads/2020/01/04-1.jpg" height = "250">
+
+<img alt = "justify, align" src = "https://studiomeal.com/wp-content/uploads/2020/01/09-1.jpg" height = "250">
+
+<br>
+
+### justify-content
 
 
 
