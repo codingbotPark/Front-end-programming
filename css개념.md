@@ -1455,6 +1455,8 @@ text-align:center;
 
 <br>
 
+<img alt = "CSS Flex" src = "https://studiomeal.com/wp-content/uploads/2020/01/02.jpg" height = "300">
+
 정렬되고자 하는 각각의 아이템(item)들은 부모에 혜당하는 컨테이너(container)가 필요하다
 
 컨테이너(container)와 아이템(item)들은 컨테이너(container)에게 부여해햐 하는 속성이 있고, 아이템(item)에게 부여해야 하는 속성이 구분되어 있다
@@ -1462,299 +1464,317 @@ text-align:center;
 <img alt = "flex 속성" src = "https://media.vlpt.us/images/psj0810/post/78899b35-4a93-404c-8596-a2b3bf275611/flex2.jpg" height = "350">
 
 <br>
+
+>container -> item의 순서
+
 <br>
 
-### basic
+<a href = "https://studiomeal.com/archives/197" target = "_blank" title = "참고자료">CSS Flex</a>
+
+<br>
+
+> 컨테이너(container)에 적용하는 속성들
+
+### display : flex ;
+**Flex 를 사용할 때 컨테이너(container)에게 `display:flex;`를 주고 시작한다**
 
 ```html
 <style>
-.flex-container-1{
+.flex-container-1-1{
     background-color:gray;
     /* display:flex; */
 }
-.flex-item-1{
+.flex-item-1-1{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1">
-    <div class = "flex-item-1">X</div>
-    <div class = "flex-item-1">1</div>
-    <div class = "flex-item-1">2</div>
-    <div class = "flex-item-1">3</div>
-    <div class = "flex-item-1">4</div>
+<div class = "flex-container-1-1">
+    <div class = "flex-item-1-1">X</div>
+    <div class = "flex-item-1-1">1</div>
+    <div class = "flex-item-1-1">2</div>
+    <div class = "flex-item-1-1">3</div>
+    <div class = "flex-item-1-1">4</div>
 </div>
 ```
 부모에게 `display:flex;`를 지정한다
 
 <style>
-.flex-container-1{
+.flex-container-1-1{
     background-color:gray;
     /* display:flex; */
 }
-.flex-item-1{
+.flex-item-1-1{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-1">
-    <div class = "flex-item-1">X</div>
-    <div class = "flex-item-1">1</div>
-    <div class = "flex-item-1">2</div>
-    <div class = "flex-item-1">3</div>
-    <div class = "flex-item-1">4</div>
+<div class = "flex-container-1-1">
+    <div class = "flex-item-1-1">X</div>
+    <div class = "flex-item-1-1">1</div>
+    <div class = "flex-item-1-1">2</div>
+    <div class = "flex-item-1-1">3</div>
+    <div class = "flex-item-1-1">4</div>
 </div>
 
 <br>
 
 <style>
-.flex-container-2{
+.flex-container-1-2{
     background-color:gray;
     display:flex;
 }
-.flex-item-2{
+.flex-item-1-2{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-2">
-    <div class = "flex-item-2">O</div>
-    <div class = "flex-item-2">1</div>
-    <div class = "flex-item-2">2</div>
-    <div class = "flex-item-2">3</div>
-    <div class = "flex-item-2">4</div>
+<div class = "flex-container-1-2">
+    <div class = "flex-item-1-2">O</div>
+    <div class = "flex-item-1-2">1</div>
+    <div class = "flex-item-1-2">2</div>
+    <div class = "flex-item-1-2">3</div>
+    <div class = "flex-item-1-2">4</div>
 </div>
 
-`display:flex;`를 주면 자식들이 자기 성격(div = block-level)을 자유자제로 배치할 수 있다
+`display:flex;`를 주면 자식들이 자기 성격(div = block-level)을 자유자제로 배치할 수 있게되는 것을 확인할 수 있다  
 
+<br>
 
+### flex-direction
+아이템(item)들이 배치되는 축의 방향을 결정한다
 
+<img alt = "flex-direction" src = "https://studiomeal.com/wp-content/uploads/2020/01/05-1.jpg">
 
+<br>`
 
+#### row
+기본값, 아이템(item)들을 가로방향으로 배치된다
 
-
-
-
-
-
-이 태그들을 반대쪽으로 정렬하게 하고싶다면
 ```html
 <style>
-.flex-container-3{
+.flex-container-1-3{
+    background-color:gray;
+    display:flex;
+    flex-direction:row;
+}
+.flex-item-1-3{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+}
+</style>
+
+<div class = "flex-container-1-3">
+    <div class = "flex-item-1-3">1</div>
+    <div class = "flex-item-1-3">2</div>
+    <div class = "flex-item-1-3">3</div>
+    <div class = "flex-item-1-3">4</div>
+    <div class = "flex-item-1-3">5</div>
+</div>
+```
+`flex-direction:row;` 을 추가했다
+
+<style>
+.flex-container-1-3{
+    background-color:gray;
+    display:flex;
+    flex-direction:row;
+}
+.flex-item-1-3{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+}
+</style>
+
+<div class = "flex-container-1-3">
+    <div class = "flex-item-1-3">1</div>
+    <div class = "flex-item-1-3">2</div>
+    <div class = "flex-item-1-3">3</div>
+    <div class = "flex-item-1-3">4</div>
+    <div class = "flex-item-1-3">5</div>
+</div>
+
+<br>
+
+#### row-reverse
+아이템(item)들을 가로방향으로 역순으로 배치된다
+
+```html
+<style>
+.flex-container-1-4{
     background-color:gray;
     display:flex;
     flex-direction:row-reverse;
 }
-.flex-item-3{
+.flex-item-1-4{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-3">
-    <div class = "flex-item-3">O</div>
-    <div class = "flex-item-3">1</div>
-    <div class = "flex-item-3">2</div>
-    <div class = "flex-item-3">3</div>
-    <div class = "flex-item-3">4</div>
+<div class = "flex-container-1-4">
+    <div class = "flex-item-1-4">1</div>
+    <div class = "flex-item-1-4">2</div>
+    <div class = "flex-item-1-4">3</div>
+    <div class = "flex-item-1-4">4</div>
+    <div class = "flex-item-1-4">5</div>
 </div>
 ```
 `flex-direction:row-reverse;`을 추가했다
 
 <style>
-.flex-container-3{
+.flex-container-1-4{
     background-color:gray;
     display:flex;
     flex-direction:row-reverse;
 }
-.flex-item-3{
+.flex-item-1-4{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-3">
-    <div class = "flex-item-3">O</div>
-    <div class = "flex-item-3">1</div>
-    <div class = "flex-item-3">2</div>
-    <div class = "flex-item-3">3</div>
-    <div class = "flex-item-3">4</div>
-</div>
-
-`flex-direction:row-reverse`를 지정하면 반대로 정렬되는 것을 확인할 수 있다  
-`flex-direction` 은 기본적으로 `row`로 지정되는 것을 확인할 수 있다 
-
-
-
-
-수직방향으로 정렬하고싶다면 
-```html
-<style>
-.flex-container-4{
-    background-color:gray;
-    display:flex;
-    flex-direction:column;
-}
-.flex-item-4{
-    background-color:yellowgreen;
-    color:white;
-    border:1px solid yellowgreen; 
-}
-</style>
-
-<div class = "flex-container-4">
-    <div class = "flex-item-4">O</div>
-    <div class = "flex-item-4">1</div>
-    <div class = "flex-item-4">2</div>
-    <div class = "flex-item-4">3</div>
-    <div class = "flex-item-4">4</div>
-</div>
-```
-`flex-direction`을 `row`에서 `column`으로 변경했다
-
-<style>
-.flex-container-4{
-    background-color:gray;
-    display:flex;
-    flex-direction:column;
-}
-.flex-item-4{
-    background-color:yellowgreen;
-    color:white;
-    border:1px solid yellowgreen; 
-}
-</style>
-
-<div class = "flex-container-4">
-    <div class = "flex-item-4">O</div>
-    <div class = "flex-item-4">1</div>
-    <div class = "flex-item-4">2</div>
-    <div class = "flex-item-4">3</div>
-    <div class = "flex-item-4">4</div>
-</div>
-
-이는 flex가 없어도 똑같이 표현된다
-
-```html
-<style>
-.flex-container-5{
-    background-color:gray;
-}
-.flex-item-5{
-    background-color:yellowgreen;
-    color:white;
-    border:1px solid yellowgreen; 
-}
-</style>
-
-<div class = "flex-container-5">
-    <div class = "flex-item-5">O</div>
-    <div class = "flex-item-5">1</div>
-    <div class = "flex-item-5">2</div>
-    <div class = "flex-item-5">3</div>
-    <div class = "flex-item-5">4</div>
-</div>
-```
-`display:flex;` , `flex-direction:column;` 을 삭제했다
-
-<style>
-.flex-container-5{
-    background-color:gray;
-}
-.flex-item-5{
-    background-color:yellowgreen;
-    color:white;
-    border:1px solid yellowgreen; 
-}
-</style>
-
-<div class = "flex-container-5">
-    <div class = "flex-item-5">O</div>
-    <div class = "flex-item-5">1</div>
-    <div class = "flex-item-5">2</div>
-    <div class = "flex-item-5">3</div>
-    <div class = "flex-item-5">4</div>
-</div>
-
-하지만 컨테이너(container)에 높이(height)를 주면 다르다는 것을 확인할 수 있다
-
-```html
-<style>
-.flex-container-6{
-    background-color:gray;
-    height:200px;
-    /* display:flex;
-    flex-direction:column-reverse; */
-}
-.flex-item-6{
-    background-color:yellowgreen;
-    color:white;
-    border:1px solid yellowgreen; 
-}
-</style>
-
-<div class = "flex-container-6">
-    <div class = "flex-item-6">X</div>
-    <div class = "flex-item-6">1</div>
-    <div class = "flex-item-6">2</div>
-    <div class = "flex-item-6">3</div>
-    <div class = "flex-item-6">4</div>
-</div>
-```
-컨테이너(container)에 높이(height) `height:200px` , `flex-direction:colum-reverse` 을 추가했다
-
-<style>
-.flex-container-6{
-    background-color:gray;
-    height:200px;
-    /* display:flex;
-    flex-direction:column-reverse; */
-}
-.flex-item-6{
-    background-color:yellowgreen;
-    color:white;
-    border:1px solid yellowgreen; 
-}
-</style>
-
-<div class = "flex-container-6">
-    <div class = "flex-item-6">X</div>
-    <div class = "flex-item-6">1</div>
-    <div class = "flex-item-6">2</div>
-    <div class = "flex-item-6">3</div>
-    <div class = "flex-item-6">4</div>
+<div class = "flex-container-1-4">
+    <div class = "flex-item-1-4">1</div>
+    <div class = "flex-item-1-4">2</div>
+    <div class = "flex-item-1-4">3</div>
+    <div class = "flex-item-1-4">4</div>
+    <div class = "flex-item-1-4">5</div>
 </div>
 
 <br>
 
+#### column
+아이템(item)들을 수직방향으로 정렬시킨다
+
+```html
 <style>
-.flex-container-7{
+.flex-container-1-5{
     background-color:gray;
-    height:200px;
+    height:150px;
     display:flex;
-    flex-direction:column-reverse;
+    flex-direction:column;
 }
-.flex-item-7{
+.flex-item-1-5{
     background-color:yellowgreen;
     color:white;
     border:1px solid yellowgreen; 
 }
 </style>
 
-<div class = "flex-container-7">
-    <div class = "flex-item-7">O</div>
-    <div class = "flex-item-7">1</div>
-    <div class = "flex-item-7">2</div>
-    <div class = "flex-item-7">3</div>
-    <div class = "flex-item-7">4</div>
+<div class = "flex-container-1-5">
+    <div class = "flex-item-1-5">1</div>
+    <div class = "flex-item-1-5">2</div>
+    <div class = "flex-item-1-5">3</div>
+    <div class = "flex-item-1-5">4</div>
+    <div class = "flex-item-1-5">5</div>
+</div>
+```
+`flex-direction:column` , `height:150px;` 을 추가했다
+
+<style>
+.flex-container-1-5{
+    background-color:gray;
+    height:150px;
+    display:flex;
+    flex-direction:column;
+}
+.flex-item-1-5{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen; 
+}
+</style>
+
+<div class = "flex-container-1-5">
+    <div class = "flex-item-1-5">1</div>
+    <div class = "flex-item-1-5">2</div>
+    <div class = "flex-item-1-5">3</div>
+    <div class = "flex-item-1-5">4</div>
+    <div class = "flex-item-1-5">5</div>
 </div>
 
-전체적 정렬이 변경한 것을 확인할 수 있다
+<br>
+
+#### column-reverse
+아이템(item)들을 수직방향으로 역순으로 정렬시킨다
+
+```html
+<style>
+.flex-container-1-6{
+    background-color:gray;
+    height:150px;
+    display:flex;
+    flex-direction:column-reverse;
+}
+.flex-item-1-6{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen; 
+}
+</style>
+
+<div class = "flex-container-1-6">
+    <div class = "flex-item-1-6">1</div>
+    <div class = "flex-item-1-6">2</div>
+    <div class = "flex-item-1-6">3</div>
+    <div class = "flex-item-1-6">4</div>
+    <div class = "flex-item-1-6">5</div>
+</div>
+```
+`flex:direction:column-reverse` , `height:150px` 을 추가했다
+
+<style>
+.flex-container-1-6{
+    background-color:gray;
+    height:150px;
+    display:flex;
+    flex-direction:column-reverse;
+}
+.flex-item-1-6{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen; 
+}
+</style>
+
+<div class = "flex-container-1-6">
+    <div class = "flex-item-1-6">1</div>
+    <div class = "flex-item-1-6">2</div>
+    <div class = "flex-item-1-6">3</div>
+    <div class = "flex-item-1-6">4</div>
+    <div class = "flex-item-1-6">5</div>
+</div>
+
+<br>
+
+### flex-wrap
+아이템(item)의 줄바꿈을 어떻게 할지 결정한다
+
+<img alt = "flex-wrap" src = "https://studiomeal.com/wp-content/uploads/2020/01/06-1.jpg" width = "500">
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+> 아이템(item)에 적용하는 속성들
