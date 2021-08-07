@@ -1463,13 +1463,12 @@ text-align:center;
 
 <img alt = "flex 속성" src = "https://media.vlpt.us/images/psj0810/post/78899b35-4a93-404c-8596-a2b3bf275611/flex2.jpg" height = "350">
 
-<br>
-
 >container -> item의 순서
 
 <br>
 
-<a href = "https://studiomeal.com/archives/197" target = "_blank" title = "참고자료">CSS Flex</a>
+<a href = "https://studiomeal.com/archives/197" target = "_blank" title = "참고자료">CSS Flex</a>  
+<a href = "https://codepen.io/enxaneta/pen/adLPwv" target = "_blank" title = "참고자료">Flex 테스트</a>
 
 <br>
 
@@ -1763,8 +1762,6 @@ text-align:center;
 
 <img alt = "flex-wrap" src = "https://studiomeal.com/wp-content/uploads/2020/01/06-1.jpg" width = "500">
 
-<a href = "https://codepen.io/enxaneta/pen/adLPwv" target = "_blank" title = "참고자료">Flex 테스트</a>
-
 <br>
 
 #### nowrap
@@ -1994,16 +1991,1240 @@ text-align:center;
 <br>
 
 ### justify-content, aling-items
-justify-content 는 메인축(main axis)으로 정렬  
-aling-items 는 교차축(cross axis)으로 정렬
 
 <img alt = "flex main axis, cross axis" src = "https://studiomeal.com/wp-content/uploads/2020/01/04-1.jpg" height = "250">
-
 <img alt = "justify, align" src = "https://studiomeal.com/wp-content/uploads/2020/01/09-1.jpg" height = "250">
 
 <br>
 
 ### justify-content
+메인축(main axis) 방향으로 아이템(item)들을 정렬한다
+
+<img alt = "justify-content" src = "https://o.quizlet.com/Stu3DSru1O2NcBSXMCXDzg.png" height = "350">
+
+<br>
+
+#### flex-start
+기본값, 아이템(item)들을 시작점으로 정렬  
+`flex-direction`이 `row`(가로)일 때는 왼쪽, `column`(세로)일 때는 위
+
+```html
+<style>
+.flex-container-1-5-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:flex-start;
+}
+.flex-item-1-5-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-1">
+    <div class = "flex-item-1-5-1">1</div>
+    <div class = "flex-item-1-5-1">2</div>
+    <div class = "flex-item-1-5-1">row</div>
+</div>
+```
+`justfity-content:flex-start;` 을 추가했다
+
+<style>
+.flex-container-1-5-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:flex-start;
+}
+.flex-item-1-5-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-1">
+    <div class = "flex-item-1-5-1">1</div>
+    <div class = "flex-item-1-5-1">2</div>
+    <div class = "flex-item-1-5-1">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-2{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+
+    justify-content:flex-start;
+}
+.flex-item-1-5-2{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-2">
+    <div class = "flex-item-1-5-2">1</div>
+    <div class = "flex-item-1-5-2">2</div>
+    <div class = "flex-item-1-5-2">column</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-3{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:flex-start;
+
+    width:310px;
+}
+.flex-item-1-5-3{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-3">
+    <div class = "flex-item-1-5-3">1</div>
+    <div class = "flex-item-1-5-3">2</div>
+    <div class = "flex-item-1-5-3">wrap</div>
+</div>
+
+<br>
+
+#### flex-end
+아이템(item)들을 끝점으로 정렬
+`flex-direction`이 `row`(가로)일 때는 오른쪽, `column`(세로)일 때는 아래
+
+```html
+<style>
+.flex-container-1-5-4{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:flex-end;
+}
+.flex-item-1-5-4{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-4">
+    <div class = "flex-item-1-5-4">1</div>
+    <div class = "flex-item-1-5-4">2</div>
+    <div class = "flex-item-1-5-4">row</div>
+</div>
+```
+`flex-flow:row wrap;` 을 추가했다
+
+<style>
+.flex-container-1-5-4{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:flex-end;
+}
+.flex-item-1-5-4{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-4">
+    <div class = "flex-item-1-5-4">1</div>
+    <div class = "flex-item-1-5-4">2</div>
+    <div class = "flex-item-1-5-4">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-5{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+
+    justify-content:flex-end;
+}
+.flex-item-1-5-5{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-5">
+    <div class = "flex-item-1-5-5">1</div>
+    <div class = "flex-item-1-5-5">2</div>
+    <div class = "flex-item-1-5-5">column</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-6{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:flex-end;
+
+    width:310px;
+}
+.flex-item-1-5-6{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-6">
+    <div class = "flex-item-1-5-6">1</div>
+    <div class = "flex-item-1-5-6">2</div>
+    <div class = "flex-item-1-5-6">wrap</div>
+</div>
+
+<br>
+
+#### center
+아이템(item)들을 가운데로 정렬한다
+
+```html
+<style>
+.flex-container-1-5-7{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:center;
+}
+.flex-item-1-5-7{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-7">
+    <div class = "flex-item-1-5-7">1</div>
+    <div class = "flex-item-1-5-7">2</div>
+    <div class = "flex-item-1-5-7">row</div>
+</div>
+```
+`justify-content:center;` 을 추가했다
+
+<style>
+.flex-container-1-5-7{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:center;
+}
+.flex-item-1-5-7{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-7">
+    <div class = "flex-item-1-5-7">1</div>
+    <div class = "flex-item-1-5-7">2</div>
+    <div class = "flex-item-1-5-7">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-8{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+
+    justify-content:center;
+}
+.flex-item-1-5-8{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-8">
+    <div class = "flex-item-1-5-8">1</div>
+    <div class = "flex-item-1-5-8">2</div>
+    <div class = "flex-item-1-5-8">column</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-9{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:center;
+
+    width:310px;
+}
+.flex-item-1-5-9{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-9">
+    <div class = "flex-item-1-5-9">1</div>
+    <div class = "flex-item-1-5-9">2</div>
+    <div class = "flex-item-1-5-9">wrap</div>
+</div>
+
+<br>
+
+#### space-between
+아이템(item)들 사이에 같은 거리를 두고 정렬한다
+
+```html
+<style>
+.flex-container-1-5-10{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-between;
+}
+.flex-item-1-5-10{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-10">
+    <div class = "flex-item-1-5-10">1</div>
+    <div class = "flex-item-1-5-10">2</div>
+    <div class = "flex-item-1-5-10">row</div>
+</div>
+```
+`justify-centent:space-between;` 을 추가했다
+
+<style>
+.flex-container-1-5-10{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-between;
+}
+.flex-item-1-5-10{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-10">
+    <div class = "flex-item-1-5-10">1</div>
+    <div class = "flex-item-1-5-10">2</div>
+    <div class = "flex-item-1-5-10">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-11{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+
+    justify-content:space-between;
+}
+.flex-item-1-5-11{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-11">
+    <div class = "flex-item-1-5-11">1</div>
+    <div class = "flex-item-1-5-11">2</div>
+    <div class = "flex-item-1-5-11">column</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-12{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-between;
+
+    width:310px;
+}
+.flex-item-1-5-12{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-12">
+    <div class = "flex-item-1-5-12">1</div>
+    <div class = "flex-item-1-5-12">2</div>
+    <div class = "flex-item-1-5-12">wrap</div>
+</div>
+
+<br>
+
+#### space-around
+아이템(item)들의 둘레에 일정한 간격을 두고 정렬한다  
+시작점과 끝점과도 간격을 둔다
+
+```html
+<style>
+.flex-container-1-5-13{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-around;
+}
+.flex-item-1-5-13{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-13">
+    <div class = "flex-item-1-5-13">1</div>
+    <div class = "flex-item-1-5-13">2</div>
+    <div class = "flex-item-1-5-13">row</div>
+</div>
+```
+`justify-content:space-around` 을 추가했다
+
+<style>
+.flex-container-1-5-13{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-around;
+}
+.flex-item-1-5-13{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-13">
+    <div class = "flex-item-1-5-13">1</div>
+    <div class = "flex-item-1-5-13">2</div>
+    <div class = "flex-item-1-5-13">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-14{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+
+    justify-content:space-around;
+}
+.flex-item-1-5-14{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-14">
+    <div class = "flex-item-1-5-14">1</div>
+    <div class = "flex-item-1-5-14">2</div>
+    <div class = "flex-item-1-5-14">column</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-15{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-around;
+
+    width:310px;
+}
+.flex-item-1-5-15{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-15">
+    <div class = "flex-item-1-5-15">1</div>
+    <div class = "flex-item-1-5-15">2</div>
+    <div class = "flex-item-1-5-15">wrap</div>
+</div>
+
+<br>
+
+#### space-evenly
+아이템들사이와 시작점, 끝점 사이에 일정한 간격을 두고 정렬한다
+
+```html
+<style>
+.flex-container-1-5-16{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-evenly;
+}
+.flex-item-1-5-16{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-16">
+    <div class = "flex-item-1-5-16">1</div>
+    <div class = "flex-item-1-5-16">2</div>
+    <div class = "flex-item-1-5-16">row</div>
+</div>
+```
+`justify-content:space-evenly;` 을 추가했다
+
+<style>
+.flex-container-1-5-16{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-evenly;
+}
+.flex-item-1-5-16{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-16">
+    <div class = "flex-item-1-5-16">1</div>
+    <div class = "flex-item-1-5-16">2</div>
+    <div class = "flex-item-1-5-16">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-17{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+
+    justify-content:space-evenly;
+}
+.flex-item-1-5-17{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-17">
+    <div class = "flex-item-1-5-17">1</div>
+    <div class = "flex-item-1-5-17">2</div>
+    <div class = "flex-item-1-5-17">column</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-5-18{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:space-evenly;
+
+    width:310px;
+}
+.flex-item-1-5-18{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+    height:30px;
+}
+</style>
+
+<div class = "flex-container-1-5-18">
+    <div class = "flex-item-1-5-18">1</div>
+    <div class = "flex-item-1-5-18">2</div>
+    <div class = "flex-item-1-5-18">wrap</div>
+</div>
+
+<br>
+
+<img alt = "justify-content space-between, space-around, space-evenly" src="https://studiomeal.com/wp-content/uploads/2020/01/10-1.jpg" height = "350">
+
+<br>
+
+### align-items
+수직축(cross axis) 방향으로 아이템(item)들을 정렬한다
+
+<img alt = "aling-items" src = "https://o.quizlet.com/N6QeFZQCEV3p1w3fACDNLw.png" height = "350">
+
+<br>
+
+#### stretch
+기본값, 아이템(item)들이 수직축(cross axis)방향으로 끝까지 늘어난다
+
+```html
+<style>
+.flex-container-1-6-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:stretch;
+
+    height:110px;
+}
+.flex-item-1-6-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-1">
+    <div class = "flex-item-1-6-1">1</div>
+    <div class = "flex-item-1-6-1">2</div>
+    <div class = "flex-item-1-6-1">row</div>
+</div>
+```
+`align-items:stretch` 을 추가했다
+
+<style>
+.flex-container-1-6-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:stretch;
+
+    height:110px;
+}
+.flex-item-1-6-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-1">
+    <div class = "flex-item-1-6-1">1</div>
+    <div class = "flex-item-1-6-1">2</div>
+    <div class = "flex-item-1-6-1">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-6-2{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content:center;
+
+    align-items:stretch;
+
+    height:110px;
+}
+.flex-item-1-6-2{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-2">
+    <div class = "flex-item-1-6-2">1</div>
+    <div class = "flex-item-1-6-2">2</div>
+    <div class = "flex-item-1-6-2">column</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-6-3{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:stretch;
+
+    height:110px;
+    width:310px;
+}
+.flex-item-1-6-3{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-3">
+    <div class = "flex-item-1-6-3">1</div>
+    <div class = "flex-item-1-6-3">2</div>
+    <div class = "flex-item-1-6-3">wrap</div>
+</div>
+
+<br>
+
+#### flex-start
+아이템(item)들을 시작점으로 정렬한다  
+`flex-direction` 이 `row`(가로)일 때는 위, `column`(세로)일 때는 왼쪽
+
+```html
+<style>
+.flex-container-1-6-4{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:flex-start;
+
+    height:110px;
+}
+.flex-item-1-6-4{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-4">
+    <div class = "flex-item-1-6-4">1</div>
+    <div class = "flex-item-1-6-4">2</div>
+    <div class = "flex-item-1-6-4">row</div>
+</div>
+```
+`align-items:flex-start` 을 추가했다
+
+<style>
+.flex-container-1-6-4{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:flex-start;
+
+    height:110px;
+}
+.flex-item-1-6-4{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-4">
+    <div class = "flex-item-1-6-4">1</div>
+    <div class = "flex-item-1-6-4">2</div>
+    <div class = "flex-item-1-6-4">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-6-5{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content:center;
+
+    align-items:flex-start;
+
+    height:110px;
+}
+.flex-item-1-6-5{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-5">
+    <div class = "flex-item-1-6-5">1</div>
+    <div class = "flex-item-1-6-5">2</div>
+    <div class = "flex-item-1-6-5">column</div>
+</div>
+
+<br>
+
+#### flex-end
+아이템(item)들을 끝점으로 정렬한다  
+`direction` 이 `row`(가로)일 때는 아래, `column`(세로)일 때는 오른쪽
+
+```html
+<style>
+.flex-container-1-6-6{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:flex-end;
+
+    height:110px;
+}
+.flex-item-1-6-6{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-6">
+    <div class = "flex-item-1-6-6">1</div>
+    <div class = "flex-item-1-6-6">2</div>
+    <div class = "flex-item-1-6-6">row</div>
+</div>
+```
+`align-items:flex-end` 을 추가했다
+
+<style>
+.flex-container-1-6-6{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:flex-end;
+
+    height:110px;
+}
+.flex-item-1-6-6{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-6">
+    <div class = "flex-item-1-6-6">1</div>
+    <div class = "flex-item-1-6-6">2</div>
+    <div class = "flex-item-1-6-6">row</div>
+</div>
+
+<br>
+
+<style>
+.flex-container-1-6-7{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content:center;
+
+    align-items:flex-end;
+
+    height:110px;
+}
+.flex-item-1-6-7{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-7">
+    <div class = "flex-item-1-6-7">1</div>
+    <div class = "flex-item-1-6-7">2</div>
+    <div class = "flex-item-1-6-7">column</div>
+</div>
+
+<br>
+
+#### center
+아이템(item)들을 가운데로 정렬
+
+```html
+<style>
+.flex-container-1-6-8{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:center;
+
+    height:110px;
+}
+.flex-item-1-6-8{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-8">
+    <div class = "flex-item-1-6-8">1</div>
+    <div class = "flex-item-1-6-8">2</div>
+    <div class = "flex-item-1-6-8">row</div>
+</div>
+```
+`align-items:center` 을 추가했다
+
+<style>
+.flex-container-1-6-8{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:center;
+
+    height:110px;
+}
+.flex-item-1-6-8{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-8">
+    <div class = "flex-item-1-6-8">1</div>
+    <div class = "flex-item-1-6-8">2</div>
+    <div class = "flex-item-1-6-8">row</div>
+</div>
+
+콘텐츠가 가운데에 위치하는 것을 확인할 수 있다
+<br>
+<br>
+
+<style>
+.flex-container-1-6-9{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content:center;
+
+    align-items:center;
+
+    height:110px;
+}
+.flex-item-1-6-9{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+</style>
+
+<div class = "flex-container-1-6-9">
+    <div class = "flex-item-1-6-9">1</div>
+    <div class = "flex-item-1-6-9">2</div>
+    <div class = "flex-item-1-6-9">column</div>
+</div>
+
+<br>
+
+#### baseline
+아이템(item)들을 텍스트 베이스라인(baseline)을 기준으로 정렬한다
+
+```html
+<style>
+.flex-container-1-6-10{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:baseline;
+
+    height:110px;
+}
+.flex-item-1-6-10{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+#flex-item-1-6-10-1{
+    height:70px;
+}
+#flex-item-1-6-10-2{
+    height:50px;
+}
+</style>
+
+<div class = "flex-container-1-6-10">
+    <div class = "flex-item-1-6-10" 
+    id = "flex-item-1-6-10-1">1</div>
+    <div class = "flex-item-1-6-10"
+    id = "fled-item-1-6-10-2">2</div>
+    <div class = "flex-item-1-6-10">row</div>
+</div>
+```
+`align-items:baseline;` 을 추가했다
+
+<style>
+.flex-container-1-6-10{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+
+    align-items:baseline;
+
+    height:110px;
+}
+.flex-item-1-6-10{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+#flex-item-1-6-10-1{
+    height:70px;
+}
+#flex-item-1-6-10-2{
+    height:50px;
+}
+</style>
+
+<div class = "flex-container-1-6-10">
+    <div class = "flex-item-1-6-10" 
+    id = "flex-item-1-6-10-1">1</div>
+    <div class = "flex-item-1-6-10"
+    id = "fled-item-1-6-10-2">2</div>
+    <div class = "flex-item-1-6-10">row</div>
+</div>
+
+글씨의 <a href = "https://cphinf.pstatic.net/mooc/20180930_2/1538299310812y3Shi_PNG/11123.png" target = "_blank" title = "참고자료">baseline</a> 을 기준으로 정렬되는 것을 확인할 수 있다
+
+<br>
+
+<style>
+.flex-container-1-6-11{
+    background-color:gray;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content:center;
+
+    align-items:baseline;
+
+    height:110px;
+}
+.flex-item-1-6-11{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+
+    margin:5px;
+    width:100px;
+}
+#flex-item-1-6-11-1{
+    width:400px;
+}
+#flex-item-1-6-11-2{
+    width:200px;
+}
+</style>
+
+<div class = "flex-container-1-6-11">
+    <div class = "flex-item-1-6-11"
+    id = flex-item-1-6-11-1>1</div>
+    <div class = "flex-item-1-6-11"
+    id = flex-item-1-6-11-2>2</div>
+    <div class = "flex-item-1-6-11">column</div>
+</div>
+
+<br>
+
+### align-content
+`flex-wrap:wrap;` 이 설정된 상태에서, 아이템(item)들의 줄이 2줄이상 되었을 때의 수직축(cross axis) 방향 정렬을 결정한다
+
+
+
+
+
+
 
 
 
