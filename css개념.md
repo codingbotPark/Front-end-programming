@@ -7,22 +7,9 @@ CSS는 1994년 하콤 비움 리(Håkon Wium Lie)가 처음 제안하였다.
 
 <a href = "https://ko.wikipedia.org/wiki/CSS#%EC%97%AD%EC%82%AC" target = "_blank" title = "참고자료">위키백과\<CSS></a>
 
-HTML에서 정보를 전달하는 일, 꾸미는 일을 할 수 있었는데 웹이 발전해나가면서 HTML은 정보를 표현하는 일에 전념하게 되고 CSS는 디자인을 담당하게 된다
+HTML에서 정보를 전달하는 일, 꾸미는 일을 할 수 있었는데 웹이 발전해나가면서 HTML은 정보를 표현하는 일에 전념하게 되고 CSS가 디자인을 담당하게 된다
 
 HTML에서 CSS가 분화될 수 밖에 없었던 이유는 분화 시켰을 때 효과가 훨신 더 크다 라는 판단이 있어서 이다
-
-```html
-<style>
-    {
-        coler:blue;
-    }
-</style>
-
-<li>HTML</li>
-<li>CSS</li>
-<li>JS</li>
-```
-이런 행태를 띈다
 
 정보와 디자인을 분리하면 
 * 웹페이지를 해석해서 처리를 할 때 더 효율적으로 할 수 있다
