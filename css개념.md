@@ -3648,27 +3648,200 @@ text-align:center;
 ```html
 <style>
 .flex-container-2-1-1{
-    background-color:gray;
-    display:flex;
-    flex-flow:row wrap;
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
 
-    align-content:space-around;
-
-    height:310px;
 }
 .flex-item-2-1-1{
-    background-color:yellowgreen;
-    color:white;
-    border:1px solid yellowgreen;
-    margin:5px;
-    
-    /* width:100px; */
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+
+flex-basis:100px;
 }
 </style>
 
 <div class = "flex-container-2-1-1">
     <div class = "flex-item-2-1-1">1</div>
     <div class = "flex-item-2-1-1">2</div>
-    <div class = "flex-item-2-1-1">space-evenly</div>
+    <div class = "flex-item-2-1-1">flex-basis</div>
 </div>
 ```
+`flex-basis` 을 추가했다  
+
+<style>
+.flex-container-2-1-1{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+
+}
+.flex-item-2-1-1{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+
+flex-basis:100px;
+}
+</style>
+
+<div class = "flex-container-2-1-1">
+    <div class = "flex-item-2-1-1">1</div>
+    <div class = "flex-item-2-1-1">22222222222222222</div>
+    <div class = "flex-item-2-1-1">flex-basis</div>
+</div>
+
+`width, height` 와 `flex-basis`의 차이점은   
+* `flex-basis` 는 아이템(item)의 컨텐츠가 `flex-basis` 의 값보다 클 때 `flex-basis` 의 값을 넘어간다
+* `width, height` 는 아이템(item)의 컨텐츠가 `width, height` 의 값보다 클 때 `widht, height` 의 값을 유지한다
+
+<style>
+.flex-container-2-1-2{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+
+}
+.flex-item-2-1-2{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+
+width:100px;
+}
+</style>
+
+<div class = "flex-container-2-1-2">
+    <div class = "flex-item-2-1-2">1</div>
+    <div class = "flex-item-2-1-2">22222222222222222</div>
+    <div class = "flex-item-2-1-2">width(height)</div>
+</div>
+
+<br>
+
+### flex-grow
+**아이템(item)의 증가 너비 비율을 설정한다 (숫자가클수록 커짐)**  
+`flex-basis` 의 값보다 커질 수 있을지 결정  
+0(기본값)보다 큰 값이 세팅되면 해당 아이템(item)은 유연한(flexible) 박스로 변하고 빈 공간을 채운다
+
+```html
+<style>
+.flex-container-2-2-1{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+
+}
+.flex-item-2-2-1{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+flex-basis:100px;
+
+flex-grow:1;
+}
+</style>
+
+<div class = "flex-container-2-2-1">
+    <div class = "flex-item-2-2-1">1</div>
+    <div class = "flex-item-2-2-1">22222222222222222</div>
+    <div class = "flex-item-2-2-1">1 : 1 : 1</div>
+</div>
+```
+`flex-grow:1` 을 추가했다 
+
+<style>
+.flex-container-2-2-1{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+
+}
+.flex-item-2-2-1{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+flex-basis:100px;
+
+flex-grow:1;
+}
+</style>
+
+<div class = "flex-container-2-2-1">
+    <div class = "flex-item-2-2-1">1</div>
+    <div class = "flex-item-2-2-1">22222222222222222</div>
+    <div class = "flex-item-2-2-1">1 : 1 : 1 (flex-basis O)</div>
+</div>
+
+`flex-basis` 의 값을 제외한 여백부분을 `flex-grow` 의 값의 비율로 나누어 가진다
+
+<style>
+.flex-container-2-2-2{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+
+}
+.flex-item-2-2-2{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+/* flex-basis:100px; */
+
+flex-grow:1;
+}
+</style>
+
+<div class = "flex-container-2-2-2">
+    <div class = "flex-item-2-2-2">1</div>
+    <div class = "flex-item-2-2-2">22222222222222222</div>
+    <div class = "flex-item-2-2-2">1 : 1 : 1 (flex-basis X)</div>
+</div>
+
+즉 `flex-basis` 를 삭제하면 아이템(item)의 여백 부분의 크기가 같아진다
+
+<style>
+.flex-container-2-2-3{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+
+}
+.flex-item-2-2-3{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+}
+#flex-item-2-2-3-1{
+flex-grow:1;
+}
+#flex-item-2-2-3-2{
+flex-grow:3;
+}
+#flex-item-2-2-3-3{
+flex-grow:1;
+}
+</style>
+
+<div class = "flex-container-2-2-3">
+    <div class = "flex-item-2-2-3" id = "flex-item-2-2-3-1">1</div>
+    <div class = "flex-item-2-2-3" id = "flex-item-2-2-3-2">22222222222222222</div>
+    <div class = "flex-item-2-2-3" id = "flex-item-2-2-3-3">1 : 3 : 1 (flex-basis X)</div>
+</div>
+
+즉 `flex-basis` 의 비율을 각각 다르게주면 여백 부분의 비율이 달라진다
+
+<br>
+
+### flex-shrink
+**아이템(item)의 감소 너비 비율을 설정한다 (숫자가 클수록 작아짐)**  
+`flex-basis` 의 값보다 작아질 수 있을지 결정  
+기본값이 1이기 때문에 세팅이 없어도 `flex-basis` 의 값보다 작아질 수 있다
