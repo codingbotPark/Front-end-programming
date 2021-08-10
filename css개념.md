@@ -3676,13 +3676,12 @@ flex-basis:100px;
 background-color:gray;
 display:flex;
 flex-flow:row wrap;
-
 }
 .flex-item-2-1-1{
 background-color:yellowgreen;
 color:white;
 border:1px solid yellowgreen;
-margin:5px;
+margin:5px;z
 
 flex-basis:100px;
 }
@@ -3767,7 +3766,8 @@ background-color:yellowgreen;
 color:white;
 border:1px solid yellowgreen;
 margin:5px;
-flex-basis:100px;
+display:flex;
+flex-basis:20px;
 
 flex-grow:1;
 }
@@ -3786,13 +3786,13 @@ flex-grow:1;
 background-color:gray;
 display:flex;
 flex-flow:row wrap;
-
 }
 .flex-item-2-2-2{
 background-color:yellowgreen;
 color:white;
 border:1px solid yellowgreen;
 margin:5px;
+display:flex;
 /* flex-basis:100px; */
 
 flex-grow:1;
@@ -3812,13 +3812,13 @@ flex-grow:1;
 background-color:gray;
 display:flex;
 flex-flow:row wrap;
-
 }
 .flex-item-2-2-3{
 background-color:yellowgreen;
 color:white;
 border:1px solid yellowgreen;
 margin:5px;
+display:flex;
 }
 #flex-item-2-2-3-1{
 flex-grow:1;
@@ -3845,3 +3845,81 @@ flex-grow:1;
 **아이템(item)의 감소 너비 비율을 설정한다 (숫자가 클수록 작아짐)**  
 `flex-basis` 의 값보다 작아질 수 있을지 결정  
 기본값이 1이기 때문에 세팅이 없어도 `flex-basis` 의 값보다 작아질 수 있다
+
+```html
+<style>
+.flex-container-2-3-1{
+background-color:gray;
+display:flex;
+height:180px;
+}
+.flex-item-2-3-1{
+display:flex;
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+flex-basis:400px;
+
+justify-content:center;
+align-items:center;
+}
+.flex-item-2-3-1:nth-child(1){flex-shrink:0}
+.flex-item-2-3-1:nth-child(2){flex-shrink:1}
+.flex-item-2-3-1:nth-child(3){flex-shrink:2}
+</style>
+
+<div class = "flex-container-2-3-1">
+<div class = "flex-item-2-3-1">1 (0 = 사라지지않음)</div>
+<div class = "flex-item-2-3-1">2 (1 = 3분의 1)</div>
+<div class = "flex-item-2-3-1">3 (2 = 3분의 2)</div>
+</div>
+```
+`flex-shrink:0~2` 을 추가했다   
+텍스트기준으로 `.flex-item-2-3-1` 은 컨테이너이기 때문에 `display:flex;` 와 `justify-content` , `align-items` 로 텍스트를 중앙으로 정렬했다
+
+<style>
+.flex-container-2-3-1{
+background-color:gray;
+display:flex;
+height:180px;
+}
+.flex-item-2-3-1{
+display:flex;
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+justify-content:center;
+align-items:center;
+flex-basis:400px;
+}
+.flex-item-2-3-1:nth-child(1){flex-shrink:0}
+.flex-item-2-3-1:nth-child(2){flex-shrink:1}
+.flex-item-2-3-1:nth-child(3){flex-shrink:2}
+</style>
+
+<div class = "flex-container-2-3-1">
+<div class = "flex-item-2-3-1">1 (0 = 사라지지않음)</div>
+<div class = "flex-item-2-3-1">2 (1 = 3분의 1)</div>
+<div class = "flex-item-2-3-1">3 (2 = 3분의 2)</div>
+</div>
+
+<br>
+
+### flex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href = "https://flexboxfroggy.com/#ko" target = "_blank" title = "참고자료">CSS Flex 게임</a>
