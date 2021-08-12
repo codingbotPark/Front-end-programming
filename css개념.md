@@ -4191,9 +4191,141 @@ transform:scale(2);
 <br>
 
 ## Multi Column
-컬럼을 나눔으로서 가독성을 높일 수 있다
-이러한 컬럼을 css로 적당한 크기로 나눌 수 있다
+컬럼(column)을 나눔으로서 가독성을 높일 수 있다
+이러한 컬럼(column)을 css로 적당한 크기로 나눌 수 있다
 
 ```html
+<style>
+.multi-column-1{
+    column-count:2;
+}
+</style>
 
+<div class = "multi-column-1">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
 ```
+`column-count:2;` 을 추가했다  
+
+<style>
+.multi-column-1{
+    column-count:2;
+}
+</style>
+
+<div class = "multi-column-1">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
+
+<br>
+
+```html
+<style>
+.multi-column-2{
+    text-align:justify;
+    column-width:200px;
+}
+</style>
+
+<div class = "multi-column-2">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
+```
+`column-width` 와 `text-align:justify;` 을 추가했다  
+컬럼(column)의 폭을 200px로 맞춰서 나누어 진다  
+`text-align:justify;` 는 컬럼(column)을 나누고 단어의 빈자리를 곧게 만들어준다
+
+<style>
+.multi-column-2{
+    text-align:justify;
+    column-width:200px;
+}
+</style>
+
+<div class = "multi-column-2">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
+
+<br>
+
+컬럼(column)의 폭이 200px이면 컬럼이 되기 때문에 페이지의 크기에 따라 컬럼(column)이 달라지는 것을 확인할 수 있다
+
+```html
+<style>
+.multi-column-3{
+    text-align:justify;
+    column-count:4;
+    column-width:200px;
+    column-gap:30px;
+}
+</style>
+
+<div class = "multi-column-3">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
+```
+`column-align:4;` 와 `column-width:200px` 와 `column-gap:30px;` 을 추가했다  
+이 `column-width` 와 `column-count` 를 같이 사용함으로써 최대 컬럼(column)의 개수를 지정할 수 있다  
+`column-gap` 을 지정해 컬럼(column) 사이의 간격을 정할 수 있다
+
+<style>
+.multi-column-3{
+    text-align:justify;
+    column-count:4;
+    column-width:200px;
+    column-gap:30px;
+}
+</style>
+
+<div class = "multi-column-3">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
+
+컬럼(column)의 수가 최대 `column-count` 의 값만큼 나오는 것을 확인할 수 있다
+
+<br>
+
+```html
+<style>
+.multi-column-4{
+    text-align:justify;
+    column-count:4;
+    column-width:200px;
+
+    column-rule-style:dashed;
+    column-rule-width:5px;
+    column-rule-color:yellowgreen;
+}
+.column-title{
+    column-span:all;
+}
+</style>
+
+<div class = "multi-column-4">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language <h2 class = "column-title">HTML</h2> is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets <h2 class = "column-title">CSS</h2> is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
+```
+`column-rule-style:dashed;` 와 `column-rule-width:5px;` 와 `column-rule-color:yellowgreen;` 와 `column-span:all;` 을 추가했다  
+`column-rule-style` , `column-rule-width` , `column-rule-color` 등을 활용하여 컬럼(column)을 디자인 할 수 있다  
+`column-span` 을 활용하여 컬럼(column)안에 들어가는 제목을 컬럼(column)의 영향에서 벗어나게할 수 있다
+
+<style>
+.multi-column-4{
+    text-align:justify;
+    column-count:4;
+    column-width:200px;
+
+    column-rule-style:dashed;
+    column-rule-width:5px;
+    column-rule-color:yellowgreen;
+}
+.column-title{
+    column-span:all;
+}
+</style>
+
+<div class = "multi-column-4">
+My name is codingbotPark. nice to meet you. Hyper Text Markup Language <h2 class = "column-title">HTML</h2> is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets <h2 class = "column-title">CSS</h2> is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</div>
+
+<br>
