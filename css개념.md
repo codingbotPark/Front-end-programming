@@ -1455,11 +1455,13 @@ text-align:center;
 <br>
 
 <a href = "https://studiomeal.com/archives/197" target = "_blank" title = "참고자료">CSS Flex</a>  
+<a href ="https://heropy.blog/2018/11/24/css-flexible-box/" target = "_blank" title = "참고자료">CSS Flex</a>  
 <a href = "https://codepen.io/enxaneta/pen/adLPwv" target = "_blank" title = "참고자료">Flex 테스트</a>
 
 <br>
 
 > 컨테이너(container)에 적용하는 속성들
+
 
 ### display : flex ;
 **Flex 를 사용할 때 컨테이너(container)에게 `display:flex;`를 주고 시작한다**
@@ -3210,9 +3212,7 @@ text-align:center;
 <img alt = "align-content" src = "https://heropy.blog/images/screenshot/css-flexible-box/flex-align-content.jpg" height = "400">
 
 <br>
-<br>
 
-<a href ="https://heropy.blog/2018/11/24/css-flexible-box/" target = "_blank" title = "참고자료">Flex align-content</a>  
 <a href = "https://developer.mozilla.org/ko/docs/Web/CSS/align-content" target = "_blank" title = "참고자료">Flex align-content</a>
 
 <br>
@@ -3851,6 +3851,7 @@ flex-grow:1;
 .flex-container-2-3-1{
 background-color:gray;
 display:flex;
+flex-flow:row wrap;
 height:180px;
 }
 .flex-item-2-3-1{
@@ -3870,9 +3871,9 @@ align-items:center;
 </style>
 
 <div class = "flex-container-2-3-1">
-<div class = "flex-item-2-3-1">1 (0 = 사라지지않음)</div>
-<div class = "flex-item-2-3-1">2 (1 = 3분의 1)</div>
-<div class = "flex-item-2-3-1">3 (2 = 3분의 2)</div>
+    <div class = "flex-item-2-3-1">1 (0 = 사라지지않음)</div>
+    <div class = "flex-item-2-3-1">2 (1 = 3분의 1)</div>
+    <div class = "flex-item-2-3-1">3 (2 = 3분의 2)</div>
 </div>
 ```
 `flex-shrink:0~2` 을 추가했다   
@@ -3882,6 +3883,7 @@ align-items:center;
 .flex-container-2-3-1{
 background-color:gray;
 display:flex;
+flex-flow:row wrap;
 height:180px;
 }
 .flex-item-2-3-1{
@@ -3900,28 +3902,106 @@ flex-basis:400px;
 </style>
 
 <div class = "flex-container-2-3-1">
-<div class = "flex-item-2-3-1">1 (0 = 사라지지않음)</div>
-<div class = "flex-item-2-3-1">2 (1 = 3분의 1)</div>
-<div class = "flex-item-2-3-1">3 (2 = 3분의 2)</div>
+    <div class = "flex-item-2-3-1">1 (0 = 사라지지않음)</div>
+    <div class = "flex-item-2-3-1">2 (1 = 3분의 1)</div>
+    <div class = "flex-item-2-3-1">3 (2 = 3분의 2)</div>
 </div>
 
 <br>
 
 ### flex
+`flex-grow`(증가율) , `flex-shrink`(감소율) , `flex-basis`(기본크기) 를 같이 지정할 수 있다  
+`flex-grow` , `flex-shrink` , `flex-basis` 의 순서로 한 칸 씩 떼고 적는다  
+`(flex:1; = flex-grow:1; / flex-shrink:1; / flex-basis:0%;)`  
+`(flex:1 1 auto; = flex-grow:1; / flex-shrink:1; / flex-basis:auto;)`
 
+```html
+<style>
+.flex-container-2-4-1{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+height:180px;
+}
+.flex-item-2-4-1{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+display:flex;
+justify-content:center;
+align-items:center;
 
+flex:1 1 40%;
+}
+</style>
 
+<div class = "flex-container-2-4-1">
+    <div class = "flex-item-2-4-1">1</div>
+    <div class = "flex-item-2-4-1">2</div>
+    <div class = "flex-item-2-4-1">3</div>
+    <div class = "flex-item-2-4-1">flex-grow:1</div>
+    <div class = "flex-item-2-4-1">flex-shrink:1</div>
+    <div class = "flex-item-2-4-1">flex-basis:40%</div>
+    <div class = "flex-item-2-4-1">1 : 1 : 40%</div>
+</div>
+```
+`flex:1 1 40%` 을 추가했다
 
+<style>
+.flex-container-2-4-1{
+background-color:gray;
+display:flex;
+flex-flow:row wrap;
+height:180px;
+}
+.flex-item-2-4-1{
+background-color:yellowgreen;
+color:white;
+border:1px solid yellowgreen;
+margin:5px;
+display:flex;
+justify-content:center;
+align-items:center;
 
+flex:1 1 40%;
+}
+</style>
 
-
-
-
-
-
+<div class = "flex-container-2-4-1">
+    <div class = "flex-item-2-4-1">1</div>
+    <div class = "flex-item-2-4-1">2</div>
+    <div class = "flex-item-2-4-1">3</div>
+    <div class = "flex-item-2-4-1">flex-grow:1</div>
+    <div class = "flex-item-2-4-1">flex-shrink:1</div>
+    <div class = "flex-item-2-4-1">flex-basis:40%</div>
+    <div class = "flex-item-2-4-1">1 : 1 : 40%</div>
+</div>
 
 <br>
+
+### align-self
+수직축으로 아이템(item)을 정렬 할 수 있다  
+`align-items`의 아이템(item) 버전, `align-items` 는 전체 아이템(item)의 수직축 방향 정렬, `align-self` 는 해당 아이템(item)의 수직축 정렬
+
+<img alt = "align-self" src = "https://heropy.blog/images/screenshot/css-flexible-box/flex-align-self.jpg">
+
+#### auto
+기본값, align-items의 설정을 상속받는다
+
+```html
+
+<div class = "flex-container-2-5-1">
+    <div class = "flex-itme-2-4-1">
+</div>
+```
+
+
+
+
+
+
+
+
 
 <a href = "https://flexboxfroggy.com/#ko" target = "_blank" title = "참고자료">CSS Flex 게임</a>
-    
-<br>
