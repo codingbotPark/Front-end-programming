@@ -3910,7 +3910,7 @@ flex-basis:400px;
 <br>
 
 ### flex
-`flex-grow`(증가율) , `flex-shrink`(감소율) , `flex-basis`(기본크기) 를 같이 지정할 수 있다  
+**`flex-grow`(증가율) , `flex-shrink`(감소율) , `flex-basis`(기본크기) 를 같이 지정할 수 있다**   
 `flex-grow` , `flex-shrink` , `flex-basis` 의 순서로 한 칸 씩 떼고 적는다  
 `(flex:1; = flex-grow:1; / flex-shrink:1; / flex-basis:0%;)`  
 `(flex:1 1 auto; = flex-grow:1; / flex-shrink:1; / flex-basis:auto;)`
@@ -3981,27 +3981,219 @@ flex:1 1 40%;
 <br>
 
 ### align-self
-수직축으로 아이템(item)을 정렬 할 수 있다  
+**수직축으로 아이템(item)을 정렬 할 수 있다**  
 `align-items`의 아이템(item) 버전, `align-items` 는 전체 아이템(item)의 수직축 방향 정렬, `align-self` 는 해당 아이템(item)의 수직축 정렬
 
 <img alt = "align-self" src = "https://heropy.blog/images/screenshot/css-flexible-box/flex-align-self.jpg">
 
-#### auto
-기본값, align-items의 설정을 상속받는다
+<br>
 
 ```html
+<style>
+.flex-container-2-5-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row column;
+    height:180px;
+}
+.flex-item-2-5-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    margin:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex: 1 1 15%;
+}
+.flex-item-2-5-1:nth-child(1){align-self:auto;}
+.flex-item-2-5-1:nth-child(2){align-self:stretch;}
+.flex-item-2-5-1:nth-child(3){align-self:flex-start;}
+.flex-item-2-5-1:nth-child(4){align-self:flex-end;}
+.flex-item-2-5-1:nth-child(5){align-self:center;}
+.flex-item-2-5-1:nth-child(6){align-self:baseline;}
+</style>
 
 <div class = "flex-container-2-5-1">
-    <div class = "flex-itme-2-4-1">
+<div class = "flex-item-2-5-1">auto</div>
+<div class = "flex-item-2-5-1">stretch</div>
+<div class = "flex-item-2-5-1">flex-start</div>
+<div class = "flex-item-2-5-1">flex-end</div>
+<div class = "flex-item-2-5-1">center</div>
+<div class = "flex-item-2-5-1">baseline</div>
+</div>
+```
+아이템(item)마다 `align-self` 을 추가했다
+
+<style>
+.flex-container-2-5-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row column;
+    height:180px;
+}
+.flex-item-2-5-1{
+    background-color:yellowgreen;
+    color:white;
+    border:1px solid yellowgreen;
+    margin:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex: 1 1 15%;
+}
+.flex-item-2-5-1:nth-child(1){align-self:auto;}
+.flex-item-2-5-1:nth-child(2){align-self:stretch;}
+.flex-item-2-5-1:nth-child(3){align-self:flex-start;}
+.flex-item-2-5-1:nth-child(4){align-self:flex-end;}
+.flex-item-2-5-1:nth-child(5){align-self:center;}
+.flex-item-2-5-1:nth-child(6){align-self:baseline;}
+</style>
+
+<div class = "flex-container-2-5-1">
+<div class = "flex-item-2-5-1">auto</div>
+<div class = "flex-item-2-5-1">stretch</div>
+<div class = "flex-item-2-5-1">flex-start</div>
+<div class = "flex-item-2-5-1">flex-end</div>
+<div class = "flex-item-2-5-1">center</div>
+<div class = "flex-item-2-5-1">baseline</div>
+</div>
+
+<br>
+
+### order
+**아이템(item)의 시각적 배치순서를 결정할 수 있다**  
+작은 숫자일 수록 먼저 배치되고 시각적 순서일 뿐 html 자체의 구조를 바꾸진 않는다
+
+```html
+<style>
+.flex-container-2-6-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    height:100px;
+}
+.flex-item-2-6-1{
+    background-color:yellowgreen;
+    border:1px solid yellowgreen;
+    margin:5px;
+    color:white;
+    flex-basis:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center
+}
+.flex-item-2-6-1:nth-child(1){order:3;}
+/* 변경후의 위치를 기준으로 order을 사용 */
+.flex-item-2-6-1:nth-child(2){order:1;}
+</style>
+
+<div class = "flex-container-2-6-1">
+<div class = "flex-item-2-6-1">1</div>
+<div class = "flex-item-2-6-1">2</div>
+<div class = "flex-item-2-6-1">3</div>
+</div>
+```
+`order:` 을 추가했다
+
+<style>
+.flex-container-2-6-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    height:100px;
+}
+.flex-item-2-6-1{
+    background-color:yellowgreen;
+    border:1px solid yellowgreen;
+    margin:5px;
+    color:white;
+    flex-basis:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center
+}
+.flex-item-2-6-1:nth-child(1){order:3;}
+/* 변경후의 위치를 기준으로 order을 사용 */
+.flex-item-2-6-1:nth-child(2){order:1;}
+</style>
+
+<div class = "flex-container-2-6-1">
+<div class = "flex-item-2-6-1">1</div>
+<div class = "flex-item-2-6-1">2</div>
+<div class = "flex-item-2-6-1">3</div>
+</div>
+
+순서가 반대로된 것을 확인할 수 있다
+
+<br>
+
+### +z-index
+**Z축 정렬을 할 수 있다(숫자가 클 수록 위로 올라감)**
+
+```html
+<style>
+.flex-container-2-7-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    height:100px;
+}
+.flex-item-2-7-1{
+    background-color:yellowgreen;
+    margin:5px;
+    color:white;
+    border:1px solid yellowgreen;
+}
+</style>
+
+<div class = "flex-container-2-7-1">
+<div class = "flex-item-2-7-1">1</div>
+<div class = "flex-item-2-7-1">2</div>
+<div class = "flex-item-2-7-1">3</div>
 </div>
 ```
 
+<style>
+.flex-container-2-7-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+    height:100px;
+}
+.flex-item-2-7-1{
+    background-color:yellowgreen;
+    margin:5px;
+    color:white;
+    border:1px solid yellowgreen;
+    flex-basis:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.flex-item-2-7-1:nth-child(2){
+z-index:1;
+transform:scale(2);
+}
+</style>
 
+<div class = "flex-container-2-7-1">
+<div class = "flex-item-2-7-1">1</div>
+<div class = "flex-item-2-7-1">2</div>
+<div class = "flex-item-2-7-1">3</div>
+</div>
 
-
-
-
-
-
+<br>
+<br>
 
 <a href = "https://flexboxfroggy.com/#ko" target = "_blank" title = "참고자료">CSS Flex 게임</a>
+
+<br>
+
+## Multi Column
+컬럼을 나눔으로서 가독성을 높일 수 있다
+이러한 컬럼을 css로 적당한 크기로 나눌 수 있다
+
+```html
+
+```
