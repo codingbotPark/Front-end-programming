@@ -4084,7 +4084,7 @@ flex:1 1 40%;
     align-items:center
 }
 .flex-item-2-6-1:nth-child(1){order:3;}
-/* 변경후의 위치를 기준으로 order을 사용 */
+/* 변경후의 위치를 기준으로 order을 사용해서 child(2)를 바꿈 */
 .flex-item-2-6-1:nth-child(2){order:1;}
 </style>
 
@@ -4329,3 +4329,378 @@ My name is codingbotPark. nice to meet you. Hyper Text Markup Language <h2 class
 </div>
 
 <br>
+
+## Media query
+미디어의 상태에 따라 다른 디자인을 적용한다
+
+```html
+<style>
+.media-query{
+    height:100px;
+}
+@media(width:500px){
+    .media-query{
+        background-color:yellowgreen;
+    }
+}
+@media(max-width:499px){
+    .media-query{
+        background-color:yellow;
+    }
+}
+@media(min-width:501px){
+    .media-query{
+        background-color:gray;
+    }
+}
+</style>
+
+<div class = "media-query"></div>
+```
+`@media` 을 추가했다  
+`width:500px` 화면의크기가 정확히 500px이 되었을 때  
+`max-width:499px;` 화면의 크기가 499px 이하일 때  
+`min-width:501px` 화면의 크기가 501px 이상일 때   
+케스케이딩(cascading)도 생각을 해야한다
+
+<style>
+.media-query{
+    height:100px;
+}
+@media(width:500px){
+    .media-query{
+        background-color:yellowgreen;
+    }
+}
+@media(max-width:499px){
+    .media-query{
+        background-color:yellow;
+    }
+}
+@media(min-width:501px){
+    .media-query{
+        background-color:green;
+    }
+}
+</style>
+
+<div class = "media-query"></div>
+
+페이지의 크기에 따라 배경색이 변하는 것을 확인할 수 있다
+
+\+ 모바일에서는 크기가 다르기 때문에 `<meta name = "viewport" content = "width=device-width, initial-scale=1.0">` 을 추가하면 요소들의 크기를 모바일에 맞게 맞추어진다
+
+### + Media query예제
+Holy Grail layout형식에서 모바일일 때의 변경
+
+<img alt = "Holy Grail layout" src = "https://s3-ap-northeast-2.amazonaws.com/opentutorials-user-file/module/2367/4744.png" height:350px>
+
+<br>
+
+```html
+<style>
+.media-query-container{
+    display:flex;
+    flex-direction:column
+}
+.media-query-header{
+    border-bottom:1px solid yellowgreen;
+    padding-left:20px;
+}
+.media-query-footer{
+    border-top:1px solid yellowgreen;
+    padding:20px;
+    text-align:center;
+}
+.media-query-content{
+    display:flex;
+    /* display:flex;의 기본값은 row(가로)로 정렬하기 때문에 nav, 내용, ad의 순서가 가로로 올 수 있다 */
+}
+.media-query-content .media-query-nav{
+    border-right:1px solid yellowgreen;
+}
+.media-query-content .media-query-aside{
+    border-left:1px solid yellowgreen;
+}
+.media-query-nav, .media-query-aside{
+    flex-basis:150px;
+    flex-shrink:0;
+}
+.media-query-main{
+    padding:10px;
+}
+</style>
+
+<div class = "media-query-container">
+    <header class = "media-query-header">
+        <h3>codingbotPark</h3>
+    </header>
+    <section class = "media-query-content">
+        <nav class = "media-query-nav">
+            <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>JS</li>
+            </ul>
+        </nav>
+        <main class = "media-query-main">
+            My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+        </main>
+        <aside class = "media-query-aside">
+            AD
+        </aside>
+    </section>
+    <footer class = "media-query-footer">
+        <a href="https://github.com/codingbotPark" target = "_blank">깃허브</a>
+    </footer>
+</div>
+```
+
+<style>
+.media-query-container{
+    display:flex;
+    flex-direction:column
+}
+.media-query-header{
+    border-bottom:1px solid yellowgreen;
+    padding-left:20px;
+}
+.media-query-footer{
+    border-top:1px solid yellowgreen;
+    padding:20px;
+    text-align:center;
+}
+.media-query-content{
+    display:flex;
+}
+.media-query-content .media-query-nav{
+    border-right:1px solid yellowgreen;
+}
+.media-query-content .media-query-aside{
+    border-left:1px solid yellowgreen;
+}
+.media-query-nav, .media-query-aside{
+    flex-basis:150px;
+    flex-shrink:0;
+}
+.media-query-main{
+    padding:10px;
+}
+</style>
+
+<div class = "media-query-container">
+    <header class = "media-query-header">
+        <h3>codingbotPark</h3>
+    </header>
+    <section class = "media-query-content">
+        <nav class = "media-query-nav">
+            <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>JS</li>
+            </ul>
+        </nav>
+        <main class = "media-query-main">
+            My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+        </main>
+        <aside class = "media-query-aside">
+            AD
+        </aside>
+    </section>
+    <footer class = "media-query-footer">
+        <a href="https://github.com/codingbotPark" target = "_blank">깃허브</a>
+    </footer>
+</div>
+
+<br>
+
+이러한 Holy Grail layout 을 모바일일 때의 형태로 바꾸면
+
+<br>
+
+```html
+<style>
+.media-query-container-1{
+    display:flex;
+    flex-direction:column
+}
+.media-query-header-1{
+    border-bottom:1px solid yellowgreen;
+    padding-left:20px;
+}
+.media-query-footer-1{
+    border-top:1px solid yellowgreen;
+    padding:20px;
+    text-align:center;
+}
+.media-query-content-1{
+    display:flex;
+}
+.media-query-content-1 .media-query-nav-1{
+    border-right:1px solid yellowgreen;
+}
+.media-query-content-1 .media-query-aside-1{
+    border-left:1px solid yellowgreen;
+}
+.media-query-nav-1, .media-query-aside-1{
+    flex-basis:150px;
+    flex-shrink:0;
+}
+.media-query-main-1{
+    padding:10px;
+}
+
+@media(max-width:500px){
+    .media-query-content-1{
+        flex-direction:column;
+    }
+    /* 테두리삭제 */
+    .media-query-content-1 .media-query-nav-1 ,
+    .media-query-content-1 .media-query-aside-1{
+        border:none;
+    }
+}
+
+</style>
+
+<div class = "media-query-container-1">
+    <header class = "media-query-header-1">
+        <h3>codingbotPark</h3>
+    </header>
+    <section class = "media-query-content-1">
+        <nav class = "media-query-nav-1">
+            <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>JS</li>
+            </ul>
+        </nav>
+        <main class = "media-query-main-1">
+            My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+        </main>
+        <aside class = "media-query-aside-1">
+            AD
+        </aside>
+    </section>
+    <footer class = "media-query-footer-1">
+        <a href="https://github.com/codingbotPark" target = "_blank">깃허브</a>
+    </footer>
+</div>
+```
+`@media(max-width:500px)` 을 추가했다  
+페이지의 크기가 500px이하일 때 `flex-direction:column;` 이 지정, `border:none;`(테두리삭제)
+
+<style>
+.media-query-container-1{
+    display:flex;
+    flex-direction:column
+}
+.media-query-header-1{
+    border-bottom:1px solid yellowgreen;
+    padding-left:20px;
+}
+.media-query-footer-1{
+    border-top:1px solid yellowgreen;
+    padding:20px;
+    text-align:center;
+}
+.media-query-content-1{
+    display:flex;
+}
+.media-query-content-1 .media-query-nav-1{
+    border-right:1px solid yellowgreen;
+}
+.media-query-content-1 .media-query-aside-1{
+    border-left:1px solid yellowgreen;
+}
+.media-query-nav-1, .media-query-aside-1{
+    flex-basis:150px;
+    flex-shrink:0;
+}
+.media-query-main-1{
+    padding:10px;
+}
+
+@media(max-width:500px){
+    .media-query-content-1{
+        flex-direction:column;
+    }
+    /* 테두리삭제 */
+    .media-query-content-1 .media-query-nav-1 ,
+    .media-query-content-1 .media-query-aside-1{
+        border:none;
+    }
+}
+
+</style>
+
+<div class = "media-query-container-1">
+    <header class = "media-query-header-1">
+        <h3>codingbotPark</h3>
+    </header>
+    <section class = "media-query-content-1">
+        <nav class = "media-query-nav-1">
+            <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>JS</li>
+            </ul>
+        </nav>
+        <main class = "media-query-main-1">
+            My name is codingbotPark. nice to meet you. Hyper Text Markup Language (HTML) is a markup language for creating a webpage. In easier words, HTML is a kind of programming language that can make a new webpage. Webpages are usually viewed in a web browser. Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+        </main>
+        <aside class = "media-query-aside-1">
+            AD
+        </aside>
+    </section>
+    <footer class = "media-query-footer-1">
+        <a href="https://github.com/codingbotPark" target = "_blank">깃허브</a>
+    </footer>
+</div>
+
+media query 의 다른 많은 <a href = "https://www.w3schools.com/cssref/css3_pr_mediaquery.asp" target = "_blank" title = "참고자료">기능</a>들이 있다
+
+<br>
+
+## float
+float는 삽화삽입, 레이아웃제작(옛) 등에 사용된다
+
+```html
+<style>
+.float-img{
+    width:200px;
+    float:left;
+    margin:20px;
+}
+</style>
+
+<img alt = "codingbotPark" src = "https://avatars.githubusercontent.com/u/85085375?v=4" class = "float-img">
+<p>
+Your most Unhappy Customers are your greatest source of learning-Bill Gates / Sometimes when you innovate, you make Mistakes. It is best to admit them Quickly and get on with Improving your other Innovations-Steve Jobs / Our greatest weakness lies in Giving up. The most certain way to succeed is always to try just one more time-Thomas A. Edison
+</p>
+<p style="clear:both">
+Action is the foundational key to all success-Pablo Picasso / Don't confuse fame with success-Erma Bombeck / All things are difficult before they are easy-Thomas Fuller
+</p>
+```
+`float:left` , `clear:both` 을 추가했다  
+`clear:both` 는 왼쪽, 오른쪽에 오는 `float` 효과를 무효시킨다  
+(즉 `both`는 전에 온 `float` 효과를 무효시킨다)
+
+<style>
+.float-img{
+    width:200px;
+    float:left;
+    margin:20px;
+}
+</style>
+
+<img alt = "codingbotPark" src = "https://avatars.githubusercontent.com/u/85085375?v=4" class = "float-img">
+<p>
+Your most Unhappy Customers are your greatest source of learning-Bill Gates / Sometimes when you innovate, you make Mistakes. It is best to admit them Quickly and get on with Improving your other Innovations-Steve Jobs / Our greatest weakness lies in Giving up. The most certain way to succeed is always to try just one more time-Thomas A. Edison
+</p>
+<p style="clear:both">
+Action is the foundational key to all success-Pablo Picasso / Don't confuse fame with success-Erma Bombeck / All things are difficult before they are easy-Thomas Fuller
+</p>
+
+삽화가 왼쪽으로 들어가고 본문이 바로 오는 것을 확인할 수 있다  
+`float` 효과를 무효하는 본문은 삽화 밑에 오는 것을 확인할 수 있다  
