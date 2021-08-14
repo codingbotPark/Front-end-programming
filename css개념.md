@@ -4704,3 +4704,96 @@ Action is the foundational key to all success-Pablo Picasso / Don't confuse fame
 
 삽화가 왼쪽으로 들어가고 본문이 바로 오는 것을 확인할 수 있다  
 `float` 효과를 무효하는 본문은 삽화 밑에 오는 것을 확인할 수 있다  
+
+
+### + Float 예제
+Holy Grail layout형식을 float을 활용해 짜기
+
+<img alt = "Holy Grail layout" src = "https://s3-ap-northeast-2.amazonaws.com/opentutorials-user-file/module/2367/4744.png" height:350px>
+
+<br>
+
+<style>
+.float-header{
+    border-bottom:1px solid yellowgreen;
+}
+.float-nav{
+    float:left;
+    width:120px;
+    border-right:1px solid yellowgreen;
+}
+.float-article{
+    float:left;
+    width:300px;
+    border-left:1px solid yellowgreen;
+    border-right:1px solid yellowgreen;
+    margin-left:-1px;
+    margin-right:-1px;
+}
+.float-aside{
+    float:left;
+    width:120px;
+    border-left:1px solid yellowgreen;
+}
+.float-footer{
+    clear:both;
+    border-top:1px solid yellowgreen;
+    text-align:center;
+    padding:20px;
+}
+.float-container{
+    width:600px;
+    border:1px solid yellowgreen;
+    margin:auto;
+}
+/* *{
+    box-sizing:border-box;
+} */
+</style>
+
+<div class = "float-container">
+
+<header class = "float-header">
+<h3>CSS</h3>
+</header>
+
+<nav class = "float-nav">
+<ul>
+<li>position</li>
+<li>float</li>
+<li>flex</li>
+</ul>
+</nav>
+
+<article class = "float-article">
+<h4>summary</h4>
+Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+</article>
+
+<aside class = "float-aside">
+ad
+</aside>
+
+<footer class = "float-footer">
+<a href = "https://github.com/codingbotPark/Web-programing/blob/main/css%EA%B0%9C%EB%85%90.md" target = "_blank">CSS깃허브</a>
+</footer>
+
+</div>
+
+<br>
+
+밑에있던 내용이 `float` 을 사용함으로써 위로올라와 옆으로 흐르는 점을 활용해서 `float` 을 레이아웃을 제작할 때 사용한다
+
+`float` 을 사용함으로써 `nav - article` , `aside - article` 의 테두리가 끝까지 적용되지 않기 때문에 두 개의 태그에 둘다 준다
+(예) article > nav 일 때와 article < nav 일 때의 상황 둘 다 대비)
+=> 선이 겹치면서 테두리가 두꺼워진다
+=> `margin-left:-1px;` , `margin-right:-1px;` 을 추가해서 테두리의 두께만큼 article을 이동시킨다
+
+=> 웹페이지의 크기를 움직이다보면 float의 특성(위치할 공간이 없으면 밑으로 내려간다) 레이아웃이 이상해진다
+=> 전체를 div태그로 감싸고 전체넓이에 맞는 넓이를 준다
+=> 기본적으로 css box-model에서 폭을계산할 때 테두리를 포함한다
+=> 이러한 테두리를 신경을 쓰면 복잡할 수 있다
+=> `*{box-sizing:border-box;}` 는 이러한 폭을 계산할 때 박스를 포함해서 계산하도록 한다
+(모든 엘리먼트에대해 박스크기를 지정할 때 테두리를 기준으로 한다)
+
+컨테이너에 `margin:auto;`를 줌으로써 웹페이지의 중간에 오도록 했다
