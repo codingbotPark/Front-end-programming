@@ -4797,3 +4797,83 @@ ad
 (모든 엘리먼트에대해 박스크기를 지정할 때 테두리를 기준으로 한다)
 
 컨테이너에 `margin:auto;`를 줌으로써 웹페이지의 중간에 오도록 했다
+
+## background
+특정 엘리먼트(element)의 배경이미지, 컬러를 지정할 수 있다
+
+```html
+<style>
+.background-color{
+    background-color:yellowgreen;
+    color:white;
+}
+</style>
+
+<div class = "background-color">
+    yellowgreen
+</div>
+```
+
+<style>
+.background-color{
+    background-color:yellowgreen;
+    color:white;
+}
+</style>
+
+<div class = "background-color">
+    yellowgreen
+</div>
+
+<br>
+
+```html
+<style>
+.background-img{
+    background-image: url('https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2');
+    color:white;
+    font-size:80px;
+}
+</style>
+
+<div class = "background-img">
+    가나가와 해변의 높은 파도 아래
+</div>
+```
+
+<style>
+.background-img{
+    background-image: url('https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2');
+    color:white;
+    font-size:80px;
+}
+</style>
+
+<div class = "background-img">
+    가나가와 해변의 높은 파도 아래
+</div>
+
+화면에 사진이 반복되는 것을 설정하려면  
+`background-repeat:no-repeat;` 을 지정하면 반복이 안됨  
+`background-repeat:repeat-x;` 을 지정하면 x 축으로 반복이 된다
+
+
+스크롤을 내렸을 때 의 배경이 스크롤 되는 것을 설정하려면  
+`background-attachment:scroll;` (기본값) 을 지정하면 배경사진, 배경 색이 같이 스크롤된다  
+`background-attachmetn:fixed` 을 지정하면 배경색은 스크롤이 되지만 배경사진은 스크롤이 되지 않는다
+
+
+배경의 크기를 설정하려면  
+`background-size:가로 세로;` 을 지정하면 사진의 크기가 변한다  
+사진이 반복되지 않을 때  
+`background-size:cover` 을 지정하면 페이지를 사진이 채우게 된다  
+`background-size:container` 을 지정하면 페이지 안에 사진전체가 들어가게된다  
+
+
+배경사진의 위치를 설정하려면(반복이 안될 때)  
+`background-position:left top;` , `background-position:right top;` , `background-position:right bottom;` , `background-position:center bottom;` 등으로 위치를 바꿀 수 있다
+
+
+`background:색 url('이미지주소') no-repeat fixed center` 등으로 배경을 설정할 수 있다
+
+이런 `background` 를 shorthand(축약형) 이라고 한다
