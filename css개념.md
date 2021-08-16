@@ -4877,3 +4877,166 @@ ad
 `background:색 url('이미지주소') no-repeat fixed center` 등으로 배경을 설정할 수 있다
 
 이런 `background` 를 shorthand(축약형) 이라고 한다
+
+<br>
+
+## Filter
+어떠한 그래픽 대상에게 효과를 줄 수 있다  
+(예) 흑백사진으로 만들기 등)
+
+<a href = "https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jsy930609&logNo=221671999277" target = "_blank" title = "참고자료">CSS filter</a>
+
+
+<style>
+.filter-img-1{
+    filter:grayscale(100%);
+}
+.filter-text-1{
+    filter:blur(3px);
+}
+</style>
+
+<h3 class = "filter-text-1">The Great Wave</h3>
+<img alt = "The Great Wave" src = "https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2" class = "filter-img-1" height="300px">
+
+이미지가 흑백이 되고 텍스트가 흐릿해지는 것을 확인할 수 있다
+
+<a href = "https://codepen.io/davidkpiano/pen/wMqXea" tareget = "_blank" title = "참고자료">filter를 사용한 예시</a>
+
+<br>
+
+## blend
+필터는 하나의 그래픽 대상에게 효과를 줬는데 블랜드는 여러개 의 그래픽 대상을 조합시켜서 다른 효과를 줄 수 있다  
+
+### background-blend-mode
+배경의 효과들끼리 혼합할 수 있다
+
+<a href = "https://webzz.tistory.com/377" target = "_blank" title = "참고자료">background-blend-mode</a>
+
+```html
+<style>
+.blend-1{
+    height:400px;
+    border:5px solid yellowgreen;
+    background-color:green;
+    background-image:url('https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2');
+
+    background-blend-mode:color;
+}
+</style>
+
+<div class = "blend-1"></div>
+```
+`background-blend-mode:color;`
+이 배경 사진과 색을 혼합할 수 있다
+
+<style>
+.blend-1{
+    height:400px;
+    border:5px solid yellowgreen;
+    background-color:gray;
+    background-size:cover;
+    background-image:url('https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2');
+
+    background-blend-mode:color;
+}
+</style>
+
+<div class = "blend-1"></div>
+
+<br>
+
+```html
+<style>
+.blend-2{
+    height:400px;
+    border:5px solid yellowgreen;
+    background-color:rgba(255,0,0,0.5);
+    background-size:cover;
+    background-image:url('https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2');
+
+    background-blend-mode:color;
+
+    transition:background-color 5s;
+}
+.blend-2:hover{
+    background-color:rgba(255,0,0,1);
+    transition:background-color 5s;
+}
+</style>
+
+<div class = "blend-2"></div>
+```
+색을 rgba(red, green, blue, alpha)에 alpha(투명도)를 변경, `transition:background-color 5s;` 을 추가했다  
+`background-blend-mode` 일 때 배경의 투명도가 올라감에 따라 이미지가 변한다  
+`transition` 을 줘서 이런 변화가 느리게 표현된다  
+
+<style>
+.blend-2{
+    height:400px;
+    border:5px solid yellowgreen;
+    background-color:rgba(255,0,0,0.5);
+    background-size:cover;
+    background-image:url('https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2');
+
+    background-blend-mode:color;
+
+    transition:background-color 5s;
+}
+.blend-2:hover{
+    background-color:rgba(255,0,0,1);
+    transition:background-color 5s;
+}
+</style>
+
+<div class = "blend-2"></div>
+
+<br>
+
+### mix-blend-mode
+컨텐트와 배경의 효과들을 혼합할 수 있다
+
+<a href = "https://developer.mozilla.org/ko/docs/Web/CSS/mix-blend-mode" target = "_balnk" title = "참고자료">mix-blend-mode</a>
+
+```html
+<style>
+.blend-3{
+    height:400px;
+    background-image:url('https://mblogthumb-phinf.pstatic.net/20150819_100/iamundine_1439970779216WcILD_JPEG/%BA%B0%C0%CC_%BA%FB%B3%AA%B4%C2_%B9%E3.jpg?type=w2');
+    background-size:cover;
+}
+.blend-4{
+    font-weight:bold;
+
+    mix-blend-mode:difference;
+}
+</style>
+
+<div class = "blend-3">
+<div class = "blend-4">
+Vincent Willem van Gogh 30 March 1853 – 29 July 1890) was a Dutch post-impressionist painter who posthumously became one of the most famous and influential figures in the history of Western art. In a decade, he created about 2,100 artworks, including around 860 oil paintings, most of which date from the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. He was not commercially successful, and his suicide at thirty-seven came after years of depression and poverty.
+</div>
+</div>
+```
+`mix-blend-mode:difference;` 을 추가했다
+
+<style>
+.blend-3{
+    height:400px;
+    background-image:url('https://mblogthumb-phinf.pstatic.net/20150819_100/iamundine_1439970779216WcILD_JPEG/%BA%B0%C0%CC_%BA%FB%B3%AA%B4%C2_%B9%E3.jpg?type=w2');
+    background-size:cover;
+}
+.blend-4{
+    font-weight:bold;
+
+    mix-blend-mode:difference;
+}
+</style>
+
+<div class = "blend-3">
+<div class = "blend-4">
+Vincent Willem van Gogh 30 March 1853 – 29 July 1890) was a Dutch post-impressionist painter who posthumously became one of the most famous and influential figures in the history of Western art. In a decade, he created about 2,100 artworks, including around 860 oil paintings, most of which date from the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. He was not commercially successful, and his suicide at thirty-seven came after years of depression and poverty.
+</div>
+</div>
+
+<br>
