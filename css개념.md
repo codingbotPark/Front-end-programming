@@ -5040,3 +5040,144 @@ Vincent Willem van Gogh 30 March 1853 – 29 July 1890) was a Dutch post-impress
 </div>
 
 <br>
+
+## Transform
+어떤 엘리먼트(element)의 크기, 회전, 비틀기 등을 설정할 수 있다
+
+요소(element)|효과
+:---|:---
+scale|크기를 변경 
+skew|기울어짐을 변형
+rotate|회전을 줌
+translate|위치를 이동
+perspective|3D효과를 위한 원근감을 부여함(부모요소에 적용)
+matrix|원근감(perspective)을 제외한 모든 요소들을 한 번에 지정
+
+<img alt = "css transform" src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile5.uf.tistory.com%2Fimage%2F99448A455BE27CAF0B613F" height="350">
+
+<br>
+
+<a href = "https://poiemaweb.com/css3-transform" target = "_blank" title = "참고자료">transform1</a>  
+<a href = "https://rgy0409.tistory.com/2990" target = "_blank" title = "참고자료">transform2</a>  
+<a href = "https://codepen.io/vineethtrv/full/XKKEgM" target = "_blank" title = "참고자료">transform 효과</a>
+
+```html
+<style>
+.transform-background{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+}
+.transform-background > div{
+    background-color:yellowgreen;
+    color:gray;
+    height:150px;
+    width:150px;
+    margin:5px;
+    text-align:center;
+    line-height:150px;
+    transition:transform 0.5s;
+}
+.transform-rotate:hover{transform:rotate(45deg);}
+.transform-rotateX:hover{transform:rotateX(45deg);}
+.transform-rotateY:hover{transform:rotateY(45deg);}
+.transform-rotateZ:hover{transform:rotateZ(45deg);}
+.transform-scale:hover{transform:scale(2);}
+.transform-scaleX:hover{transform:scaleX(2);}
+.transform-scaleY:hover{transform:scaleY(2);}
+.transform-skew:hover{transform:skew(45deg,45deg);}
+.transform-skewX:hover{transform:skewX(45deg);}
+.transform-skewY:hover{transform:skewY(45deg);}
+.transform-translate:hover{transform:translate(45px);}
+.transform-translateX:hover{transform:translateX(45px);}
+.transform-translateY:hover{transform:translateY(45px);}
+.transform-matrix:hover{transform:matrix(2,2,0,2,45,0);}
+</style>
+
+<div class = "transform-background">
+<div class = "transform-rotate">rotate (45deg)</div>
+<div class = "transform-rotateX">rotateX (45deg)</div>
+<div class = "transform-rotateY">rotateY (45deg)</div>
+<div class = "transform-rotateZ">rotateZ (45deg)</div>
+<div class = "transform-scale">scale (2)</div>
+<div class = "transform-scaleX">scaleX (2)</div>
+<div class = "transform-scaleY">scaleY (2)</div>
+<div class = "transform-skew">skew (45deg,45deg)</div>
+<div class = "transform-skewX">skewX (45deg)</div>
+<div class = "transform-skewY">skewY (45deg)</div>
+<div class = "transform-translate">translate (45px)</div>
+<div class = "transform-translateX">translateX (45px)</div>
+<div class = "transform-translateY">translateY (45px)</div>
+<div class = "transform-matrix">matrix (2,2,0,2,45,0)</div>
+</div>
+```
+
+`matrix` 는 원근감(perspective)을 제외한 나머지 `(scaleX, skewX, skewY, scaleY, translateX, translateY)` 를 한번에 지정할 수 있다  
+각도에는 <a href = "https://developer.mozilla.org/en-US/docs/Web/CSS/angle#units" target = "_blank" title = "참고자료">4가지</a>가 있다
+
+<style>
+.transform-background{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+}
+.transform-background > div{
+    background-color:yellowgreen;
+    color:gray;
+    height:150px;
+    width:150px;
+    margin:5px;
+    text-align:center;
+    line-height:150px;
+    transition:transform 0.5s;
+}
+.transform-rotate:hover{transform:rotate(45deg);}
+.transform-rotateX:hover{transform:rotateX(45deg);}
+.transform-rotateY:hover{transform:rotateY(45deg);}
+.transform-rotateZ:hover{transform:rotateZ(45deg);}
+.transform-scale:hover{transform:scale(2);}
+.transform-scaleX:hover{transform:scaleX(2);}
+.transform-scaleY:hover{transform:scaleY(2);}
+.transform-skew:hover{transform:skew(45deg,45deg);}
+.transform-skewX:hover{transform:skewX(45deg);}
+.transform-skewY:hover{transform:skewY(45deg);}
+.transform-translate:hover{transform:translate(45px);}
+.transform-translateX:hover{transform:translateX(45px);}
+.transform-translateY:hover{transform:translateY(45px);}
+.transform-matrix:hover{transform:matrix(2,2,0,2,45,0);}
+</style>
+
+<div class = "transform-background">
+<div class = "transform-rotate">rotate (45deg)</div>
+<div class = "transform-rotateX">rotateX (45deg)</div>
+<div class = "transform-rotateY">rotateY (45deg)</div>
+<div class = "transform-rotateZ">rotateZ (45deg)</div>
+<div class = "transform-scale">scale (2)</div>
+<div class = "transform-scaleX">scaleX (2)</div>
+<div class = "transform-scaleY">scaleY (2)</div>
+<div class = "transform-skew">skew (45deg,45deg)</div>
+<div class = "transform-skewX">skewX (45deg)</div>
+<div class = "transform-skewY">skewY (45deg)</div>
+<div class = "transform-translate">translate (45px)</div>
+<div class = "transform-translateX">translateX (45px)</div>
+<div class = "transform-translateY">translateY (45px)</div>
+<div class = "transform-matrix">matrix (2,2,0,2,45,0)</div>
+</div>
+
+<br>
+
+### transform-origin
+효과가 적용되는 기준을 정할 수 있다
+
+```html
+
+```
+
+
+
+
+
+
+
+<a href = "https://www.minimamente.com/project/magic/" target = "_blank" title = "참고자료">transform관련효과1</a>  
+<a href ="http://ianlunn.github.io/Hover/" target = "_blank" title = "참고자료">transform관련효과2</a>
