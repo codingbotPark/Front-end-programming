@@ -5042,7 +5042,8 @@ Vincent Willem van Gogh 30 March 1853 – 29 July 1890) was a Dutch post-impress
 <br>
 
 ## Transform
-어떤 엘리먼트(element)의 크기, 회전, 비틀기 등을 설정할 수 있다
+어떤 엘리먼트(element)의 크기, 회전, 비틀기 등을 설정할 수 있다  
+엘리먼트(element)가 블록레벨(block-level) , 인라인블록(inline-block) 일 때 동작한다
 
 요소(element)|효과
 :---|:---
@@ -5141,7 +5142,7 @@ matrix|원근감(perspective)을 제외한 모든 요소들을 한 번에 지정
 .transform-skew:hover{transform:skew(45deg,45deg);}
 .transform-skewX:hover{transform:skewX(45deg);}
 .transform-skewY:hover{transform:skewY(45deg);}
-.transform-translate:hover{transform:translate(45px);}
+.transform-translate:hover{transform:translate(45px,45px);}
 .transform-translateX:hover{transform:translateX(45px);}
 .transform-translateY:hover{transform:translateY(45px);}
 .transform-matrix:hover{transform:matrix(2,2,0,2,45,0);}
@@ -5158,7 +5159,7 @@ matrix|원근감(perspective)을 제외한 모든 요소들을 한 번에 지정
 <div class = "transform-skew">skew (45deg,45deg)</div>
 <div class = "transform-skewX">skewX (45deg)</div>
 <div class = "transform-skewY">skewY (45deg)</div>
-<div class = "transform-translate">translate (45px)</div>
+<div class = "transform-translate">translate (45px,45px)</div>
 <div class = "transform-translateX">translateX (45px)</div>
 <div class = "transform-translateY">translateY (45px)</div>
 <div class = "transform-matrix">matrix (2,2,0,2,45,0)</div>
@@ -5169,15 +5170,146 @@ matrix|원근감(perspective)을 제외한 모든 요소들을 한 번에 지정
 ### transform-origin
 효과가 적용되는 기준을 정할 수 있다
 
+<img alt = "transform-origin" src = "https://www.html5alive.com/html5alive/wp-content/uploads/2018/04/Artboard-1@2x.png" height="350">
+
+요소(element) | 값(value)
+---|---
+left|0%
+center|50%
+right|100%
+top|0%
+bottom|100%
+
+<a href = "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin" target = "_blank" title = "참고자료">transform-origin</a>
+
 ```html
+<style>
+.transform-background-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+}
+.transform-background-1 > div{
+    background-color:yellowgreen;
+    color:gray;
+    height:150px;
+    width:150px;
+    margin:5px;
+    text-align:center;
+    line-height:150px;
+    transition:transform 0.5s;
+}
+.transform-background-1 > div:hover{
+    transform:rotate(45deg) scale(1.2);
+} 
+.transform-origin-center{transform-origin:center;}
+.transform-origin-top-left{transform-origin:top left;}
+.transform-origin-50px-50px{transform-origin:50px 50px;}
+.transform-origin-bottom-right-60px{transform-origin:bottom right 60px;}
+</style>
 
+<div class = "transform-background-1">
+<div class = "transform-origin-center">center</div>
+<div class = "transform-origin-top-left">top left</div>
+<div class = "transform-origin-50px-50px">50px 50px</div>
+<div class = "transform-origin-bottom-right-60px">bottom right 60px</div>
+</div>
 ```
+div태그에 `rotate(45deg)` 와 `scale(1.2)` 을 지정했다  
+`transform` 은 중복사용이 안되기 때문에 하나의 `transform` 에 이어적는다
 
+<style>
+.transform-background-1{
+    background-color:gray;
+    display:flex;
+    flex-flow:row wrap;
+}
+.transform-background-1 > div{
+    background-color:yellowgreen;
+    color:gray;
+    height:150px;
+    width:150px;
+    margin:5px;
+    text-align:center;
+    line-height:150px;
+    transition:transform 0.5s;
+}
+.transform-background-1 > div:hover{
+    transform:rotate(45deg) scale(1.2);
+} 
+.transform-origin-center{transform-origin:center;}
+.transform-origin-top-left{transform-origin:top left;}
+.transform-origin-50px-50px{transform-origin:50px,50px;}
+.transform-origin-100-100{transform-origin:100% 100%;}
+</style>
 
+<div class = "transform-background-1">
+<div class = "transform-origin-center">center</div>
+<div class = "transform-origin-top-left">top left</div>
+<div class = "transform-origin-50px-50px">50px 50px</div>
+<div class = "transform-origin-100-100">100% 100%</div>
+</div>
 
-
-
-
+<br>
 
 <a href = "https://www.minimamente.com/project/magic/" target = "_blank" title = "참고자료">transform관련효과1</a>  
 <a href ="http://ianlunn.github.io/Hover/" target = "_blank" title = "참고자료">transform관련효과2</a>
+
+<br>
+
+## Transition
+css에서 값이 변경, 즉 전환이 될 때를 설정할 수 있다
+
+요소(elemetn) | 역할
+---|---
+transition | 적용시킬효과, 시간을 함께 지정
+transition-property | transition이 적용될 속성을 정함
+transition-timing-function | transition의 진행속도를 조절
+transition-duration | transition이 끝날 때까지 걸리는 시간을 정함
+transition-delay | transition이 시작하는 시간을 늘림
+
+
+<a href = "http://tcpschool.com/css/css3_transform_transition" target = "_blank" title = "참고자료">transition1</a>  
+<a href = "https://www.codingfactory.net/10953" target = "_blank" title = "참고자료">transition2</a>
+ 
+```html
+<style>
+.transition{
+    font-size:3rem;
+    display:inline-block;
+
+    transition-duration:1s;
+}
+.transition:active{
+    transform:translate(20px,20px);
+    font-size:1rem;
+}
+</style>
+
+<a href = "https://www.youtube.com/channel/UChK2DhvPSG3sY0jIYYngVBA" target = "_blank" class = "transition">츄 유튜브 보기</a>
+```
+`transition-duration:1s;` 을 추가했다
+
+<style>
+.transition{
+    font-size:3rem;
+    display:inline-block;
+
+    transition-property:font-size transform;
+    transition-duration:1s;
+}
+.transition:active{
+    transform:translate(20px,20px);
+    font-size:2rem;
+}
+</style>
+
+<a href = "https://www.youtube.com/channel/UChK2DhvPSG3sY0jIYYngVBA" target = "_blank" class = "transition">츄 유튜브 보기</a>
+
+<br>
+
+
+
+
+
+<a href = "https://matthewlein.com/tools/ceaser/" target = "_blank" title = "참고자료">transition 효과</a> 
