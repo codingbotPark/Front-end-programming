@@ -5278,17 +5278,19 @@ transition-delay | transition이 시작하는 시간을 늘림
     font-size:3rem;
     display:inline-block;
 
-    transition-duration:1s;
+    transition-property:font-size transform;
+    transition:transform 1s,font-size 1s;
 }
 .transition:active{
     transform:translate(20px,20px);
-    font-size:1rem;
+    font-size:2rem;
 }
 </style>
 
 <a href = "https://www.youtube.com/channel/UChK2DhvPSG3sY0jIYYngVBA" target = "_blank" class = "transition">츄 유튜브 보기</a>
 ```
-`transition-duration:1s;` 을 추가했다
+`transition:transform 1s,font-size 1s;` 을 추가했다  
+`font-size` , `transform` 효과가 1초동안 변한다
 
 <style>
 .transition{
@@ -5296,7 +5298,7 @@ transition-delay | transition이 시작하는 시간을 늘림
     display:inline-block;
 
     transition-property:font-size transform;
-    transition-duration:1s;
+    transition:transform 1s,font-size 1s;
 }
 .transition:active{
     transform:translate(20px,20px);
@@ -5308,8 +5310,54 @@ transition-delay | transition이 시작하는 시간을 늘림
 
 <br>
 
+```html
+<style>
+.transition-1{
+    font-size:3rem;
+    background-color:yellowgreen;
+    padding:100px;
+    text-align:center;
 
+    transition-property:padding;
+    transition-timing-function:ease-in-out;
+    transition-delay:0.5s;
+    transition-duration:1s;
 
+}
+.transition-1:hover{
+    padding:150px;
+}
+</style>
 
+<div class = "transition-1">point to this</div>
+```
+`transition-` 을 추가했다
 
-<a href = "https://matthewlein.com/tools/ceaser/" target = "_blank" title = "참고자료">transition 효과</a> 
+<style>
+.transition-1{
+    font-size:3rem;
+    background-color:yellowgreen;
+    padding:100px;
+    text-align:center;
+
+    transition-property:padding;
+    transition-timing-function:ease-in-out;
+    transition-delay:0.5s;
+    transition-duration:1s;
+
+}
+.transition-1:hover{
+    padding:150px;
+}
+</style>
+
+<div class = "transition-1">point to this</div>
+
+진행(padding의 크기가 커짐)속도가 `ease-in-out` 에 따른다  
+transition이 시작되는 시간을 `0.5` 초를 늘림  
+transition이 `1` 초동안 실행됨
+
+<br>
+
+<a href = "https://cubic-bezier.com/#0,1.25,1,1.23" target = "_blnak" title = "참고자료">transition효과1</a>  
+<a href = "https://matthewlein.com/tools/ceaser/" target = "_blank" title = "참고자료">transition효과2</a> 
