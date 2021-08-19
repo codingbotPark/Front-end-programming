@@ -5361,3 +5361,38 @@ transition이 `1` 초동안 실행됨
 
 <a href = "https://cubic-bezier.com/#0,1.25,1,1.23" target = "_blnak" title = "참고자료">transition효과1</a>  
 <a href = "https://matthewlein.com/tools/ceaser/" target = "_blank" title = "참고자료">transition효과2</a> 
+
+<br>
+
+## link, import
+외부의 소스를 사용할 수 있다(주로 css파일을 연결할 때 사용한다)  
+웹페이지를 만들다보면 여러개의 웹페이지가 생기고, 여러개의 웹페이지가 공통적인 css를 가질 때가 있다  
+
+이런 중복을 제거함으로써
+* 유지보수가 더 편리해진다
+* 사용자, 제공자에게 경제적으로 이익이다
+* 가독성이 좋아진다
+
+웹브라우저는 <a href = "https://hahahoho5915.tistory.com/33" target = "_blank" title = "참고자료">케시</a> 라는 개념이 있기 때문에 `link` 를 사용하는 것이 더 경제적이다  
+(웹 케시 = 한 번 다운로드 받은 css를 입시정장 폴더에 저장)
+
+<a href = "http://tcpschool.com/html-tags/link" target = "_blank" title = "참고자료">link</a>  
+<a href = "https://developer.mozilla.org/ko/docs/Web/CSS/@import" target = "_blank" title = "참고자료">import</a>
+
+`link` 태그는 html태그로 css를 로드할 때 사용한다
+```html
+<head>
+<link rel = "stylesheet" type = "text/css" href = "외부소스주소">
+</head>
+<body>
+
+</body>
+```
+
+`import` 지시어는 css안에서 다른 css를 로드할 때 사용한다
+```html
+<style>
+@import url
+</style>
+```
+
