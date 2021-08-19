@@ -5381,18 +5381,36 @@ transition이 `1` 초동안 실행됨
 
 `link` 태그는 html태그로 css를 로드할 때 사용한다
 ```html
-<head>
 <link rel = "stylesheet" type = "text/css" href = "외부소스주소">
-</head>
-<body>
-
-</body>
 ```
 
 `import` 지시어는 css안에서 다른 css를 로드할 때 사용한다
 ```html
 <style>
-@import url
+@import url("외부소스주소");
 </style>
 ```
 
+<br>
+
+## miniy
+css코드의 크기를 작게 만들 수 있다  
+웹페이지에 방문자가 많지 않다면 큰 차이가 없지만 많다면 영향이 있다
+
+<a href = "http://adamburgess.github.io/clean-css-online/" target = "_blank" title = "참고자료">경량화 도구</a> 를 활용하여 얼마나 경량화의 효과가 있는지 확인할 수 있다
+
+<br>
+
+## preprocessor
+<a href = "https://ziegler.tistory.com/70" target = "_blank" title = "참고자료">processor 설명<a>
+
+
+<a href = "https://stylus-lang.com/docs/selectors.html" target = "_blank" title = "참고자료">processor</a>
+<br>
+
+## fontello.com
+웹사이트에 아이콘과 같은 것들을 삽입할 때 이미지로 삽입할 수도 있지만 아이콘폰트라고 해서 특정한 문자가 특정한 이미지로 표현되게 하는 방식이 있다
+
+<a href = "https://fontello.com/" target = "_blank" title = "참고자료">fontello</a>는 다른 아이
+
+<a href = "https://fontello.com/" target = "_blank" title = "참고자료">fontello</a>에서 아이콘을 정하고 
