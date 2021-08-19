@@ -1,3 +1,7 @@
+>유튜브 <a href = "https://www.youtube.com/watch?v=OGFgdro160I&list=PLuHgQVnccGMDUzDDCKW-pCZQY-MMCX5yB">생활코딩</a> 유튜브와 여러자료들을 참고
+
+<br>
+
 # HTML
 HTML = Hyper Text Markup Language  
 Hyper Text = 웹브라우저를 통해서 어떤 웹 페이지를 보면 **링크 (Hyper Text)** 를 보게 된다  
@@ -15,7 +19,7 @@ Language = 컴퓨터 프로그래밍 언어
 <br>
 
 # 문법
-![html 요소](http://tcpschool.com/lectures/img_html_tag_structure.png)  
+![html 요소](https://lh3.googleusercontent.com/proxy/4zM5B1IheDwd4WZhx5sPotBuXsusMXiv_BT0x95pzt73ysrkWpasWBVNn-oqjC-W91oPc9JoO7hVOjBjJslLOr17suZIVnL1zNUX5fvl)  
   
 태그 = Tag = HTML에서 가장 중요한 문법, 프로그래밍 언어를 규정하는 가장 중요한 특징, HTML에서 MarkUp과 밀접한 관계  
 

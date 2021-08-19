@@ -1,8 +1,12 @@
+>유튜브 <a href = "https://www.youtube.com/watch?v=ONcmkf07EuI&list=PLuHgQVnccGMDaVaBmkX0qfB45R_bYrV62">생활코딩</a> 유튜브와 여러자료들을 참고
+
+<br>
+
 # CSS
 CSS = Cascading Style Sheets = 종속형 스타일 시트  
 마크업 언어가 실제 표시된는 방법을 기술하는 언어이다
 
-## 역사
+## 역사 
 CSS는 1994년 하콤 비움 리(Håkon Wium Lie)가 처음 제안하였다.
 
 <a href = "https://ko.wikipedia.org/wiki/CSS#%EC%97%AD%EC%82%AC" target = "_blank" title = "참고자료">위키백과\<CSS></a>
@@ -5411,6 +5415,6 @@ css코드의 크기를 작게 만들 수 있다
 ## fontello.com
 웹사이트에 아이콘과 같은 것들을 삽입할 때 이미지로 삽입할 수도 있지만 아이콘폰트라고 해서 특정한 문자가 특정한 이미지로 표현되게 하는 방식이 있다
 
-<a href = "https://fontello.com/" target = "_blank" title = "참고자료">fontello</a>는 다른 아이
+
 
 <a href = "https://fontello.com/" target = "_blank" title = "참고자료">fontello</a>에서 아이콘을 정하고 
