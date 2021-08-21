@@ -19,7 +19,7 @@ Language = 컴퓨터 프로그래밍 언어
 <br>
 
 # 문법
-![html 요소](https://lh3.googleusercontent.com/proxy/4zM5B1IheDwd4WZhx5sPotBuXsusMXiv_BT0x95pzt73ysrkWpasWBVNn-oqjC-W91oPc9JoO7hVOjBjJslLOr17suZIVnL1zNUX5fvl)  
+<img alt = "html요소" src = "https://blog.kakaocdn.net/dn/bzJIWJ/btqVSvkYEZk/xfvRR096XJs53WiB5qQbT1/img.png" height = "350">
   
 태그 = Tag = HTML에서 가장 중요한 문법, 프로그래밍 언어를 규정하는 가장 중요한 특징, HTML에서 MarkUp과 밀접한 관계  
 
