@@ -376,3 +376,84 @@ console.log(d);
 함수스코프를 가지고 있는 변수 선언 방식은 블록스코프에서는 스코프의 의미를 가지고 있지 않기 때문에 버전 es6 가 된 후 블록스코프에 유요한 키워드가 등장했다
 
 <br>
+
+## 호이스팅
+아래에 있는 선언(만)을 끌어올린다  
+(저장은 코드에서 입력한 위치와 정확히 일치하는 메모리에 저장된다)  
+**코드에서 선언하기 전에 함수를 사용할 수 있다**  
+
+<a href = "https://developer.mozilla.org/ko/docs/Glossary/Hoisting" target = "_blank" title = "참고자료 ">JS 호이스팅1</a>  
+<a href = "https://gmlwjd9405.github.io/2019/04/22/javascript-hoisting.html" target = "_blank" title = "참고자료">JS 호이스팅2</a>
+
+```JS
+//함수먼저만들기
+function hello1()
+{
+    console.log('hello1');
+}
+
+hello()1;
+
+//함수의 호출을 먼저 만들기
+hello()2;
+
+function hello()2
+{
+    console.log('hello2');
+}
+```
+var을 사용한 변수도 호이스팅이 된다
+```JS
+age = 6;//선언을 아래에서 한 변수에 값을 대입할 수 있다
+age++;//1을 증가시킨다
+console.log(age);
+
+var age;
+```
+```JS
+console.log(name);
+
+name = "Park";
+
+console.log(name);  
+
+var name = "BK";
+//실행시키면 undefinded 와 Park 가 출력된다
+
+//그 이유는
+//호이스팅 현상은 선언부(var name)만 올라가기 때문이다
+```
+
+<br>
+
+## 자료형
+기본적으로 자바스크립트 자료형은 **동적 타이핑** 이라한다
+
+```JS
+let whatever = "Park"//문자를 입력하면 문자열 타입을 가지게 된다
+
+whatevr = 17;//숫자값을 할당하면 let이라는 키워드를 썻기 때문에
+// whatever은 숫자형 타입을 가지게 된다
+
+whatever = ture;//불린형의 탑을 가지게 된다
+```
+이렇게 변수의 이름을 보면 타입이 어떤 타입인지 알 수 없고 지정도 할 수 없다  
+이런 정해져있지 않은 타입의 스타일을 **동적 타이핑** 이라한다
+
+
+JS에서 기본적으로 제공하는 데이터 타입(primitive)  
+<img alt = "JS 데이터 타입" src = "https://www.learnsimpli.com/wp-content/uploads/2019/09/javascript-data-types.png" height = "350">
+
+```JS
+//Boolean
+const isTrue = true;
+const isFalse = false;
+console.log(isTrue, typeof isTrue);//isTrue의 값과 타입을 출력
+console.log(isFalse, typeof isFalse);//isFalse의 값과 타입을 출력
+//boolean타입이 출력된다
+
+
+```
+
+
+객체는 사용자정의 타입도 만들 수 있지만 기본적으로 실행환경, 브라우저에서 기본적으로 제공하는 객체들이 있다 그것을 표준내장객체라고 한다 내장객체를 활용해 또다를 객체를 만드는 활동도 할 수 있다
