@@ -418,7 +418,7 @@ name = "Park";
 console.log(name);  
 
 var name = "BK";
-//실행시키면 undefinded 와 Park 가 출력된다
+//실행시키면 undefined 와 Park 가 출력된다
 
 //그 이유는
 //호이스팅 현상은 선언부(var name)만 올라가기 때문이다
@@ -428,6 +428,9 @@ var name = "BK";
 
 ## 자료형
 기본적으로 자바스크립트 자료형은 **동적 타이핑** 이라한다
+
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures" target = "_blank" title = "참고자료">JS 자료형</a>
+
 
 ```JS
 let whatever = "Park"//문자를 입력하면 문자열 타입을 가지게 된다
@@ -441,19 +444,267 @@ whatever = ture;//불린형의 탑을 가지게 된다
 이런 정해져있지 않은 타입의 스타일을 **동적 타이핑** 이라한다
 
 
-JS에서 기본적으로 제공하는 데이터 타입(primitive)  
+JS에서 기본적으로 제공하는 데이터 타입(primitive) 
 <img alt = "JS 데이터 타입" src = "https://www.learnsimpli.com/wp-content/uploads/2019/09/javascript-data-types.png" height = "350">
 
+객체(object)는 사용자정의 타입도 만들 수 있지만 기본적으로 실행환경, 브라우저에서 기본적으로 제공하는 객체들이 있다 그것을 표준내장객체라고 한다 내장객체를 활용해 또다를 객체를 만드는 활동도 할 수 있다
+
+### Boolean자료형
+논리적인 요소를 나타낸다  
+`ture` 와 `false` 두 가지 값을 가질 수 있다
+
 ```JS
-//Boolean
 const isTrue = true;
 const isFalse = false;
 console.log(isTrue, typeof isTrue);//isTrue의 값과 타입을 출력
 console.log(isFalse, typeof isFalse);//isFalse의 값과 타입을 출력
 //boolean타입이 출력된다
+```
+객체를 사용하면 직관적으로 자료형을 파악하기 힘들다
+```JS
+const a = new Boolean(false);
+console.log(a, typeof a);
+//Boolean이라는 생성자함수로 false 값을 가지고 있고
+//타입은 객체가 된다
 
-
+//이런 객체를 사용하지 않는 이유는
+//조건문에서 사용할 때 객체로 조건문에 들어가면
+//false임에도 참이되는 상황이 발생한다
+if (a)
+{
+    console.log('실행이된다');
+}
+```
+```JS
+//다른타입의 값을 넣어서
+const b = Boolean(false)//이 Boolean으로 평가한 후 b에 값이 들어간다
+console.log(b, typeof b);
+//즉 Boolean type이기 때문에
+//if문이 실행이 안되는 것을 확인할 수 있다
+if(b)
+{
+    console.log('실행이된다');
+}
 ```
 
+<br>
 
-객체는 사용자정의 타입도 만들 수 있지만 기본적으로 실행환경, 브라우저에서 기본적으로 제공하는 객체들이 있다 그것을 표준내장객체라고 한다 내장객체를 활용해 또다를 객체를 만드는 활동도 할 수 있다
+### + Null, Undefined
+
+키워드|설명
+---|---
+Undefine|변수를 선언하고 값을 할당하지 않은 상태(자료형이 없는 상태)
+Null|변수를 선언하고 빈 값을 할당한 상태(빈 객체)
+
+<a href = "https://2ssue.github.io/common_questions_for_Web_Developer/docs/Javascript/13_undefined&null.html#undefined" target = "_blank" title = "참고자료">Null, Undefined</a>
+
+#### Null
+`null` 한 가지 값을 가질 수 있다  
+어떤 값이 의도적으로 비어있음을 표현한다  
+불리언 연산에서는 거짓으로 취급한다  
+
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/null" target = "_blank" title = "참고자료">null</a>
+
+```JS
+//Null
+const a = null;
+console.log(a, typeof a);
+//null 과 object타입이 나온다
+//즉 null은 값이 없다는 것을 의미하는 객체이다
+```
+`typeof null` 을 하면 object가 나온다
+
+<br>
+
+#### Undefined
+값을 할당하지 않은 변수는 `undefined` 값을 가진다  
+
+<a href = "https://developer.mozilla.org/ko/docs/Glossary/undefined" target = "_blank" title = "참고자료">undefined</a>
+
+```JS
+let b;
+console.log(b, typeof b);
+//undefined가 나오고 타입도 undefined가 나온다
+//즉 값을 할당하지 않았을 때는 undefined라는 값을 가지게 된다
+b = undefined;
+console.log(b, typeof b);
+```
+`typeof undefined` 을 하면 undefined가 나온다
+
+<br>
+
+이런 null과 undefined을 비교하면
+```JS
+if (a == b)
+{
+    console.log(a == b)
+}
+//==로 비교를 하면 ture라는 값이 나오게 된다
+//즉 a와 b는 같다고 인식한다
+
+if (a === b)
+{
+    console.log(a == b)
+}
+//===로 비교를 하면 type까지 비교를 하기 때문에 false라는 값이 나오게 된다
+//즉 a와 b는 다르다고 인식한다
+```
+`==` 으로 비교하면 같다고 인식,  
+`===` 으로 비교하면(타입까지 비교) 다르다고 인식
+
+<br>
+
+### Number자료형
+
+```JS
+const a = 17;
+console.log(a, typeof a);
+const b = 53.2;
+console.log(b, typeof b);
+//각각 값과 number타입이 출력된다
+```
+NaN = 숫자가 아니라는 의미
+```JS
+const c = NaN;
+console.log(c, typeof c);
+//NaN과 number타입이 출력된다
+
+//NaN 활용
+const d = Number('Park');//문자열을 형변환을 했을 때
+//제대로 숫자로 형변환이 안될 때가 생길 수 있다
+//이 때 NaN(숫자가 아니다 라는 의미)을 사용한다
+console.log(d, typeof d);
+//이 때 NaN과 number타입이 출력된다
+
+//문자열로 숫자를 쓸 때 Number로 형변환을 하면
+const e = Number('17');
+console.log(e, typeof e);
+//정상적으로 숫자 17, Number타입이 출력된다
+```
+
+<br>
+
+### String
+
+```JS
+const a = "Park";
+console.log(a, typeof a);
+const b = "Park";
+//따움표, 쌍따움표로 지정한다
+
+//문자열을 합칠 수 있다
+const c = "Park" + "BK";
+console.log(c);
+const d = a + b;
+console.log(d);
+//두 가지만 더해서 쉽지만
+//여러가지를 문자열에 포함시켜야 하는 상황이 빈번하게 발생한다
+```
+여러가지를 문자열에 포함시켜야 하는 상황이 빈번하기 때문에 es6에서 **템플릿 스트링** 기능이 나왔다  
+템플릿 스트링을 사용하려면 문자열을 만들 때  
+**따움표, 큰따움표 대신 (위 키보드의 1 옆) \`(grave)를 사용하고**  
+**변수를 넣고자 하는 부분에 `${}` 키워드를 사용해 변수를 넣어준다**
+
+<a href = "https://itholic.github.io/js-template-string/" target = "_blank" title = "참고자료">템플릿 스트링</a>
+
+```JS
+const a = 'BK';
+const b = "1grade"
+const c = `Hello ${b} Park ${a}`;//백틱(grave)을 사용
+console.log(c, typeof c);
+//Hello 1grade Park BK , string타입이 출력된다
+```
+
+<br>
+
+### Symbol
+es6부터 출현,  
+symbol값은 유일한 값이므로 symbol값을 키로 가지는 프로퍼티는 다른 프로퍼티와도 충돌하지 않는다 
+
+<a href = "https://poiemaweb.com/es6-symbol#3-symbol%EC%9D%98-%EC%82%AC%EC%9A%A9" target = "_blank" title = "참고자료">JS symbol</a>
+
+```JS
+const a = Symbol();
+const b = Symbol(17);
+const c = Symbol('Park');
+const d = Symbol('Park');
+console.log(a ,typeof a)
+console.log(c === d)
+//c와 d는 다르다
+```
+Symbol은 생성자함수로 만들 수 없다
+```JS
+new Symbol();
+//오류가 뜬다
+```
+
+<br>
+
+## 조건식
+특정한 조건 아래에서 코드가 실행되게 하는 구문  
+표현식이 참으로 평가될 때, 실행되는 블록`{}`을 설정한다
+
+<a href = "https://goddaehee.tistory.com/225" target = "_blank" title = "참고자료">JS 조건식</a>
+
+### if
+조건을 만들 수 있다
+
+```JS
+if (true)
+{
+    console.log('항상 실행');
+}
+```
+블록에 코드가 한 줄이면 중괄호({})는 생략 가능하다
+```JS
+if (false) console.log('항상 실행되지 않음');
+```
+
+#### 표현식이 거짓으로 평가될 때
+* flase
+* undefined
+* null
+* 0 
+* NaN(Not a Number) 
+* 빈 문자열("")
+
+```JS
+if (false) console.log('거짓');
+if (0) console.log('거짓');
+if ('') console.log('거짓');
+if (null) console.log('거짓');
+if (undefined) console.log('거짓');
+if (NaN) console.log('거짓');
+//출력이 되지 않는다
+//즉 거짓이다
+```
+
+#### 표현식이 참으로 평가될 때
+거짓의 반대
+true, 17, 'Park' 등등
+
+```JS
+if (true) console.log('진실');
+if (17) console.log('진실');//0이 아닌 수
+if ('Park') console.log('진실')//빈 문자열이 아닌 것
+if ({}) console.log('진실')//null, undefined, NaN이 아닌 모든 객체
+if ([]) console.log('진실')//빈 배열을 의미
+```
+
+<br>
+
+### else
+if에 해당하지 않을 때 실행하는 블록을 만들 수 있다
+
+```JS
+const n = 17;
+
+if (n > 19)
+{
+    console.log('성인');
+}
+else
+{
+    console.log('미성년자');
+}
+```
