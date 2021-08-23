@@ -708,3 +708,268 @@ else
     console.log('미성년자');
 }
 ```
+
+<br>
+
+### else if
+if에 해당하지 않을 때 다른 조건에 해당할 때 실행되는 블록을 만들 수 있다
+
+
+```JS
+const n = 17;
+
+if (n > 19)
+{
+    console.log('어른');
+}
+else if (n > 13)
+{
+    console.log('청소년');
+}
+else
+{
+    console.log('어린이');
+}
+``` 
+
+<br>
+
+### 논리 연산자를 이용한 조건문 평가
+
+<table>
+<tr>
+<th>키워드</th><th colspan = "2">내용</th>
+</tr>
+<tr>
+<td>&&</td><td>AND</td><td>두 항이 모두 참일 때 참을 반환</td>
+</tr>
+<tr>
+<td>||</td><td>OR</td><td>두 항중 하나의 항이 참일 때 참을 반환</td>
+</tr>
+<tr>
+<td>!</td><td>NOT</td><td>논리식이 참이면 거짓, 거짓이면 참을 반환</td>
+</tr>
+</table>
+
+<a href = "http://tcpschool.com/php/php_operator_logic" target = "_blnak" title = "참고자료">논리연산자</a>
+
+#### && (AND)
+```JS
+if  (true && true) console.log('진실');
+//참
+if (true && false) console.log('진실');
+//출력이되지 않는다 = 거짓
+```
+
+#### || (OR)
+```JS
+if (true || false) console.log('진실');
+//참
+if (false || false) console.log('진실');
+//출력이되지 않는다 = 거짓
+```
+
+#### ! (NOT)
+```JS
+if (!(false)) console.log('진실');
+//참
+if (!(true)) console.log('진실');//참이면 거짓
+//출력이되지 않느다 = 거짓
+```
+
+<br>
+
+### 논리 연산자를 이용한 조건부 실행
+논리 연산자의 특성을 이용해 조건부를 실행시킨다
+
+**표현식은 앞을 먼저 평가하고, 뒤를 평가한다**  
+이 특성을 활용할 수 있다
+
+`&&`(AND) 연산자는 `표현식 && 표현식` 둘 다 참일 때만 참이다  
+즉 앞 표현식이 참일 때 뒤 표현식을 평가한다
+```JS
+1 && console.log('뒤 표현식 평가');
+//앞 표현식이 참이기 때문에 뒤표현식이 실행된다
+
+0 && console.log('뒤 표현식 평가');
+//앞 표현식이 거짓이기 때문에 뒤 표현식은 평가할 필요가 없다
+```
+
+`||`(OR) 연산자는 `표현식 || 표현식` 둘 중 하나의 표현식이 참일 때 참이다  
+즉 앞 표현식이 거짓일 때 뒤 표현식을 평가한다
+```JS
+0 || console.log('뒤 표현식 평가');
+//앞 표현식이 거짓이기 때문에 뒤 표현식이 실행된다
+
+1 || console.log('뒤 표현식 평가');
+//앞 표현식이 참이기 때문에 뒤 표현식은 평가할 필요가 없다
+```
+
+<br>
+
+### 삼항 연산자를 이용한 조건부 실행
+<a href = "https://velog.io/@daybreak/Javascript-%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90" target = "_blank" title = "참고자료">삼항 연산자</a>를 이용해 조건부를 실행할 수 있다
+
+```JS
+let n = 5;
+console.log(n % 5 === 0? '5의 배수입니다'  : '5의 배수가 아닙니다');
+// a % b === 0 | a를 b로 나눌때 나머지는 0인가 아닌가
+
+const message = n % 5 === 0 ? '5의 배수입니다' : '5의 배수가 아닙니다';
+//message에 문자열이 들어간다
+console.log(message);
+```
+
+<br>
+
+### switch를 이용한 조건문
+<a href = "https://www.everdevel.com/JavaScript/js-switch/" target = "_blank" title = "참고자료">switch</a>문을 활용한 조건문  
+switch문에서 case를 실행한 후 break문이 없다면 다른 케이스문들이 시행된다  
+이 특성을 활용해 break와 case문의 순서를 조정하여 원하는 코드를 만들어 낼 수 있다  
+
+```JS
+let n = 5;  
+
+switch (n % 5)//n을 5로 나눈 값
+{
+    case 0:{
+        console.log('5의 배수입니다');
+    }
+    default:{//항상 맞는 조건
+        console.log(n);
+    }
+}
+//case에 맞는 조건을 실행한 후 break문이 없어서
+//다음 케이스문이 쭉 시행된다
+```
+이런 switch의 break가 없을 때 모든 case문을 실행시키는 특성을 활용
+```JS
+let n = 5;
+
+switch (n % 5)//n을 5로 나눈 값
+{
+    case 0:{
+        console.log('5의 배수입니다');
+        break;//5의 배수일 때 걸러짐
+    }
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        console.log('5의 배수가 아닙니다');
+        //5의 배수가 아닐 때 case에서 내려와서 출력한다
+    default:{//항상 맞는 조건
+        console.log(n);
+    }
+}
+```
+
+<br>
+
+## 반복문
+프로그래밍에서 반복문은 특정 코드블록을 반복적으로 실행하기 위한 문법이다
+
+불필요한 반복은 하지 말아야 한다
+```JS
+console.log('안녕하세요');
+console.log('안녕하세요');
+console.log('안녕하세요');
+console.log('안녕하세요');
+console.log('안녕하세요');
+
+//불필요한 반복을 줄일 수 있다
+
+for (let i = 0 ; i < 5 ; i++)
+{
+    console.log('안녕하세요');
+}
+```
+
+자바스크립트에서 반복문에는
+
+키워드 | 요약
+---|---
+for | 고전적인 for문
+for in | 객체의 프로퍼티 키 열거 전용
+for of | 이러텁늘 순회 전용
+forEach() | 배열 순회 전용 메서드
+while | 고전적인 while문
+do while | 고전적인 do...while문
+Object 객체 메서드| 객체 순회 전용
+Array.prototye 메서드| 배열 전용
+
+<a href = "https://curryyou.tistory.com/202" target = "_blank" title = "참고자료">JS 반복문</a>
+
+### for
+초기식, 표현식, 증감식을 모두 포함하고 있는 반복문
+
+```JS
+for (초기화 ; 반복조건 ; 반복이 된 후 실행되는 코드)  
+{  
+    반복되는 코드 블록  
+}
+```
+
+**for문에서 변수 선언시 const를 쓰면 값 변경이 불가능해서 에러가 발생한다**
+
+```JS
+for (let i = 0 ; i < 5 ; i++)
+{
+    console.log('안녕하세요',i);
+}
+// i 의 값도 함께 출력된다
+
+//여러 개의 초기값, 증감값이 생길 수 있다
+for (let i = 0, j = 2 ; i < 5 ; i++, j = j * j)
+{
+    console.logm('안녕하세요',i,j);
+}
+```
+```JS
+for (;;)
+{
+    d
+}
+//for을 이렇게 사용할 수 있다
+//for안에 조건이 없기 때문에 무한루프가 생기게 된다
+
+for (;;)
+{
+    console.log('안녕하세요');
+    if (Math.random() * 100 > 90)//랜덤한 값을 만들고
+    {//랜덤한 값이 90이상의 수가 나올 때 if문을 통과한다
+    //즉 랜덤한 값에 의해 종료가 된다
+        break;
+    }
+}
+```
+
+#### break
+반복문에서 즉시 탈출하고 싶을 때 블럭안에서 `break` 를 실행시킨다
+
+```JS
+for (int i = 0 ; i < 5 ; i++)
+{
+    console.log('안녕하세요');
+    break;
+}
+//break를 만나고 반복문을 탈출한다
+```
+
+#### continue
+반복되는 블럭 안에서 `continue` 를 만나면 거기서 해당 블럭을 종료시킨다  
+그리고 다음 반복이 있으면 다음 반복으로 넘어간다
+
+```JS
+for (int i = 0 ; i < 5 ; i ++)
+{
+    console.log('안녕');
+    continue;
+    console.log('하세요');
+}
+//continue를 만나고 해당블럭종료, 다음반복시작 하기 때문에
+//'하세요' 는 출력되지 못한다
+```
+
+<br>
+
