@@ -895,8 +895,8 @@ for of | 이러텁늘 순회 전용
 forEach() | 배열 순회 전용 메서드
 while | 고전적인 while문
 do while | 고전적인 do...while문
-Object 객체 메서드| 객체 순회 전용
-Array.prototye 메서드| 배열 전용
+Object 객체 메소드| 객체 순회 전용
+Array.prototye 메소드| 배열 전용
 
 <a href = "https://curryyou.tistory.com/202" target = "_blank" title = "참고자료">JS 반복문</a>
 
@@ -937,7 +937,7 @@ for (;;)
 {
     console.log('안녕하세요');
     if (Math.random() * 100 > 90)//랜덤한 값을 만들고
-    {//랜덤한 값이 90이상의 수가 나올 때 if문을 통과한다
+    {//랜덤한 값이 90초과의 수가 나올 때 if문을 통과한다
     //즉 랜덤한 값에 의해 종료가 된다
         break;
     }
@@ -973,3 +973,422 @@ for (int i = 0 ; i < 5 ; i ++)
 
 <br>
 
+### for of
+**<a href = "https://helloworldjavascript.net/pages/260-iteration.html" target = "_blank" title = "참고자료">iterable</a> 한 객체(ex 배열)에 모두 사용할 수 있다**
+
+```JS
+for (const i of [1 , 2 , 3])//배열의 요소가 하나하나 i 에 들어간다
+{
+    console.log(i);
+}
+//1, 2, 3 이 출력된다
+```
+
+<br>
+
+### for in
+**모든 프로퍼티 에 모두 사용할 수 있다**  
+그래서 객체 안에 있는 프로퍼티 하나하나를 for in으로 돌릴 수 있다 
+
+```JS
+Object.prototype.test = function() {};
+//프로토타입 안에 프로퍼티를 설정해 놓으면
+//프로토타입 안에있는 test도 함께 나오게 되서
+//의도한대로 동작하지 않을 수 있다
+for (const i in {a : 1, b : 2, c : 3})
+{
+    console.log(i);
+}
+//a, b, c 가 출력된다
+```
+
+<br>
+
+### for Each
+**배열의 각 요소에 대해 순서대로 함수를 한 번 호출한다**
+
+<a href = "https://www.w3schools.com/jsref/jsref_foreach.asp" target = "_blank" title = "참고자료">JS for each</a>
+
+```JS
+let sum = 0;
+const numbers = [65, 44, 12, 4];
+numbers.forEach(myFunction);
+
+function myFunction(item)
+{
+    sum += item;
+}
+//배열의 값들을 sum 에 다 더한다
+console.log(sum);
+```
+<br>
+
+### While
+조건이 참일 때 까지 계속 실행하는 반복문이다  
+조건은 문장안이 실행되기 전 참, 거짓을 판단한다
+
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/while" target = "_blank" title = "참고자료">JS while</a>
+
+```JS
+while (조건)  
+{  
+    조건이 거짓이 될 때까지 실행  
+}  
+```
+
+```JS
+while (true)//무한루프
+{
+    console.log('안녕하세요');
+    if (Math.rnadom() * 100 > 90)//100까지 랜덤한 수를 뽑음
+    {//랜덤한 수가 90초과일 때 break문을 만남
+        break;
+    }
+}
+```
+
+<br>
+
+### Do While
+한 번 실행한 후 조건이 참일 때 까지 실행하는 반복문
+```JS
+do {
+
+} while (조건);
+```
+**while과 같지만 한 번은 꼭 실행된다**
+```JS
+do {
+    console.log('안녕하세요');//한 번은 꼭 실행된다
+} while(Math.random() * 100 < 90);//랜덤한 수가 90초과일 때까지 실행
+```
+
+<br>
+
+## 함수
+특정 코드를 하나의 명령으로 실행할 수 있다
+
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions" target = "_blank" title = "참고자료">JS 함수</a>
+
+### 함수 선언
+
+함수를 만들 때 사용하는 키워드
+```JS
+function hello()
+{
+
+};
+```
+함수도 객체 중 하나이다
+```JS
+//이름이 hello 인 함수를 선언
+function hello()
+{
+    console.log('hello');
+};
+console.log(hello, typeof hello);
+//함수가 실행 = hello가 출력
+//함수의 타입은 function 이 출력된다 = 함수는 객체 중 하나이다
+//이를 표준내장객체 라 한다
+```
+함수의 매개변수
+```JS
+//함수의 매개변수
+//함수를 호출할 때 값을 변경
+//함수에서 사용할 변수
+function nice(name)
+{
+    console.log('nice', name);
+};
+console.log(nice('Park'));
+```
+함수에서 `return` 키워드를 사용하여 함수의 결과물을 지정할 수 있다
+```JS
+let a = 1;
+let b = 5;
+
+function add (A , B)//함수에 들어오는 값을
+{//대문자 A, B로 사용
+    return A + B;
+};
+
+const sum = add(a,b);
+console.log(sum);
+```
+
+<br>
+
+### 함수 표현식
+함수 표현식에 의해서 함수가 만들어 질 수 있다  
+이같은 함수를 **익명**이라고 한다
+
+```JS
+//이름이 meet인 함수 선언
+const meet = function()
+{
+    console.log('meet');
+};
+
+console.log(meet, typeof meet);
+//함수가 출력된다
+//function이라는 타입이 출력된다
+```
+매개변수
+```JS
+const you = function(name)
+{//매개변수를 할당한다
+    console.log('you',name);
+}
+```
+리턴
+```JS
+const you = function(name)
+{
+    return `you &{name}`;
+}
+```
+
+<br>
+
+#### + 선언적 function(이름을 function뒤에 적는 방식) 과 익명 함수(함수에 이름을 붙이지 않는 방식) 의 차이점
+선언적 방식은 사용을 먼저 할 수 있고,  
+익명함수는 사용을 먼저하지 못한다
+
+선언적방식
+```JS
+//선언적 방식
+function hello1()//함수선언
+{
+    console.log('hello1');
+}
+
+hello1();//사용
+
+//hello1는 위에 선언되었고 사용은 밑에서 사용됐다
+//함수선언과 사용의 위치를 바꿔본다
+
+hello2();
+
+function hello2()
+{
+    console.log('hello2');
+}
+
+//함수선언과 사용의 위치를 바꾸어도 정상작동된다
+```
+익명함수
+```JS
+//익명함수
+const hello3 = function()//함수선언
+{
+    console.log('hello3')
+}
+
+hello3();//사용
+
+//hello3는 위에 선언되었고 사용은 밑에서 사용됐다
+//함수선언과 사용의 위치를 바꿔본다
+
+hello4();
+
+var hello4 = function()
+{
+    cnosole.log('hello4');
+}
+//함수가 아니라 인식하고 에러가 뜬다
+//호이스팅에 의해 함수만 hello4위에 선언된 효과가 나타나서
+//함수라 인식
+
+hello5();
+
+const hello5 = function()
+{
+    console.log('hello5');
+}
+//const는 호이스팅이 되지 않기 때문에
+//hello5는 인식하지 못하고 에러가 뜬다
+```
+
+<br>
+
+### 생성자 함수로 함수를 만드는 방법
+function에 new를 붙여 함수를 만들고 그 함수를 특정 변수에 넣는 방식   
+익명함수를 만들어 붙이는 것과 가깝고 잘 쓰이진 않는다
+
+```JS
+//new Function(인자1, 인자2, ... , 함수의 바디);
+const sum = new Function('a', 'b', 'c', 'return a + b + c');
+
+console.log(sum(1 ,2 ,3 ));
+//6이 출력된다
+
+//선언적방식이 아니기 때문에 위에서 사용하면 에러가 뜬다
+
+console.log(plus(5,6));
+const plus = new Function('a', 'b', 'return a+b');
+```
+
+<br>
+
+#### function 과 new function(); 의 차이점
+전역변수를 사용하려면 `new function();` 을 사용,  
+그냥 자신의 윗 변수를 사용하려면 `function` 을 사용한다
+
+new function사용
+```JS
+{
+    const a = 1;
+    const test = new Function('return a'); 
+    console.log(test());
+}
+//a 를 인식하지 못해서 에러가 난다
+
+
+global.a = 0;
+
+{
+    const a = 1
+    const test = new Function('return a');
+    console.log(test());
+}
+//전역변수(global)의 값 0이 출력된다
+
+//전역변수의 값을 가져와 쓰려면
+//new function(); 형태를 사용할 수 있다
+```
+function사용
+```JS
+global.a = 0;
+{
+    const a = 2;
+    
+    const test = function()
+    {
+        return a;
+    };
+
+    console.log(test());
+}
+//전역변수 a 의 값인 0 이 아닌
+// 2가 출력된다
+```
+
+<br>
+
+### arrow function
+es6에서 생겼다   
+선언적 방식으로 사용할 수 없기 때문에 항상 익명함수이다  
+
+```JS
+const hello1 = () =>
+{
+    console.log('hello1');
+};
+```
+매개벼수가 하나일 때 괄호 생략 가능
+```JS
+const hello2 = /*(*/name/*)*/ => 
+{
+    console.log('hello2',name);
+}
+```
+리턴
+```JS
+const hello4 = name =>
+{
+    return `hello4 ${name}`;
+}
+
+// =
+
+const hello5 = name => `hello5 ${name}`;
+//이와같이 간략하고 보기쉬운 형태로 바꿀 수 있다
+```
+
+<br>
+
+### 생성자 함수
+객체를 만들어 낼 때 `function`을 사용해 틀을 만들고,  
+그 틀로 `new`를 사용해서 사용할 수 있는 객체로 만들 수 있다
+
+```JS
+function Person(name,age)
+{
+    this.name = name;
+    this.age = age;
+    //this는 객체로 만들어졌을 때
+    //객체를 가리키는 역할을 한다
+}
+
+const a = new Person('Park',17);
+console.log(p,p.name,p.age);
+
+const b = new Person('BK',17);
+console.log(b,b.name,b.age);
+
+//이렇게 다른 객체를 함수를 사용해 만들어낼 수 있다
+```
+this가 객체로 만들어 졌을 때 객체를 가르키는 역할을 하기 때문에  
+arrow function을 만들었을 때 arrow function에는 함수안에 this가 생기지 않기 때문에  
+**arrow function으로는 새로운 객체를 만들어내는 생성자 함수로 사용하지 못한다**
+```JS
+const Cat = (name, age) =>
+{
+    console.log(this);
+    this.name = name;
+    this.age = age;
+}
+const c = new Cat('냥이',1);
+//Cat이라는 arrow function은 안에 this를 가지고 있지않아서
+//객체에서는 this에 값이나 함수를 프로퍼티로 넣어 줄 수 없기 때문에 
+//에러가 뜬다
+```
+
+<br>
+
+#### 함수 안에서 함수를 리턴
+만들어진 함수는 객체이기 때문에 a,b에 할당하듯이 할당할 수 있다  
+즉 함수안에서 함수를 만들어서 리턴할 수 있다
+
+```JS
+function plus(base)
+{
+    return function(num)
+    {
+
+    }
+    //함수를 사용할 때 받은 인자와
+    //함수를 실행해서 만든어진 함수의 인자는
+    //시간상으로 다르다
+}
+
+const p = plus(5);
+console.log(p(10));//plus에 5를 넣음
+
+//즉 처음넣은 5와 아래에서 넣은 10을 합쳐서
+//15가 출력된다
+
+const P = plus(7);
+console.log(P(8);
+//15가 출력된다
+```
+
+<br>
+
+#### 함수를 호출할 때, 인자로 함수를 사용
+마찬가지로 함수는 객체이기 때문에 인자와 함수를 넣어 안에서 사용할 수 있다
+
+```JS
+function hello(c)
+{
+    console.log('hello');
+    c();
+}
+
+hello(function()
+{
+    console.log('콜백')
+});
+```
+
+<br>
