@@ -1285,7 +1285,7 @@ const hello1 = () =>
     console.log('hello1');
 };
 ```
-매개벼수가 하나일 때 괄호 생략 가능
+매개변수가 하나일 때 괄호 생략 가능
 ```JS
 const hello2 = /*(*/name/*)*/ => 
 {
@@ -1392,3 +1392,254 @@ hello(function()
 ```
 
 <br>
+
+## 객체
+객체(object)는 함수 또는 클래스로 틀을 만드는 것이고  
+그 틀에서 객체(object)를 하나씩 찍어내게 된다  
+이 객체(object)를 인스턴스라고 부른다  
+
+객체를 만들어내는 틀의 역할을 하는 함수를 생성자함수라 한다
+```JS
+//기본형태
+function 틀(){} => new 틀()
+```
+
+```JS
+function A(){}
+
+const a = new A();
+console.log(a, typeof a);
+//A {}  "object" 가 출력된다
+//A라는 생성자함수를 통해 만든 객체의 모습은
+//{} = 아무것도 없다
+//객체의 타입은 object이다
+
+console.log(A());
+//new를 붙이지 않고 함수를 실행하면 생성자함수가 아니기 때문에
+//함수 A를 실행하고 리턴값을 가져오게된다
+//리턴값이없다 = undefined
+```
+생성자함수로 생성하면서 객체내부로 데이터를 넣을 수 있도록  
+밖에서 생성자 함수를 호출할 때 인자를 넣어서 처리를 해야한다
+```JS
+function B(name, age)
+{
+    console.log(name,age);
+};
+//인자로 넣을 변수를 처리한다
+
+const b = new B();
+//B라는 생성자함수를 호출할 때  
+//인자값을 넣지 않으면 undefined가 찍힌다
+
+const C = new B('Park',17);
+//B함수를 호출하면서 B함수 안의 console.log 에 의해 인자가 출력된다
+```
+#### 객체에 속성 추가하기
+객체는 중괄호`{}`로 만들어지는데 그 안에 사용할 데이터, 함수 등을 넣을 수 있다  
+그렇게 들어간 것을 **프로퍼티** 라 하고 그 프로퍼티가 값을 가지고 있는 것이다  
+
+값을 속성으로 넣기
+```JS
+//값을 속성으로 넣기
+function A()
+{
+    //{name : 'Park'} 로 값이 들어가게 하려면
+    this.name = 'Park'//this가 객체를 의미한다
+}
+
+const a = new A();//객체생성
+
+console.log(a)//출력
+```
+함수를 속성으로 넣기
+```JS
+function B()
+{
+    this.hello = function()
+    {
+        console.log('hello');
+    };
+}
+
+new B().hello();
+//hello가 출력된다 
+```
+
+<br>
+
+### Object로 객체 만들기
+object는 자바스크립트에서 가장 기본이되는 객체이다  
+`new object` 를 활용해 객체를 만들 수 있다  
+권장되는 방법은 아니다
+```JS
+const a = new Object();
+//new Object를 호출하고 a라는 변수는 객체가 된다
+console.log(a, typeof a);
+//{} 와 'object' 가 출력된다
+```
+```JS
+const b = new Object(true);
+console.log(b,typeof b);
+
+//Boolean 생성자 함수에서 true라는 값을 가진
+//object형의 객체가 나오게 된다
+```
+```JS
+const c = new Object({name : 'Park'});
+console.log(c, typeof c);
+//name : 'Park' 이고 object형의 객체가 나오게 된다
+```
+
+<br>
+
+### 프로토타입 체인
+자바스크립트는 프로토타입(prototype)으로 모든 객체들을 연결해서 표현할 수 있다
+
+```JS
+function Person(name,age)
+{
+    this.name = name;
+    this.age = age;
+    this.hello = function()
+    {
+        console.log('hello', this.name, this.age);
+    };
+}
+
+const p = new Person('Park', 17);
+
+p.hello();//p객체의 hello함수를 실행하면
+//hello 와 이름(Park), 나이(17)가 출력된다
+
+
+console.log(p.toString());//작성하지 않은 함수이다
+//에러가뜨지않고 [object Object] 가 출력된다
+//즉 작성하지 않았지만 호출이 가능하다
+
+console.log(Person.prototype);//이 prototype도 없는 속성이다
+//하지만 에러가 뜨지않고 출력이된다
+console.log(Person.prototype.toString);
+//역시 에러가 뜨지않고 출력이 된다
+
+//이는 프로토타입과 관련되어있다
+
+console.log(p instanceof Person);
+console.log(p instanceof Object);
+//둘 다 true가 나온다
+//그 뜻은 p라고 하는 객체는 
+//Person이라는 생성자 함수로 나왔고
+//그 Person은 Object로부터 프로토타입 체인을 받아온
+//후에 내가 설정한 함수, 프로퍼티를 가지고 있는 형태가된다
+```
+자바스크립트에서 프로토타입은 중요한 개념 중 하나이다  
+보통 class 라는 키워드를이용해 객체를 확장할 수 있는 형태인데  
+**자바스크립트는 원래 프로토타입을 이용한 상속방식을 채택했다**
+
+프로토타입을 이용한 객체 확장
+```JS
+function Person(){}
+Person.prototype.hello = function()
+{
+    console.log('hello');
+}
+
+function Korean(region)
+{
+    this.region = reigon;
+    this.where = function()
+    {
+        console.log('where', this.region);
+    }
+}
+
+Korean.prototype = Person.prototype;
+
+const k = new Korean();
+
+const k = new Korean('Deagu');
+//객체의 프로토타입이 Person이로부터 나온다
+//즉 k.hello, k.where 도 출력할 수 있따
+k.hello();
+k.where();
+//부모의 객체를 자식의 객체 어딘가에 프로퍼티로 할당하는 방식이다
+
+console.log(k instanceof Korean);
+//가장 가까이에 있는 것은 Korean이다
+console.log(k instanceof Person);
+//그 포로토타입을 가지고있는 Person은 프로토타입 체인은이다
+console.log(k instanceof Object);
+//Person은 Object가 주는 것들을 프로토타입으로 가지고 있다
+```
+이와같이 자바스크립트에서 객체는 프로토타입 형식으로 체인이 되서 확장된 함수들을 사용할 수 있다
+
+### 객체 리터럴
+객체를 만들 때 값을 객체로 직접 작성해서 그 값이 객체로 만들어지는 것이 **객체 리터럴** 을 사용한 객체 생성 방법이다
+
+```JS
+const a = {};
+console.log(a, typeof a);
+//function으로 만든 것과 같이
+//{} 와 object 타입이 출력된다
+
+const b = {
+    name:'Mark'
+}
+console.log(b,typeof b);    
+//객체의 형태가 출력되고 object타입이 출력된다
+
+//프로퍼티에는 값뿐만아니라 객체, 함수 등이 올 수 있다
+//함수를 프로퍼티에 넣기
+const c = {
+    name : 'Park',
+    hello1()
+    {
+        console.log('hello1', this)
+    },
+    //다른 방법으로 함수를 만들 수 있다
+    //프로퍼티는 함수 표현식을 가지는 형식
+    hello2:function()
+    {
+        console.log('hello2', this);
+    },
+    //arrow function형식
+    hello3: () => 
+    {
+        console.log('hello3', this);
+    }
+}
+
+c.hello1();
+c.hello2();
+c.hello3();
+
+//hello1 과 hello2는 
+//{name: "Park", hello1: ƒ, hello2: ƒ, hello3: ƒ} 가 출력된다
+
+//hello3 는 {} 출력되는데 그 이유는 
+//hello1 과 hello2 는 이 전체 객체를 this라고 인식하지만
+//hello3 는 arrow function으로 만들어서 this가 객체를 가르키지 않기 때문이다
+```
+
+<br>
+
+### 표준 내장 객체
+객체가 이미 런타임 환경에 만들어진 것이다  
+대표적인 예는 object, new function으로 새로운 객체를 만드는 것이다  
+
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects" target = "_blank" title = "참고자료">표준 내장 객체</a>
+
+```JS
+//대표적인 표준 내장 객체인 array
+
+const a = new Array('red', 'black', 'white');
+//array란는 객체를 생성자 함수로 사용
+console.log(a, typeof a);
+//대괄호로 표현이 되고 'object'타입이 출력된다
+console.log(a instanceof Array);
+console.log(a instanceof Object);
+//a 는 Array, Object
+
+const b = [''];
+//array로 new를 하는 것 말고도 리터럴로 사용가능하다
+```
