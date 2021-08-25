@@ -1,4 +1,4 @@
->웹사이트 <a href= "https://learnjs.vlpt.us/basics/01-hello-javascript.html" target = "_blank" title = "참고자료">벨로퍼트와 함께하는 모던 자바스크립트</a> , **패스트캠퍼스 JavaScript (이웅재 강사)** 와 여러자료들을 참고
+>웹페이지 <a href= "https://learnjs.vlpt.us/basics/01-hello-javascript.html" target = "_blank" title = "참고자료">벨로퍼트와 함께하는 모던 자바스크립트</a> , **패스트캠퍼스 JavaScript (이웅재 강사)** 와 여러자료들을 참고
 
 <br>
 
@@ -1392,6 +1392,7 @@ hello(function()
 ```
 
 <br>
+<<<<<<< HEAD
 
 ## 객체
 객체(object)는 함수 또는 클래스로 틀을 만드는 것이고  
@@ -1643,3 +1644,5 @@ console.log(a instanceof Object);
 const b = [''];
 //array로 new를 하는 것 말고도 리터럴로 사용가능하다
 ```
+=======
+>>>>>>> f5820c2eba5a0a74cec2cfbefda27e9a8007d9a8
