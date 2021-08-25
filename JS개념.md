@@ -1644,5 +1644,4 @@ console.log(a instanceof Object);
 const b = [''];
 //array로 new를 하는 것 말고도 리터럴로 사용가능하다
 ```
-=======
->>>>>>> f5820c2eba5a0a74cec2cfbefda27e9a8007d9a8
+
