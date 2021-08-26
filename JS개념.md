@@ -1641,8 +1641,111 @@ console.log(a instanceof Array);
 console.log(a instanceof Object);
 //a 는 Array, Object
 
-const b = [''];
+const b = ['red', 'green','yellow'];
 //array로 new를 하는 것 말고도 리터럴로 사용가능하다
+
+console.log(b, typeof b);
+//똑같이 위처럼 나온다
+console.log(b instanceof Array);
+console.log(b instanceof Object
+//마찬가지로 instanfeof가 array, object이다
+
+console.log(b.slice(0,1));
+//slice는 array에 들어있는 함수이다
+//slice(0,1) 은 0번째부터 1개만 잘라온다 = red 가 출력
 ```
-=======
->>>>>>> f5820c2eba5a0a74cec2cfbefda27e9a8007d9a8
+
+<br>
+
+## 클래스
+클래스는 자바스크립트 es6에 새로추가된 기능이다  
+기존의 프로토타입기반의 방식을 조금더 확실하게 사용할 수 있다  
+
+클래스를 만드는데는 두 가지가 있다
+* 선언적 방식
+* 클래스 표현식
+
+선언적 방식
+```JS
+//선언적 방식
+class A {}
+console.log(new A());
+
+//클래스 표현식을 변수에 할당
+const B = class {};
+console.log(new B);
+```
+**선언적 방식이지만 함수처럼 호이스팅은 일어나지 않는다**
+```JS
+new C();
+class C {}
+//인식하지 못한다
+```
+
+### 클래스 생성자
+함수를 통해 객체를 만들 때 함수에 인자로 넣어  
+외부에서 객체를 만들 때 안으로 넣을 수 있다
+
+클래스에서도 constructor(생성자)를 활용해 초기값을 객체 안으로 넣을 수 있다
+
+```JS
+class A{}
+
+console.log(new A());
+
+class B
+{
+    constructor()//생성할 때 실행이 되도록 하는
+    {
+        console.log('constructor');
+    }
+}
+
+console.log(new B());//constructor에도 인자를 표현하지 않았기 때문에
+//만들 때도 그대로 만들어 준다
+
+//A객체가 만들어지고
+//B객체가 만들어질 때 constructor가 출력된다
+```
+```JS
+class C
+{
+    constructor(name.age)
+    {
+        console.log('constructor',name,age);
+    }
+}
+console.log(new C('Park',17));
+
+
+console.log(new C());
+//name, age를 넣지 않으면 undefined 가 뜬다
+```
+
+<br>
+
+## 멤버 변수
+
+```JS
+class A
+{
+    constructor(name,age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+    //이렇게 this를 넣으면
+    //객체를 생성해서 name과 age를 넣으면
+    //그 객체의 프로퍼티값으로 들어가게 된다
+}
+
+console.log(new A('Park',17));
+
+//class의 필드를 바로 써주는 문법은
+class B
+{
+    name;
+    age;
+}
+//런타임에따라 다른 결과가 나온다
+```
