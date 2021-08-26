@@ -1722,6 +1722,7 @@ console.log(new C());
 //name, age를 넣지 않으면 undefined 가 뜬다
 ```
 
+<<<<<<< HEAD
 <br>
 
 ## 멤버 변수
@@ -1749,3 +1750,5 @@ class B
 }
 //런타임에따라 다른 결과가 나온다
 ```
+=======
+>>>>>>> fdf1506e029adca4a169dad69ee1e0050233e7db
