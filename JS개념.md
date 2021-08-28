@@ -1711,7 +1711,7 @@ console.log(new B());//constructor에도 인자를 표현하지 않았기 때문
 class C
 {
     constructor(name.age)
-    {
+    { 
         console.log('constructor',name,age);
     }
 }
@@ -1722,7 +1722,6 @@ console.log(new C());
 //name, age를 넣지 않으면 undefined 가 뜬다
 ```
 
-<<<<<<< HEAD
 <br>
 
 ## 멤버 변수
@@ -1749,6 +1748,413 @@ class B
     age;
 }
 //런타임에따라 다른 결과가 나온다
+
+class C
+{
+    name = 'no name';
+    age = 0;
+
+    constructor(name,age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+}
+console.log(new C('Mark', 37));
 ```
-=======
->>>>>>> fdf1506e029adca4a169dad69ee1e0050233e7db
+멤버 함수
+```JS
+class A
+{
+    hello1()
+    {
+        console.log('hello1',this);
+    }
+    //이처럼 함수의 이름, 괄호, 중괄호로 만드는 방법이 있고
+
+    hello2 =  () =>{
+        console.log('hello2',this);
+    }
+    //변수 이름에 함수를 할당하는 방법
+}
+
+new A().hello1();
+new A().hello2();
+//hello1, hello2가 정상적으로 출력되었고
+//this로 인해 A라는 class로 만든 객체라는 의미가 출력된다
+
+//이런 멤버 함수는 그 안에서 멤버 변수를 얻어 바로 사용할 수 있다
+class B
+{
+    name = 'Park';
+
+    hello1() {
+        console.log('hello',this.name);
+    }
+}
+
+new B().hello();
+```
+### get, set 
+
+```JS
+class A{
+    _name = 'no name';
+
+    get name(){
+        return this._name + '@@@';
+    }
+
+    set name(value){
+        this._name = value + '!!!';
+    }//문자열을 ! 세 개를 추가
+}
+
+const a = new A();
+console.log(a);
+//_name 이 'no name'으로 출력된다
+
+a.name = 'Park';
+//a.name에 Park라고 하는 문자열이
+//set되게 되는데 그래서 set함수가 불리게 된다
+//불리면 !세 개가 추가가 된다
+console.log(a);
+
+console.log(a.name);
+//get되게 돼서 !!! + @@@ 형태로 나온다
+console.log(a._name);
+//문법적으로 강제는 아니지만
+// _ (언더바) 는 내부적으로만 사용할 경우에는 _ 단다
+
+//보통 _ 를 바꾸지 않고 get과 set을 설정해서 사용한다
+```
+readonly
+<!-- 페이지 -->
+
+### static 변수, 함수
+객체가 아닌 클래스의 변수와 함수
+
+```JS
+class A{
+    static age = 17;
+    static hello(){
+        console.log(A.age);
+        //클래스 이름으로 직접 값을 부를 수 있다
+    }
+}
+
+console.log(A , A.age);
+A.hello();
+
+class B{
+    age = 17;
+    static hello(){
+        console.log(this.age);
+    }
+}
+
+console.log(B,B.age);
+B.hello();
+//B.age = undefined
+//B.hello를 호출했을 때 this를 출력하기 때문에 undefined
+
+class C{
+    static name = "이 클래스의 이름은 C가 아니다";
+}
+
+console.log(C);
+//static name 이라는 변수가 class의 이름을 뜻해서
+//함수의 이름이 "이 클래스의 이름은 C가 아니다" 가 된다
+```
+### extends
+이미 만들어진 클래스를 활용
+
+상속을 할 때는 extends 라는 키워드를 사용한다
+```JS
+class Parent{//부모 클래스
+    name = 'Park';
+
+    hello(){
+        console.log('hello', this.name);
+    }
+};
+
+//이 부모 클래스를 상속받는 자식 클래스
+class Child extends Parent{};//Child는 Parent를 상속 받는다
+
+
+//이 부모클래스와 부모글래스를 상속받은 클래스를 비교
+const P = new Parent();
+const C = new Child();
+console.log(P,C);
+//멤버 변수가 그대로 들어온다
+
+//부모의 멤버 함수에 그대로 접근 가능하다
+c.hello();
+c.name = 'Anna';
+c.hello();
+```
+### override
+부모에서 구현된 함수나 변수가 자식에게 똑같은 이름으로 구현시키면 **오버라이드** 된다고 한다  
+자식이 만들어 놓은 함수가 부모의 함수를 바꾸거나 추가하는 결과를 가지게 된다
+```JS
+class Parent{
+    name = 'Park';
+
+    hello(){
+        console.log('hello', this.name); 
+    }
+}
+//이렇게 부모가 가지고 있는 함수를
+class Child extends Parent{//자식이 상속받은 후
+    age = 17;
+
+    hello(){
+        console.log('hello',this.name, this.age);
+    }//함수를 변경한다
+}
+
+const P = new Parent();
+const C = new Childe();
+
+console.log(p,c);
+//부모는 이름, 자식은 이름,나이가 출력된다
+
+c.hello();
+//자식의 함수가 출력된다
+
+c.name = 'BK';
+c.hello();
+//이름이 BK로 바뀌고 나이가 출력된다
+```
+### super
+클래스의 상속자가 생성자에서 추가하고자 할 때 사용할 수 있다
+```JS
+class Parent{
+    name;
+
+    constructor(name){
+        this.name = name;
+    }
+
+    hello(){
+        console.log('hello', this.name);
+    }
+}
+
+class Child extends Parent{
+    age;
+
+    constructor(name,age){
+        super(name);
+        //부모에서 하는 일을 하고 자식이 하는 일을 할 수 있도록
+        //super를 호출해야 한다
+        this.age;
+    }
+
+    hello(){
+        console.log('hello', this.name, this.age);
+    }
+}
+
+const P = new Parent('Park');
+const C = new Child('Park',17);
+
+console.log(p,c);
+//부모와 상속받은 자식에 다르게 출력된다
+c.hello();
+//이름과 나이가 둘 다 출력된다
+```
+### static
+클래스안에 있는 static변수를 상속
+```JS
+class Parent{
+    static age = 17;
+}
+
+class Child extends Parent{}
+
+console.log(Parent.age, Child.age);
+//static변수도 상속이 된다
+``` 
+부모클래스가 자식클래스에게 상속이 이 되고
+부모클래스가 `new` 키워드를 통해 instance로 만들 수 있다
+자식클래스가 `new` 키워드를 통해 instance로 만들 수 있다
+instance로 만들어진 부모도 instance로 만들어진 자식에게 상속이 된다
+
+<br>
+
+## Promise
+함수를 호출하고 끝나는 동안에도 프로그램이 진행되도록 할 수 있다   
+이런 비동기적인 상황에서 코드를 명확하게하고 실행되도록 한다
+```JS
+//생성자를 통해 프로미스 객체를 만들 수 있다
+//생성자의 인자로 executor라는 함수를 이용한다
+
+//excutor 함수는 resolve 와 reject 를 인자로 가진다
+//resoleve 와 reject는 함수이다
+
+new Promise(/*executor*/(resoleve, reject)) => {};
+``` 
+#### pending(대기)
+```JS
+//생성자를 통해 프로미스 객체를 만드는 순간
+//pending(대기) 상태가 된다
+
+nwe Promise()resolve, reject) => {});
+//이 때 pending상태에 놓이게 된다
+```
+#### fulfilled(이행,실행)
+```JS
+//pending상태에 들어간 후 
+//executor함수 인자 중 하나인 resoleve함수를 실행하면 
+//fulfilled(이행,실행) 상태가 된다
+new Promise((resolve, reject)) => {
+    resolve(); //fulfilled상태가 된다
+}
+```
+#### rejected(거부)
+```JS
+//pending상태에 들어간 후
+//executor 함수 인자 중 하나인 reject함수를 실행하면 
+//rejected(거부) 상태가 된다
+new Promise((resoleve,reject)) => {
+    reject();//rejected상태가 된다
+}
+```
+<img alt = "JS 프로미스 패턴" title = "참고자료" src = "https://t1.daumcdn.net/cfile/tistory/99BAA9375AFEF1F726" height = "350">
+
+new Promise 로 `executor` 함수를 인자로 받아서 pending상태로 되고  
+이 상태에서 비동기적인 상황이 일어난다  
+이 비동기적인 상황이 일어날 때 동안은 pending상태로 유지한다  
+
+성공적으로 일을 끝내면 fulfilled 상태에 가도록하는 `resolve` 함수를 호출한다  
+성공적으로 일을 끝내지 못하면 rejected 상태에 가도록 하는 `reject` 함수를 호출한다
+
+
+then
+```JS
+//p 라는 프로미스 객체를 1000ms 후에 fulfilled가 되도록 하기
+
+const p = new Promise((resolve,reject) => {
+    /* pending */
+    setTimeout(() => {
+        //setTimeout 함수는 특정시간 이후에
+        //실행되는 함수를 설정할 수 있다
+        resolve();//fulfilled 상태가 된다
+    }, 1000);//1000ms 뒤에 실행된다
+});
+
+p.then(() => {
+    //resolve가 불린, fulfilled상태가 될 때 then으로 넘어가서
+    //이 함수가 실행된다
+    //즉 1초 후에 실행된다
+    console.log('1000ms 후에 fulfilled 됩니다');
+});
+//즉 callback을 작성하는 공간이 된다
+
+//프로미스 객체가 만들어지는 순간과 사용하는 순간의
+//차이가 크지 않아서 문제가 되지 않지만
+//실제로 사용 할 때는 보통
+//사용하는 곳에서 만들어서 엮어주는 작업을 하게 된다
+```
+```JS
+//사용하는 곳에서 만들어서 엮기
+
+function p(){
+    return new Promise((resolve,reject) => {
+    //return해준다
+    /* pending */
+    setTimeout(() => {
+        //setTimeout 함수는 특정시간 이후에
+        //실행되는 함수를 설정할 수 있다
+        resolve();//fulfilled 상태가 된다
+    }, 1000);//1000ms 뒤에 실행된다
+});
+}
+
+//then을 설정하는 시점을 정확히하고,
+//함수의 실행과 동시에 프로미스 객체를 만들면서 pending이 시작하도록 하기위해
+//프로미스 객체를 생성하면서 리턴하는 함수(p)를 만들어 함수(p) 실행과 동시에 then을 설정한다
+
+//마찬가지로 정상적으로 fulfilled 상태로 넘어갔을 때
+//실행할 코드
+p().then(() =>{
+    console.log('1000ms 후에 fulfilled 됩니다');
+});
+```
+catch
+```JS
+function p(){
+    return new Promise((resolve,reject) => {
+    /* pending */
+    setTimeout(() => {
+        //setTimeout 함수는 특정시간 이후에
+        //실행되는 함수를 설정할 수 있다
+
+        reject();//reject 상태가 된다
+
+    }, 1000);//1000ms 뒤에 실행된다
+});
+}
+
+p().then(() => {
+    console.log('1000ms 후에 fulfilled 됩니다');
+}).catch(() => {
+    console.log('1000ms 후에 rejected 됩니다');
+});
+
+//이런 then 과 catch를 사용해 비동기함수가
+//정상적, 비정상적 으로 종료됐을 때의
+//행동을 성정할 수 있다
+```
+executor의 `resolve` 함수를 실행할때 인자를 넣어 실행하면, then의 callback함수의 인자로 받을 수 있다
+```JS
+function p(){
+   return new Promise((resolve,reject) => {
+    /* pending */
+    setTimeout(() => {
+        //setTimeout 함수는 특정시간 이후에
+        //실행되는 함수를 설정할 수 있다
+        
+        resolve('hello');//hello를 보낸다
+        //resolve를 호출하면서 메시지,객체 등을 담아서 보낼 수 있다
+
+    }, 1000);//1000ms 뒤에 실행된다
+});
+}
+
+p()
+.then(message => {
+    console.log('1000ms 후에 fulfilled 됩니다',message);
+    //성공적으로 실행 된 후 message(hello)가 같이 출력된다
+})
+.catch(() => {
+    console.log('1000ms 후에 rejected 됩니다');
+});
+```
+마찬가지로 executor의 `reject` 함수를 실행할때 인자를 넣어 실행하면, catch의 ccallback함수의 인자로 받을 수 있다
+```JS
+function p(){
+   return new Promise((resolve,reject) => {
+    /* pending */
+    setTimeout(() => {
+        //setTimeout 함수는 특정시간 이후에
+        //실행되는 함수를 설정할 수 있다
+        
+        reject('error');//error를 보낸다
+        //reject를 호출하면서 메시지,객체 등을 담아서 보낼 수 있다
+
+    }, 1000);//1000ms 뒤에 실행된다
+});
+}
+
+p()
+.then(message => {
+    console.log('1000ms 후에 fulfilled 됩니다',message);
+    //성공적으로 실행 된 후 message(hello)가 같이 출력된다
+})
+.catch(reason => {
+    console.log('1000ms 후에 rejected 됩니다',reason);
+});
+```
