@@ -444,7 +444,8 @@ whatever = ture;//불린형의 탑을 가지게 된다
 이런 정해져있지 않은 타입의 스타일을 **동적 타이핑** 이라한다
 
 
-JS에서 기본적으로 제공하는 데이터 타입(primitive) 
+JS에서 기본적으로 제공하는 데이터 타입(primitive)  
+
 <img alt = "JS 데이터 타입" src = "https://www.learnsimpli.com/wp-content/uploads/2019/09/javascript-data-types.png" height = "350">
 
 객체(object)는 사용자정의 타입도 만들 수 있지만 기본적으로 실행환경, 브라우저에서 기본적으로 제공하는 객체들이 있다 그것을 표준내장객체라고 한다 내장객체를 활용해 또다를 객체를 만드는 활동도 할 수 있다
@@ -2157,4 +2158,116 @@ p()
 .catch(reason => {
     console.log('1000ms 후에 rejected 됩니다',reason);
 });
+```
+finally  
+then이나 catch를 실행하고 더 최종적으로 해줄일이 있다면 finally를 사용해서 해야할 일을 설정할 수 있다
+```JS
+function p(){
+   return new Promise((resolve,reject) => {
+    /* pending */
+    setTimeout(() => {
+        //setTimeout 함수는 특정시간 이후에
+        //실행되는 함수를 설정할 수 있다
+        
+        reject('error');//error를 보낸다
+        //reject를 호출하면서 메시지,객체 등을 담아서 보낼 수 있다
+
+    }, 1000);//1000ms 뒤에 실행된다
+});
+}
+
+p()
+.then(message => {
+    console.log('1000ms 후에 fulfilled 됩니다',message);
+    //성공적으로 실행 된 후 message(hello)가 같이 출력된다
+})
+.catch(reason => {
+    console.log('1000ms 후에 rejected 됩니다',reason);
+})
+.finally(() => {
+    console.log('end');
+});
+//end가 출력된다
+```
+비동기작업을 할 때 보통 callback의 연속으로 작업을 했다  
+callback함수를 인자로 넣어 로직이 끝나면 callback함수를 호출한다  
+이런 경우 함수가 아래로 진행되지않고, callback함수 안으로 진행된다
+```JS
+function c(callback){
+    setTimeout(() =>{
+        callback();
+    },1000);
+}
+
+c(() => {
+    console.log('1000ms 후에 callback 함수가 실행됩니다');
+})
+//이는 한 번의 비동기 작업 후 callback이 되는 것이다
+
+c(() => {
+    c(() => {
+        c(() => {
+            console.log('3000ms 후에 callback 함수가 실행됩니다');
+        })
+    });
+});
+//3번 함수를 불러서 3초가 된다
+
+//이런 경우에 callback헤드라 부르는 이유가 함수가 아래로 진행되지 않고
+//callback함수가 안으로 중첩되어 들어가게된다
+```
+then 함수에서 다시 프로미스 객체를 리턴하는 방법을 통해 체이닝하면, 비동기 작업을 순차적으로 아래로 표현할 수 있다  
+then에 함수를 넣는 방법에는 여러가지가 있다
+```JS
+function p(){
+    return new Promise((resolve,reject) => {
+        setTimepout(() =>{
+            resolve();
+        },1000);
+    })
+}
+
+p().then(() => {
+    return p();
+})
+//return p로 p함수를 실행하면
+//다시 새로운 프로미스 객체를 만들어 리턴하게 된다
+.then(() => p())
+//arrow function은 리턴을 바할 때
+//중괄호를 생략할 수 있다
+
+//즉 p가 한 번 불려서 (1초)
+//안의 리턴에서 한 번 불려서 (2초)
+//then에서 또 p 를 불러서 (3초) 후에 
+.then(p)//이곳에 오게되고
+.then(() =>{
+    console.log('4000ms 후에 fulfilled 됩니다');
+    //4초에 찍힌다
+})
+
+//이런식으로 then함수에 프로미스 객체를 return하는 방법을 통해
+//이전에 callback했던것처럼 들여쓰기로 안으로 들어가는 것 보다
+//순차적으로 체이닝해서 처리가 가능하다
+
+//조금더 보기 편하다
+```
+지금까지 프로미스객체를 만들 때 생성자(new)를 사용해서 만들었는데  
+다른 방법들이 있다
+```JS
+//Promise라는 객체의 resolve라는 함수를 실행하면서 
+//프로미스를 만든다
+Promise.resolve(/*value*/);
+
+//value에 넣을 수 있는 것은 크게 2가지다
+//프로미스객체를 바로 넣을 수 있다
+//일반 값을 넣을 수 있다
+
+//프로미스객체넣기
+Promise.resolve(new Promise((resolve,reject) => {
+    setTimeout(() =>{
+        resoleve();
+    },1000);//프로미스 객체가 되고 이 
+    //프로미스 객체를 resolve의 인자인 value에 넣는게 된다
+})).then()//프로미스 객체가 resolve
+
 ```
