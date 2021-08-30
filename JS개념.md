@@ -2265,9 +2265,73 @@ Promise.resolve(/*value*/);
 //프로미스객체넣기
 Promise.resolve(new Promise((resolve,reject) => {
     setTimeout(() =>{
-        resoleve();
+        resolve('foo');
     },1000);//프로미스 객체가 되고 이 
     //프로미스 객체를 resolve의 인자인 value에 넣는게 된다
-})).then()//프로미스 객체가 resolve
+}),
+).then(data => {
+    console.log('프로미스 객체인 경우, resolve 된 결과를 받아 then이 실행됩니다',data,);
+});
 
+//객체를 넣는 자리에 value를 넣는 것
+Promise.resolve('bar').then(data => {
+    console.log('then 메서드가 없는 경우, fulfilled 됩니다',data);
+});
+
+//1초뒤 실행 과 같은 것이 없어서 fulfilled가 먼저 출력된다
+
+//프로미스 객체의 경우에는 프로미스 객체가 resolve 된 후에 결과를 
+//then에 넘겨서 처리하게된다
 ```
+promise.reject를 사용하면 catch로 연결된 rejected 상태로 변경된다
+```JS
+Promise.reject(/*value*/);
+
+Promise.reject(new Error('reason'))
+.then(error => {})
+.catch(error => {
+    console.log(error);
+});
+//에러가 뜬다
+```
+Promise.all 을 사용하기  
+여러개의 프로미스 객체를 생성하고 배열로 만들어 인자로 넣고  
+배열의 모든 프로미스 객체들이 fulfilled 되었을 때, then 의 함수가 실행된다  
+then 의 함수의 인자로 프로미스 객체들의 resolve 인자값을 배열로 돌려준다
+```JS
+function p(ms){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve();
+        },ms);
+    })
+}
+
+Promise.all([p(1000), p(2000), p(3000)]).then((messages) =>{
+    console.log('모두 fulfilled 된 이후에 실행됩니다',messages);
+})
+//각각이 모두 fulfilled 된 이후에,
+//즉 3초(1+2) 이후에 출력된다
+```
+Promise.race 을 사용하기  
+Promise.all은 모두 fulfilled 되었을 때 실행되는데  
+Promise.race는 그중 가장 빠른게 먼저 fulfilled 되었을 때 실행된다
+```JS
+function p(ms){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve();
+        },ms);
+    })
+}
+
+Promise.race([p(1000), p(2000), p(3000)]).then((message) =>{
+    console.log('가장 빠른 하나가 fulfilled 된 이후에 실행됩니다',message);
+})
+//가장 빠른 하나가 fulfilled 된 이후에,
+//즉 1초 이후에 출력된다
+```
+자바스크립트에서 비동기를 처리하기 위해 가장 기본이 되는 개념이 promise 이다
+
+<br>
+
