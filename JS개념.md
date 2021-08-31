@@ -2335,3 +2335,159 @@ Promise.race([p(1000), p(2000), p(3000)]).then((message) =>{
 
 <br>
 
+## Async - Await
+`async` 는 함수 앞에 위치한다
+```JS
+async function 함수이름(){}
+const 함수이름 = async () => {}
+```
+이런 형태로 사용할 수 있다
+
+이런 `async function` 를 사용하면 Promise 를 좀 더 간편하게 사용할 수 있다
+
+```JS
+//Promise 객체를 리턴하는 함수
+function p(ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(ms);
+        }, ms);
+    });
+}
+
+//Promise 객체를 이용해서 비동기 로직을 수행할 때
+p(1000).then(ms => {
+    console.log('${ms} ms 후에 실행된다');
+})
+
+//Promise 객체를 리턴하는 함수를 await 로 호출하는 방법
+await p(1000);
+console.log(`${ms} ms 후에 실행된다`);
+//await를 붙이면 실제로는 비동기적인 처리를 보냈지만
+//비동기적인 처리가 끝날 때 까지 다음줄로 넘어가지 않는다
+
+//에러가 뜬다
+//await 을 사용하는 경우 async 함수 안에서 사용되어야 하기 때문이다
+```
+```JS
+//async 함수를 사용해서 await 사용
+function p (ms){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(ms);
+        },ms);
+    });
+}
+
+//메인이 만들자마자 실행되는형태이기 때문에
+(async function main(){
+const ms = await p(1000);
+console.log(`${ms} ms 후에 실행된다`);
+})();
+
+//async 함수가 있을 때 함수를 실행하면
+//안에있는 로직이 모두 실행될 때 까지 프로그램이 종료가 되지 않는다
+//한줄한줄 내려갈 때 await가 있을 때
+//비동기처리가 끝날 때 까지 기다렸다가 정상적으로 처리가 되면(resolve)
+//resolve에 넘어온 값을 받아서 계속 이어서 진행하게 된다
+
+//async - await 가 좋은점은 비동기 처리를
+//코드에서 밑으로 흘러가게 표현할 수 있다는 점이다
+```
+프로미스 객체가 rejected 될 때
+```JS
+function p (ms){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            reject(new Error('reason'));
+        },ms);
+    });
+}
+
+(async function main(){
+    try{
+    const ms = await p(1000);
+    } catch (error) {
+        console.log(error);
+    }
+})();
+//에러 객체가 출력된다
+```
+프로미스 객체를 `new` 로 생성해서 리턴하는 형태의 함수를 사용했었는데  
+`async function` 자체를 사용할 수 있다
+```JS
+function p (ms){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            reject(new Error('reason'));
+        },ms);
+    });
+}
+
+async function asyncP() {
+    return 'Park';
+} 
+
+//async키워드가 붙은 함수는 리턴되는 값에 
+//promise.resolve 함수로 감싸서 리턴하기 때문에
+//async가 달린 함수를 await에서 호출할 수 있다
+
+(async function main(){
+    try{
+    const name = await asyncP();
+
+    //promise.resolve를 통해 resolve 되기 때문에
+    //resolve는 값이 들어오면 그 값이 바로 resolve 된다
+    console.log(name);
+
+    } catch (error) {
+        console.log(error);
+    }
+})();
+//name이 출력된다
+```
+연속된 `Promise` 된 처리와  
+연속된 `async-await` 으로 된 처리의 비교
+```JS
+//Promise로 처리할 때
+p(1000)
+.then(() => p(1000))
+.then(() => p(1000))
+.then(() => {
+    console.log('3000ms 후에 실행');
+});
+
+//async-await로 처리할 때
+(async function main(){
+    await p(1000);
+    await p(1000);
+    await p(1000);
+    consol.log('3000ms 후에 실행');
+})();
+
+//async-await을 사용하면 로직의 이동이 순서대로 진행된다
+```
+`Promise.all` 또는 `Promise.race` 일 때 `async-await` 로 처리하기
+```JS
+function p(ms){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(ms);
+        }, ms);
+    });
+}
+
+//Promise.all
+(async function main(){
+    const results = await Promise.all([p(1000), p(2000), p(3000)]);
+    console.log(results);
+})();
+//3초 후에 배열의 값들이 출력된다
+
+//Promise.race
+(async function main(){
+    const results = await Promise.race([p(1000), p(2000), p(3000)]);
+    console.log(results);
+})
+//1초 후에 값들이 출력된다
+```
