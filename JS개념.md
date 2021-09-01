@@ -1,4 +1,4 @@
->웹페이지 <a href= "https://learnjs.vlpt.us/basics/01-hello-javascript.html" target = "_blank" title = "참고자료">벨로퍼트와 함께하는 모던 자바스크립트</a> , **패스트캠퍼스 JavaScript (이웅재 강사)** 와 여러자료들을 참고
+>웹페이지 <a href= "https://learnjs.vlpt.us/basics/01-hello-javascript.html" target = "_blank" title = "참고자료">벨로퍼트와 함께하는 모던 자바스크립트</a> , **패스트캠퍼스 JavaScript (이웅재 강사)** , <a href = "https://www.youtube.com/watch?v=wUHncG3VwPw&list=PLLUCyU7SBaR7tOMe-ySJ5Uu1UlEBznxTr" target = "_blank" title = "참고자료">노마드 코더<바닐라 js></a> 와 여러자료들을 참고
 
 <br>
 
@@ -15,7 +15,7 @@ JavaScript는 객체 기반의 스크립트 프로그래밍 언어이다
 
 <br>
 
-# 문법
+# 문법(패스트캠퍼스)
 자바스크립트가 실행되는 환경에는 크롬, 사파리, Edge등 데스크탑 브라우저, Node.JS와 같이 서버로 활용될 수 도 있다  
 이런 여러가지 환경에 따른 자바스크립트 문법은 환경에 따라 다르다 <a href = "https://kangax.github.io/compat-table/es6/" taregt = "_blank" title = "참고자료">(JS환경에따른 버전)</a>  
 <a href = "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/" target = "_blank" title = "참고자료">(자바스크립트표준)</a>
@@ -2491,3 +2491,30 @@ function p(ms){
 })
 //1초 후에 값들이 출력된다
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 문법(생활코딩)
