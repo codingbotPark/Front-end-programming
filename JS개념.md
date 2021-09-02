@@ -1,4 +1,4 @@
->웹페이지 <a href= "https://learnjs.vlpt.us/basics/01-hello-javascript.html" target = "_blank" title = "참고자료">벨로퍼트와 함께하는 모던 자바스크립트</a> , **패스트캠퍼스 JavaScript (이웅재 강사)** , <a href = "https://www.youtube.com/watch?v=wUHncG3VwPw&list=PLLUCyU7SBaR7tOMe-ySJ5Uu1UlEBznxTr" target = "_blank" title = "참고자료">노마드 코더<바닐라 js></a> 와 여러자료들을 참고
+>웹페이지 <a href= "https://learnjs.vlpt.us/basics/01-hello-javascript.html" target = "_blank" title = "참고자료">벨로퍼트와 함께하는 모던 자바스크립트</a> , **패스트캠퍼스 JavaScript (이웅재 강사)** 와 여러자료들을 참고
 
 <br>
 
@@ -2507,14 +2507,3 @@ function p(ms){
 
 
 
-
-
-
-
-
-
-
-
-
-
-# 문법(생활코딩)
