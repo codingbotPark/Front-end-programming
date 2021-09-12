@@ -1,0 +1,12 @@
+h1 {
+    color :navy;
+}
+
+.form,
+.greetings{
+    display:none;
+}
+
+.showing{
+    display:block;
+}
