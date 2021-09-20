@@ -73,7 +73,7 @@ CSS = Cascading Style Sheets = 종속형 스타일 시트
 ## 역사 
 CSS는 1994년 하콤 비움 리(Håkon Wium Lie)가 처음 제안하였다.
 
-<a href = "https://ko.wikipedia.org/wiki/CSS#%EC%97%AD%EC%82%AC" target = "_blank" title = "참고자료">위키백과\<CSS></a>
+<a href = "https://ko.wikipedia.org/wiki/CSS#%EC%97%AD%EC%82%AC" target = "_blank" title = "참고자료">위키백과\<CSS역사></a>
 
 HTML에서 정보를 전달하는 일, 꾸미는 일을 할 수 있었는데 웹이 발전해나가면서 HTML은 정보를 표현하는 일에 전념하게 되고 CSS가 디자인을 담당하게 된다
 

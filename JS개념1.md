@@ -11,7 +11,7 @@ JavaScript는 객체 기반의 스크립트 프로그래밍 언어이다
 
 원래 모카(Mocha)라는 이름으로 개발되었으나 라이브스크립트(liveScript)로 불렸고, 나중에 **자바스크립트** 로 이름이 바뀌었다
 
-<a href = "https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8#%EC%97%AD%EC%82%AC" target = "_blank" ttle = "참고자료">위키백과\<JavaScript></a>
+<a href = "https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8#%EC%97%AD%EC%82%AC" target = "_blank" ttle = "참고자료">위키백과\<JavaScript역사></a>
 
 <br>
 

@@ -1,4 +1,4 @@
-> 유튜브 <a href = "" target = "_blank" title = "참고자료">생활코딩</a> 의 <a href = "https://www.youtube.com/watch?v=PZIPsKgWJiw&list=PLuHgQVnccGMA4uSig3hCjl7wTDeyIeZVU&index=1" target = "_blank" title = "참고자료">자바스크립트 입문수업</a> 와 책 **Do it! 웹 프로그래밍을 위한 자바스크립트 기본편** 과 여러 자료들을 참고
+> 유튜브 <a href = "" target = "_blank" title = "참고자료">생활코딩</a> 의 <a href = "https://www.youtube.com/watch?v=PZIPsKgWJiw&list=PLuHgQVnccGMA4uSig3hCjl7wTDeyIeZVU&index=1" target = "_blank" title = "참고자료">자바스크립트 입문수업</a> 과 여러 자료들을 참고
 
 <br>
 
@@ -250,6 +250,8 @@ a + b;
 컴퓨터에게 지시하기위한 기호  
 조건문에 많이 사용된다
 
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Expressions_and_Operators#operators" target = "_blank" title = "참고자료">연산자</a>
+
 <br>
 
 ### 대입 연산자
@@ -262,6 +264,8 @@ a = 1;//대입 연산자
 
 ### 비교연산자
 값이 **같은지** , **다른지** , **큰지** , **작은지** 구분하는 것이다  
+
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators" target = "_blank" title = "참고자료">비교연산자</a>
 
 ```js
 1 != 5;//다르면 true
@@ -282,11 +286,6 @@ a = 1;//대입 연산자
 #### boolean
 즉 결과는 **true** 또는 **false** 중 하나이다  
 true와 false는 **boolean** 이라는 타입이다
-
-다르타입들에는
-
-#### 
-
 
 #### 동등 연산자
 일치할 때 `==`
@@ -335,4 +334,203 @@ alert (a == b);//true
 
 **이처럼 정확한 비교를 하기 때문에 일치 연산자를 사용하는 것이 권장된다**
 
+#### 부등 연산자
+피연산자가 서로 다를 때 `!=`
 
+```js
+alert ("one" != "two");//true
+```
+```js
+alert (1 != "1");//false
+```
+
+#### 불일치 연산자
+피연산자의 값 또는 타입이 서로 다를 때 `!==`
+
+```js
+alert(1 !== "1");//true
+```
+```js
+alert("1" !== "1");//false
+```
+
+#### 큼
+왼쪽 피연산자가 더 클 때 `>`
+```js
+10 > 1;//true
+```
+`<` 는 반대
+
+#### 크거나 같음
+왼쪽 피연산자가 더 크거나 같을 때 `>=`
+```js
+10 >= 10;//true
+```
+`<=`는 반대
+
+<br>
+
+## 조건문
+조건이 참일 때 실행된다
+
+```js
+if (조건)
+    실행될 구문
+```
+
+```js
+if (true)
+    alert("참입니다");//실행이 된다
+```
+```js
+if (false)
+    alert("참입니다");//실행이 안된다
+```
+
+### else
+참이아닌 나머지 상황
+
+```js
+if (false)
+    alert("참입니다");
+else 
+    alert("나머지상황");
+```
+
+### else if
+참이 아닐 때 다음 조건
+
+```js
+if (false)
+    alert("참입니다");
+else if (true)
+    alert("다음조건");
+else
+    alert("나머지상황");
+```
+
+### 변수와 비교연산자를 사용
+조건문에 true , false 가 조건이면 필요없는 조건문이다     
+**변수와 비교연산자를 조건문에 사용한다**
+
+```js
+var age;
+age = prompt("당신의 나이는");
+
+if (age < 19)
+    alert("미성년자");
+else
+    alert("성인");
+```
+
+
+
+빈문자열 `''` 은 거짓
+
+undefined 는 거짓
+
+null은 거짓
+
+NaN은 거짓
+
+
+
+
+
+`배열이름.push('넣을 문자,숫자');` 로 배열에 값을 넣을 수 있따
+
+`배열이름.concat([](배열의 형태));` 로 배열에 복수의 값을 넣을 수 있따
+
+`배열이름.unshift('z');` 로 배열의 가장앞에 값을 넣을 수 있다
+
+`배열이름.splice(배열에 추가할 특정 인덱스(index), 인덱스로부터 삭제될 원소들의 개수(howmany), index와 howmany 사이에 추가할 값)` 로 값을 삭제, 삽입할 수 있다
+```js
+//howmany가 0이면 값을 삭제하지 않는다는 것이다
+var a = ['a','b','c','d'];
+a.splice(1,0,'x','y');
+//['a', 'x', 'y', 'b', 'c', 'd']
+```
+```js
+var a = ['a','b','c','d'];
+a.splice(1,1,'x','y');
+//['a', 'x', 'y', 'c', 'd']
+```
+
+`배열이름.shift();` 로 배열의 첫번째 원소를 제거할 수 있다
+
+`배열이름.pop();` 로 배열의 마지막 원소를 제거할 수 있다
+
+`배열이름.sort();` 로 배열을 정렬할 수 있다
+```js
+var a = ['z','a','A','b'];
+a.sort();
+//['A', 'a', 'b', 'z']
+//자바스크립트가 기본적으로 알고있는 순서대로 정렬이 된다
+```
+```js
+var a = ['z','a','A','b'];
+a.reverse();
+//역순으로 정렬
+```
+<a href = "https://opentutorials.org/course/50/109" target = "_blank" title = "참고자료">정렬기준정하기</a>
+
+## 객체
+객체(object)는 배열과 비슷한 '연관되어있는 데이터들을 담아낸다'   
+객체와 배열의 차이점은   
+배열은 자동으로 인덱스가 추가된다  
+객체는 인덱의 값으로 숫자, 문자 등 직접 원하는 데이터를 지정할 수 있다  
+다른언어에서는 **연관배열(associative array)** , **맵(map)** , **딕셔너리(Dictionary)** 라는 데이터 타입이다
+
+```js
+//객체는 중괄호로 만든다
+{'height': 177, 'weight' : 67}
+//인덱스를 만들고 값을 넣는다
+```
+객체에서의 인덱스는 문자이다  
+값은 다른 데이터 타입도 가능하다
+
+이런 객체를 만들고 변수에 담아 사용한다
+```js
+var student = {'height': 177, 'weight' : 67}
+```
+
+다른 객체를 만든는 방법
+```js
+var student = {};
+//빈 객체를 만들고
+student['height'] = 177;
+//객체안에 인덱스와 값을 넣는다
+student['weight'] = 67;
+```
+위와같이 값에 접근하려면 대괄호`[]`를 사용한다  
+따라서 값에 접근을 하면
+```js
+student['height'];
+//177
+```
+
+```js
+student['we' + 'ight'];
+//67
+```
+
+객체에서 인덱스는 **key** , 값은 **value** 라 한다
+
+
+
+객체에는 순서가 없다
+```js
+var student = {'height' : 177, 'weight' : 67};
+for (key in student) {
+    document.write("key : " + key + "value" + student[key] + "<br \>");
+}
+```
+key와 value를 출력한다
+
+이를 li태그로 출력한다
+```js
+var student = {'height' : 177, 'weight' : 67};
+for (key in student) {
+    document.write("<li>key : " + key + "value" + student[key] + "<br \>");
+}
+```
