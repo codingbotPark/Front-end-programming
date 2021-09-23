@@ -425,6 +425,17 @@ else
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 빈문자열 `''` 은 거짓
 
 undefined 는 거짓
@@ -534,3 +545,44 @@ for (key in student) {
     document.write("<li>key : " + key + "value" + student[key] + "<br \>");
 }
 ```
+
+객체 안의 값이 객체일수도,  
+객체안의 값이 함수일 수도 있다
+```js
+var student = {
+    'physical' : {'weight' : 53, 'height' : 170},
+    'show' : function()
+    {
+        alert('Hello World')
+    }
+}
+
+student['show']();
+//Hello World 가 출력된다
+```
+
+This 변수  
+함수가 속해있는 객체를 가르키는 변수
+```js
+var student = {
+    'physical' : {'weight' : 53, 'height' : 170},
+    'show' : function()
+    {
+        alert(this)
+    }
+}
+//This는student가 된다
+```
+즉 this를 활용하여 현재있는 객체에 다른 요소를 선택할 수 있다
+```js
+var student = {
+    'physical' : {'weight' : 53, 'height' : 170},
+    'show' : function()
+    {
+        console.log(this.physical);
+    }
+}
+
+student['show']();
+```
+this가현재 속해있는 객체를 담을 수 있다
