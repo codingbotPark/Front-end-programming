@@ -586,3 +586,221 @@ var student = {
 student['show']();
 ```
 this가현재 속해있는 객체를 담을 수 있다
+
+`student` 라는 하나의 객체 안에 `'physical'` , `'show'` 라는 데이터와 함수를 그루핑 했다  
+이러한 것을 **객체지향 프로그래밍이라 한다**  
+연관된 데이터, 처리를 하나의 그릇 안에 그루핑해놓은 프로그래밍 스타일 기법이다  
+
+
+## 모듈
+전체 프로그램을 여러 개의 파일을 모듈이라는 형태로 분리한다  
+이러한 기법의 대표적인 행동이 하나의 코드를 여러개의 파일로 분리하는 것이다  
+이러한 기법을 사용하면  
+* 코드의 재활용성을 높임
+* 코드를 개선하면 이를 사용하는 모든 프로그램의 동작이 개선
+* 코드 수정에 빠르게 필요한 부분을 찾을 수 있음  
+등의 장점이 있다
+
+자바스크립트 자체에는 모듈이라는 개념이 존재하지 않지만  
+호스트 환경(자바스크립트가 구동되는 환경)에 따라 모듈화 방법이 제공되고 있다
+
+### 모듈이 없는 애플리케이션, 없는 애플리케이션의 비교
+```html
+<!-- main.html 파일 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8"/>
+</head>
+<body>
+    <script>
+        function welcome() {
+            return 'Hello World';
+        }
+        alert(welcome());
+    </script>
+</body>
+</html>
+```
+이러한 html 코드를 모듈화를 거쳐
+```html
+<!-- main.html 파일 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8"/>
+    <script src = "greeting.js"></script>
+</head>
+<body>
+    <script>
+        alert(welcome());
+    </script>
+</body>
+</html>
+```
+```js
+// greeting.js 파일
+function welcome() {
+    return 'Hello World';
+}
+```
+
+## ui, api
+### UI
+User Interface의 약자
+
+### API
+Application Programing Interface의 약자
+
+### UI, API의 문서
+
+#### 자바스크립트 API 문서
+이런 자바스크립트언어 자체의 API이기 떄문에 어떤 호스트에서나 같이 사용할 수 있다
+* <a href = "https://www.ecma-international.org/" target = "_blank" title = "참고자료">ECMAScript(표준문서)</a>
+* <a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript" target = "_blank" title = "참고자료">자바스크립트 레퍼런스(MDN)</a>
+
+#### 호스트 환경 API 문서
+* <a href = "https://nodejs.org/ko/docs/" target = "_blank" title = "참고자료">node.js</a>
+* <a href = "https://developers.google.com/apps-script/" target = "_blank" title = "참고자료">google apps script</a>
+
+
+## 정규표현식
+문자열에서 특정한 문자를 찾아내는 도구
+
+
+
+
+
+
+
+
+# 함수
+## 유효범위
+## 전역변수와 지역변수
+### 전역변수
+```js
+var scope = 'global';
+function fscope1(){
+    alert(vscope);
+}
+function fscope2(){
+    alert(vscope);
+}
+fscope1();
+fscope2();
+```
+
+### 지역변수
+```js
+var vscope = 'global';
+function fscope(){
+    var vscope = 'local';
+    alert(vscope);
+}
+fscope();
+// 이러한 코드가 있을 때 `vscope`는 `alert`하는 곳과 가까운곳에 선언된 'local'이 된다
+```
+
+
+
+
+```js
+function fscope(){
+    var lv = 'local variables';
+    alert(lv);
+}
+alert(lv);
+fscope();
+//함수 안에서 선언한 지역변수는 함수 밖에서 사용할 수 없다
+```
+```js
+var vscope= 'global';
+function fscope(){
+    var vscope = 'local';
+}
+fscope();
+alert(vscope);
+//global이 출력된다
+//함수안 변수선언에 var이 없었다면 변수 vscope를 바꾸는 것이기 때문에
+//vscope는 local이 된다
+```
+이런 지역변수와 전역변수의 충돌을 막기 위해 전역변수가 필요 없을 때는 지역변수를 사용한다  
+즉 이름이 같은 변수를 함수 안 밖에서 선언할 때 `var`키워드를 모두 붙인다
+
+### 전역 변수를 다루는 방법
+어쩔 수 없이 전역 변수를 사용해야할 때가 있다  
+전역변수를 하나만을 선언하고 하나의 전역변수안에 사용해야하는 변수들을 넣는 방법을 사용하면 변수가 충돌할 확률이 떨어진다  
+```js
+var MYAPP = {}
+MYAPP.calculator = {
+    'left' : null,
+    'right' : null
+}
+MYAPP.coordinate = {
+    'left' : null,
+    'right' : null
+}
+
+MYAPP.calculator.left = 10;
+MYAPP.calculator.right = 20;
+
+function sum(){
+    return MYAPP.calculator.left + MYAPP.calculator.right;
+}
+document.write(sum());
+```
+이런 하나의 전역변수도 사용하지 않고싶다면 전체를 함수로 만들어서 지역변수가 되도록하는 방법을 사용할 수 있다
+```js
+(function(){
+var MYAPP = {}
+MYAPP.calculator = {
+    'left' : null,
+    'right' : null
+}
+MYAPP.coordinate = {
+    'left' : null,
+    'right' : null
+}
+
+MYAPP.calculator.left = 10;
+MYAPP.calculator.right = 20;
+
+function sum(){
+    return MYAPP.calculator.left + MYAPP.calculator.right;
+}
+document.write(sum());
+}())
+```
+
+### 유효범위 대상
+많은 언어가 블록({})에 대한 유효범위를 제공하는것과 달리,   자바스크립트는 함수에 대한 유효범위만을 제공한다  
+```js
+for (var i = 0;i < 1; i++ ){
+    var name = 'Park';
+}
+alert(name);
+```
+
+### 정적 유효범위
+함수가 선언된 시점에서의 유효범위를 갖는, 이러한 방식을 정적 유효범위(static scoping) 혹은 렉시컬(lexical scoping)이라고 한다
+
+```js
+var i = 5;
+function a(){
+    var i = 10;
+    b();
+}
+function b(){
+    document.write(i);
+}
+
+a();
+```
+함수 a에서 함수 b가 실행되었지만  
+변수의 값은 a함수 안에서의 지역변수가 아닌 b함수가 처음 정의된 곳을 기준으로 하여전역변수값 5를 가졌다  
+함수가 정의된 시점을 기준으로 변수의 범위를 갖기 때문이다
+
+<a href = "https://devbox.tistory.com/entry/JavaScript-%EC%9C%A0%ED%9A%A8%EB%B2%94%EC%9C%84" target = "_blank" title = "참고자료">정적 유효범위</a>
+
+동적 유효범위 = 사용되는 대상에 따라 그 대상이 가지고 있는 변수에 접근할 수 있다
+정적 유효범위 = 사용될 때가 아닌 정의될 때의 변수를 사용하게 된다
