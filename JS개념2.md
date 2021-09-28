@@ -804,3 +804,125 @@ a();
 
 동적 유효범위 = 사용되는 대상에 따라 그 대상이 가지고 있는 변수에 접근할 수 있다
 정적 유효범위 = 사용될 때가 아닌 정의될 때의 변수를 사용하게 된다
+
+
+## 값으로서 함수와 콜백
+자바스크립트에서는 함수도 객체이다  
+즉 함수도 어떠한 변수에 담을 수 있다   
+
+```js
+function a (){}
+```
+함수 a는 변수 a에 담겨진 값이다    
+이는 
+```js
+var a = function(){}
+```
+와 같다
+
+
+```js
+a = {
+    b:function(){
+
+    }
+};
+```
+b는 객체안에서 key, value 이자 변수를 담당하고 속성(proparty)라고 한다  
+또  **이처럼 객체의 속성 값으로 담겨진 함수를 메소드(method)라고 부른다**  
+즉 위의 예제에서 함수 b 는 메소드 b라 한다
+
+<br>
+
+### 함수는 값이기 때문에 다른 함수의 인자로 전달 될수도 있다
+```js
+function cal(func,num){
+    return func(num);
+}
+
+function increase (num) {
+    return num + 1;
+}
+
+function decrease (num) {
+    return num - 1;
+}
+
+alert (cal (increase, 1));
+alert (cal (decrease, 1));
+```
+
+### 함수는 함수의 리턴값으로도 사용할 수 있다
+```js
+function cal (mode) {
+    var funcs = {
+        'plus' : function(left, right){return left + right},
+        'minus' : function(left,right){return left - right}
+    }
+return funcs[mode]
+}
+
+alert(cal('plus')(2,1));
+alert(cal('minus')(2,1));
+```
+
+### 배열의 값으로도 사용할 수 있다
+```js
+var process = [
+    function () {return input + 10},
+    function () {return input * input},
+    function () {return input / 2};
+]
+
+var input = 1;
+for (var i = 0 ; i < process.length;i++){
+    input = process[i](input);
+}
+
+alert(input);
+```
+
+### 콜백
+```js
+var numbers = [20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+numbers.sort();
+```
+이 코드에서  
+`sort` 라는 메소드는 자바스크립트가 기본적으로 제공하는 기능이고,  
+**내장객체** , **내장 메소드** , **빌트인 객체** , **빌트인 메소드** 라고 한다  
+
+반대로 우리가 만드는 객체, 메소드, 함수는 **사용자정의 객체 / 함수** 라 한다
+
+
+```js
+var numbers = [20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+console.log(numbers.sort());
+//[1, 10, 2, 20, 3, 4, 5, 6, 7, 8, 9]
+```
+
+숫자의 크기가 아닌 문자로 비교를해서 오름차순으로 정렬이 되지 않았다
+
+
+<a href = "https://opentutorials.org/course/50/109" target = "_blank" title = " 참고자료">sort</a>
+
+```js
+var numbers = [20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+var sortfunc = function(a,b){
+    console.log(a,b);
+    if (a > b){
+        return 1;
+    } else if (a < b){
+        return -1; 
+    } else {
+        return 0;
+    }
+}
+console.log(numbers.sort(sortfunc));
+//sortfunc에 () 가 없어도 되는 이유는
+//함수를 호출 () 하는 것이 아닌 인자로 전달하기 때문에
+
+//어렵게하면 함수는 1급 객체이기 때문에 함수 자체를 다른 함수의 인수로 전달할 수 있다
+```
+이 맥락에서 `sortfunc` 를 콜백함수가 된다  
+즉 콜백함수를 수신받는 sort라는 메소드가 콜백함수의 내용을 인자로 받아서 내부적으로 호출  
+**즉 값으로서 함수를 사용할 수 있기 때문에 원래의 함수의 동작방법을 완전히 바꿀 수 있다**
