@@ -10,3 +10,4 @@ all of my FrontEnd
 
 ## projects
 * [momentum](https://github.com/codingbotPark/Momentum)
+* [Chrome-Dinosaur-Game](https://github.com/codingbotPark/Chrome-s-Dinosaur-Game)
