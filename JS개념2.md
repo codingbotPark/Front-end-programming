@@ -674,6 +674,8 @@ Application Programing Interface의 약자
 
 
 
+
+
 # 함수
 ## 유효범위
 ## 전역변수와 지역변수
@@ -912,7 +914,7 @@ var sortfunc = function(a,b){
     if (a > b){
         return 1;
     } else if (a < b){
-        return -1; 
+        return -1;
     } else {
         return 0;
     }
@@ -926,3 +928,90 @@ console.log(numbers.sort(sortfunc));
 이 맥락에서 `sortfunc` 를 콜백함수가 된다  
 즉 콜백함수를 수신받는 sort라는 메소드가 콜백함수의 내용을 인자로 받아서 내부적으로 호출  
 **즉 값으로서 함수를 사용할 수 있기 때문에 원래의 함수의 동작방법을 완전히 바꿀 수 있다**
+
+
+
+콜백으로 작업이 완료된 후에 처리해야 할 일을 지정했을 때 미리 등록한 작업을 실행하도록 할 수 있다  
+다음 코드는 일반적인 환경에서 작동하지 않고 서버 환경에서만 동작한다
+
+사용자가 어떤 이벤트를 만들었을 때 서버와 웹 브라우저가 통신하는 기법을 **Ajax** 라고 한다 
+
+
+### 클로저
+내부함수가 외부함수의 맥락에 접근할 수 있는 것  
+
+```js
+function outter(){
+    function inner(){
+        var title = 'codingbotPark1';
+        alert (title);
+    }
+    inner();
+}
+outter();
+```
+
+어떠한 함수 안에서만 사용되는 함수가 있다면 함수 바깥쪽에 선언하게되면   
+응집성, 가독성이 낮아지고 오류가 발생할 수 있다  
+**함수안에서 사용되야하는 함수가 있을 때 내부함수를 사용할 수 있다**
+
+<br>
+
+이런 내부 함수를 사용했을 때 **클로저**에 의해  
+**내부함수는 외부함수의 지역변수에 접근할 수 있다**  
+
+```js
+function outter(){
+    var title = 'codingbotPark1';
+    function inner(){
+        alert (title);
+    }
+    inner();
+}
+outter();
+```
+
+\+ 외부함수가 더이상 사용되지 않아도 내부함수가 외부함수에 접근할 수 있다
+클로저의 특징이다  
+
+```js
+function outter(){
+    var title = 'codingbotPark';
+    return function(){
+        alert(title);
+    }
+}
+inner = outter();
+inner();
+```
+
+이러한 클로저의 특징을 사용하는 예는
+
+```js
+function factory_movie(title){
+    return{
+        get_title : function (){
+            //함수안 함수객체
+            return title;
+        },
+        set_title : function (_title){
+            title = _title
+        }
+    }
+}
+ghost = factory_movie('Ghost in the shell');
+matrix = factory_movie('Matrix');
+
+alert(ghost.get_title());
+//ghost in the shell 출력
+alert(matrix.get_title());
+//Matrix 출력
+ghost.set_title('원피스');
+
+alert(ghost.get_title());
+//원피스가 출력
+alert(matrix.get_title());
+//Matrix 출력
+```
+`factory_movie` 로 두 개의 객체를 만들었고  
+``
