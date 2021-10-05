@@ -1009,9 +1009,172 @@ alert(matrix.get_title());
 ghost.set_title('원피스');
 
 alert(ghost.get_title());
-//원피스가 출력
+//원피스 출력
 alert(matrix.get_title());
 //Matrix 출력
 ```
 `factory_movie` 로 두 개의 객체를 만들었고  
-``
+`객체명.get_title` 에 값을 줌으로써  
+`_title` -> `title` 이 된다  
+즉 `factory_movie` 의 지역변수를 바꾸게 된다  
+
+<br>
+
+두 개의 객체는 각각 실행된 맥락에 따른 외부함수의 지역변수에 접근할 수 있었고 지역변수의 값은 유지 =>  
+`ghost.set_title` 을 `Ghost in the shell` 에서 `원피스` 로 변경한다는 것은 `ghost` 객체의 `title` 값만 바꿀 뿐이고,  
+`Matrix` 객체의 타이틀 값에는 영향을 미치지 않는다
+
+<br>
+
+이러한 맥락에서 **private변수** 가 나온다  
+`ghost` , `matrix` 객체의 `get_title` 과 `set_title` 은 접근할 수 있는 메소드이다  
+하지만 이 `get_title` , `set_title` 이 내부적으로 사용하고 있는 변수는 `title` 이고, 외부함수의 지역변수이다  
+`fatory_movie` 함수가 리턴했을 때 함수는 생이 마감됐기 때문에 지역변수 `title` 은 `get_title` 과 `set_title` 을 통해 접근할 수 있다  
+
+소프트웨어가 커지면 많은 사람이 코드를 작성하게된다  
+이런 경우 많은 데이터가 존재하게 되는데 그 데이터를 누구나 수정할 수 있다면 소프트웨어가 망가질 수 있다  
+
+프라이빗 변수를 사용의 장점
+* 변수에 접근이 아무나 못하기 때문에 함수의 맥락에 영향을 주지 않는다
+* 변수의 값을 바꿀 때 값을 확인할 수 있다
+```js
+function factory_movie(title){
+    return{
+        get_title : function (){
+            //함수안 함수객체
+            return title;
+        },
+        set_title : function (_title){
+        if (typeof _title === 'String'){
+            title = _title;
+        } else {
+            alert('제목이 문자열이 아닙니다');
+        }
+        }
+    }
+}
+ghost = factory_movie('Ghost in the shell');
+matrix = factory_movie('Matrix');
+
+alert(ghost.get_title());
+//ghost in the shell 출력
+alert(matrix.get_title());
+//Matrix 출력
+
+//1을 ghost변수로 접근
+ghost.set_title(1);
+
+alert(ghost.get_title());
+//원피스 출력
+alert(matrix.get_title());
+//Matrix 출력
+```
+이와같이
+변수의 값을 private 하게 만들어서 값을 안전하게 저장, 수정되도록 한다
+
+
+## arguments
+arguments 라는 객체는 함수 안에서 함수의 정보들을 담고있는 객체이다  
+배열같이 생겼지만 배열이 아니다
+
+**매개변수와 인자의 차이**
+```js
+function a(arg){
+} 
+
+a(1);
+```
+`a(arg)` 은 매개변수(parameter)이다
+`a(1)` 은 인자(argument)이다  
+
+```js
+function sum(){
+    var i, _sum = 0;
+    for (i = 0;i<arguments.length;i++){
+        _document.write(i+' : '+arguments[i] + '<br />');
+        _sum += arguments[i];
+    }
+    return _sum;
+}
+document.write('result : ' + sum(1,2,3,4));
+``` 
+`arguments` 라는 배열이 하는 역할은  
+사용자가 전달한 인자가 저장되어있다  
+즉 인자에 접근할 수 있다
+
+`argumets.length` 는 이 코드에서 4이다
+
+즉 이러한 `arguments` 를 통해서 함수에 인자를 받지 않지만 인자로 전달한 값들에 접근할 수 있다
+
+```js
+function one(arg1){
+    console.log(
+        'one.length' , one.length,
+        'arguments', arguments.length
+    );
+}
+one('val1','val2');
+```
+이 때 `one.length` 는 1 (매개변수로 정의한 매개변수의 수)  
+`arguments.length` 는 2 (함수로 전달된 인자의 수)
+
+<br>
+
+## 함수의 호출(apply)
+자바스크립트에서 함수는 객체이다  
+객체에 속성이 들어있고 속성에 값이 들어있다면 속성이라 하고 함수가 들어있다면 **메소드** 라고 한다  
+
+```js 
+function sum(arg1, arg2){
+    return arg1+arg2;
+}
+```
+이러한 `sum` 이라는 함수가 존재했을 때
+
+```js
+sum.apply;
+// function apply() {[native code]} 가 출력된다
+```
+`native code` 가 출력되는 것은 브라우저가 제공하는 메소드이기 때문에 코드를 보여줄 수 없다  
+즉 내장된 코드이다
+```js
+sum.apply(null,[4,2]);
+// 6이 출력된다
+```
+`apply` 의 두 번째 인자로 전달된 배열은 함수에 인자를 전달하는것(`sum (4,2)`) 와 같다   
+
+**apply를 사용하는 이유는 첫 번째 인자로 전달된 `null` 을 바꿔서 apply를 사용한다**
+
+### apply 사용
+
+```js
+o1 = {val1 : 1, val2: 2, val3:3};
+o2 = {v1 : 10, v2 : 50 v3 : 100, v4:25};
+function sum(){
+    var _sum = 0;
+    for (name in this){
+        _sum += this[name];
+    }
+    return _sum;
+}
+alert(sum.apply(o1));
+//6이 출력된다
+alert(sum.apply(o2)); 
+//185이 출력된다
+```
+
+`apply` 를 사용하지 않고 같은 효과를 낸다면
+
+```js
+function sum(){
+    var _sum = 0;
+    for (name in this){
+        _sum += this[name];
+    }
+    return _sum;
+}
+o1 = {val1 : 1, val2: 2, val3:3 ,sum : sum};
+o2 = {v1 : 10, v2 : 50 v3 : 100, v4:25 , sum:sum};
+alert(o1.sum());
+alert(o2.sum());
+``` 
