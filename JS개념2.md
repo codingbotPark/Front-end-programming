@@ -1178,3 +1178,260 @@ o2 = {v1 : 10, v2 : 50 v3 : 100, v4:25 , sum:sum};
 alert(o1.sum());
 alert(o2.sum());
 ``` 
+
+
+
+
+
+
+
+# 객체지향프로그래밍
+지금까지는 절차지향과 관련된 기능들이 있었고, 앞으로는 객체지향주제이다  
+**객체지향 프로그래밍(Object-Oriented Programming)은 로직을 상태(state)와 행위(behave)로 이루어진 객체로 만드는 것이다**  
+이 객체들을 조립해서 하나의 프로그램을 만드는 것이 객체지향 프로그래밍이라고 할 수 있다
+
+<br>
+
+예를 들자면 글목록, 본문, 댓글 의 기능이 있다면  
+각각의 로직을 가지고 그 로직들로 구성이 된다  
+이런 로직들을 많은 사람들이 다루기 위해 그룹핑이 필요하다  
+**객체는 그런 하나하나의 그룹핑 이라 볼 수 있다**
+이러한 그룹핑은 하나하나의 **기능(코드)들의 재활용성을 높여준다**  
+
+## 문법과 설계
+
+### 문법
+언어가 제공하는 기능을 익히는 것, 객체를 만드는 법
+
+### 설계
+좋은 객체를 만드는 법, 현실은 복잡하지만 그 복잡함 전체가 필요한 것은 아니다  
+이런 현실의 복잡함을 단순하게 필요한 부분만 추출하는 것을 **추상화(abstract)** 라고 한다  
+적당한 **모듈화**가 필요하기 때문에 힘들다  
+
+<br>
+
+## 생성자와 new
+**자바스크립트는 본인만의 독특한 객체지향성격을 가지고 있고 자바스크립트 계열의 언어들은 보통 prototype-based programiming 이라 부른다**  
+객체지향언어의 문법과 비슷하게 사용하면서 함수형 언어의 특성을 가지고 있는 특성을 가지고 있다   
+
+<br>
+
+객체란 서로 연관된 변수, 함수를 그룹핑한 그릇이라 할 수 있다. **객체 내의 변수를 프로퍼티(property) 함수를 메소드(method)라고 부른다**
+
+```js
+var person = {}
+```
+`var person = {}` 에서 중괄호 `{}` 는 객체이다  
+이러한 객체에 값을 넣는 방법은
+
+```js
+person.name = 'Park';
+```
+`객체이름.변수 = 값` 의 형태로 객체에 값을 넣을 수 있다  
+이러한 객체안의 값을 프로퍼티, 속성 이라 한다
+
+```js
+person.introduce = function(){
+    return 'My name is' + this.name;
+}
+```
+
+`this` 는 함수가 속해져있는 객체, 즉 `person` 이라는 객체를 가르킨다  
+즉 `this.name` 은 앞의 `Park` 가 된다
+객체안의 함수를 메소드 라 한다  
+
+한 번에 나타내면
+
+```js
+var person = {};
+person.name = 'Park';
+person.intoduce = function(){
+    return 'My name is' + this.name;
+}
+```
+
+이 때 객체 안에 직접 프로퍼티와 메소드를 정의해주면 가독성, 집중도가 더 높아진다
+
+```js
+var person = {
+    'name' : 'Park',
+    'introduce' : function() {
+        return 'My name is' + this.name;
+    }
+}
+```
+
+여러개의 객체를 만드려 할 때 **생성자**를 사용 함으로서 중복을 줄일 수 있다  
+생성자(constructor)는 객체를 만드는 역할을 하는 함수이고, 객체를 만드는 창조자이다  
+
+```js
+function Person() {};
+var p = new Person();
+p.name = 'park';
+p.introduce = function() {
+    return 'My name is' + this.name;
+}
+
+document.write(p.introduce());
+```
+
+이렇게 객체를 만들 수 있다  
+이 때 여러 사람을 위한 객체를 만드려면 
+
+```js
+function Person() {};
+
+var p1 = new Person();
+p1.name = 'Park';
+p1.introduce = function() {
+    return 'My name is' + this.name;
+}
+
+var p2 = new Person();
+p2.name = 'codingbot';
+p2.introduce = function(){
+    return 'My name is' + this.name;
+}
+
+document.write(p1.introduce());
+document.write(p2.introduce());
+```
+
+하지만 이는 같은 메소드임에도 중복이 되어야 한다  
+이를 함수의 인자를 받아서 개선할 수 있다
+
+```js
+function Person(name) {
+    this.name = name;
+    this.introduce = function(){
+        return 'My name is' + this.name;
+    }
+}
+
+var p1 = new Person ('park');
+var p2 = new Person ('codingbot');
+document.write(p1.introduce());
+document.write(p2.introduce());
+```
+
+즉 이러한 **생성자는 객체에 대한 초기화를 한다**는 것을 알 수 있다   
+
+<br>
+
+## 전역객체
+모든 객체는 이 전역객체(global object)의 프로퍼티이다
+
+```js
+function func() {
+    alert ('Hello?');
+}
+```
+이 함수를 
+```js
+func();
+```
+로 도 실행할 수 있고
+```js
+window.func();
+```
+로 도 실행할 수 있는 것을 확인할 수 있다
+
+이는 `window` 는 객체이고 `func` 는 속성(함수)임을 알 수 있다  
+이러한 `window` 는 생략하면 암시적으로 사용하게 된다
+
+즉 모든 전역변수와 함수는 사실 `window` 객체의 프로퍼티라고 볼 수 있다
+
+<br>
+
+## this
+`this` 는 함수 내에서 함수 호출 맥락을 의미힌다  
+맥락 은 상황에 따라 의미가 달라질 수 있다 즉 가변적이다  
+
+<br>
+
+함수에서 `this` 는 전역객체를 의미하는 `window` 이다
+
+```js
+function func() {
+    if (window === this){
+        console.log("window === this");
+    }
+}
+func();
+//window === this 가 출력된다
+```
+
+객체의 소속인 메소드의 `this` 는 그 객체를 가르킨다
+
+```js
+var o = {
+    func : function() {
+        if (o === this){
+            document.write("o === this");
+        }
+    }
+}
+o.func();
+//o === this 가 출력된다
+```
+
+**생성자 안에서 `this` 는 그 생성자가 만든 객체를 가르킨다**
+
+```js
+var funcThis = null;
+
+function Func() {
+    funcThis = this;
+} 
+
+//일반 함수로 호출
+var o1 = Func();
+if (funcThis === window){
+    document.write('window </br>');
+}
+//위에서 봤듯 함수를 호출하면 그 함수는
+//window의 메소드이기 때문에 this는 window를 가르킨다
+
+//생성자로 호출
+var o2 = new Func();
+if (funcThis === o2){
+    document.write('o2 </br>');
+}
+//new를 하면 비어있는 객체를 만들고
+//그 생성자 안에서 this가 된다
+```
+
+### +apply, call
+함수의 메소드인 apply와 call을 이용하면 this의 값을 제어할 수 있다
+
+함수를 정의할 때
+```js
+function sum(x,y){return x+y};
+sum(1,2);
+```
+이런 형식과 다르게 생성자를 사용하여 나타내면
+```js
+var sum2 = new Function('x','y', 'return x+y;');
+sum2(1,2);
+```
+`Function('x', 'y', 'return x+y')` 에서 `x`와`y` 는 인자, `return x+y` 는 본문 내용이다
+
+이렇게 본문 내용을 지정하게 되면 내용이 길어지거나 할 때 불편해진다  
+그래서 `function sum(x,y){return x + y}` 형태로 보내면 자바스크립트 해석기는 객체로 만들어 준다  
+이를 **함수 리터럴** 이라 한다
+
+이와같이 
+```js
+var o = {};
+```
+
+`{~~}`은 **객체 리터럴**,
+
+```js
+var a = [1,2,3];
+```
+`[~~]` 은 **배열 리터럴** 이라 할 수 있다
+
+<br>
+
+**이처럼 우리가 명시적으로 객체를 만들 수 있지만 편리하게 어떤 값을 만들 수 있도록 하는 것이 리터럴 이다**
