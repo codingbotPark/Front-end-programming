@@ -1435,3 +1435,391 @@ var a = [1,2,3];
 <br>
 
 **이처럼 우리가 명시적으로 객체를 만들 수 있지만 편리하게 어떤 값을 만들 수 있도록 하는 것이 리터럴 이다**
+
+```js
+var o = {};
+var p = {};
+function func() {
+    switch(this) {
+        case o:
+            document.write('o<br />');
+            break;
+        case p:
+            document.write('p<br />');
+            break;
+        case window:
+            document.write('window<br />');
+            break;
+    }
+}
+func();
+func.apply(o);
+//함수를 실행시키면 this의 값은 o가 된다
+func.apply(p); 
+//this의 값은 p가 된다
+```
+
+전통적인 객체 지향에서 메소드는 어떠한 객체에 포함되어있다  
+즉 메소드는 다른 곳에 가지 못한다  
+그래서 객체를(주인-master) 메소드를(노예-slave)라고 부르곤 한다  
+
+**하지만 자바스크립트는 유연하다**
+함수는 `window` 의 메소드가 될 수도,  
+`o` 의 메소드가 될 수도,
+`p` 의 메소드가 될 수도 있다
+
+<br>
+
+## 상속
+객체안에 변수, 메소드가 있다고 할 때 이러한 객체를 상속받을 수 있다   
+**중요한 것은 상속 받는 객체는 부모객체의 필요한 부분만 재활용 할 수 있다는 점이다**   
+
+```js
+function Person(name) {
+    this.name = name;
+    this.introduce = function(){
+        return 'My name is ' + this.name;
+    }
+}
+var p1 = new Person ('Park');
+document.write(p1.introduce () + "<br />");
+//My name is Park 가 출력된다
+```
+이를 아래와 같이 바꿀 수 있다
+```js
+function Person(name){
+    this.name = name;
+}
+Person.prototype.name = null;
+Person.prototype.introduce = function() {
+    return 'My name is ' + this.name;
+}
+var p1 = new Person ('Park');
+document.write(p1.introduce() + "<br />");
+//My name is Park 가 출력된다
+```
+어떠한 객체를 생성했을 때 객체가 기본적으로 가져야할 속성, 프로퍼티 를 세팅하는 방법으로 생성자를 사용했었다  
+하지만 생성자를 사용하는 방법 말고  
+`prototype` 이라는 특수한 프로퍼티를 사용하는 방법이 있다  
+
+즉 이 코드를 해석하면 `Person` 이라는 생성자에 `prototype` 이라는 프로퍼티가 있고 이 안에는 객체가 들어가 있다  
+이 `객체.name` 을 함으로써 `name` 에 값을 넣은 것이다
+
+**이렇게 상속의 기본적인 준비를 했다**
+
+지금은 자바스크립트에서의 상속 사용법에 초점을 두고 있다  
+다음 토픽 `prototype` 에서 구체적으로 어떤 원리로 상속이 되는가에 대해 알 수 있다
+
+```js
+function Person(name) {
+   this.name = name; 
+}
+Person.prototype.name = null;
+Person.prototype.introduce = function() {
+    return 'My name is ' + this.name;
+}
+
+function Programmer(name){
+    this.name = name;
+}
+Programmer.prototype = new Person();
+
+var p1 = new Programmer('Park');
+document.write(p1.introduce() + "<br />");
+//My name is Park 가 출력된다
+```
+`Programmer` 생성자를 통해 만든 객체가 `Person` 생성자를 통해 만들어진 객체와 같은 기능을 가지도록 만든 것이다 
+
+`Programmer` 생성자에 `introduce` 라는 메소드가 정의 되어있지 않지만 `introduce` 메소드를 사용할 수 있다  
+그 이유는 `introduce` 는 `Person` 객체에 `prototype.introduce` 라는 메소드가 정의되어 있고 `Programmer` 가 `introduce` 메소드를 상속받고 있기 때문이다   
+
+<br>
+
+`Programmer.prototype` 이라는 특수한 프로퍼티 값으로 `new Person()` 을 했다  
+`new Person` 을 하면 생성자에 의해 객체가 생성되게 되고 이 때 자바스크립트가 `prototype` 이라는 속성을 생성자 함수가 가지고 있는지 보고 생성자 함수에 있는 객체와 같은 객체를 만들어서 생성자의 결과로 리턴한다  
+
+그래서 `new Person` 으로 만들어진 객체는 `prototype` 으로 지정한 `name` 과 `introduce` 를 가지고 있다  
+
+<br>
+
+이 `introduce` 와 `name` 을 가지고 있는 객체가 `Programmer.prototype` 이라는 속성의 값이 된다  
+속성의 값이 됨으로써 `this.name = name` 이 되고  
+
+### 기능의 추가
+객체가 물려받은 기능에 기능을 추가
+
+```js
+function Person(name) {
+    this.name = name;
+}
+Person.prototype.name = null;
+Person.prototype.introduce = function(){
+    return 'My name is' + this.name;
+}
+
+function Programmer(name) {
+    this.name = name;
+}
+Programmer.prototype = new Person();
+Programmer.prototype.coding = function() {
+    return "hello world";
+}
+
+var p1 = new Programmer('Park');
+document.write(p1.introduce() + "<br />");
+document.write(p1.coding() + "<br />");
+```
+
+`Person` 은 `introduce` 만,   
+`Programmer` 는 `introduce` 와 `coding` 이 필요할 때  
+위처럼 상속을 사용하면 상속하면서 다른 기능을 추가할 수 있다  
+(`new Person()` 에서 상속하고 그 아랫줄 에서 기능을 추가하고 있다)
+
+<br>
+
+이를 활용해 아래와 같이 상속 후 다른 기능을 추가하는 작업을 할 수 있다
+
+```js
+function Person(name) {
+    this.name = name;
+}
+Person.prototype.name = null;
+Person.prototype.introduce = function(){
+    return 'My name is' + this.name;
+}
+
+function Programmer(name) {
+    this.name = name;
+}
+Programmer.prototype = new Person();
+Programmer.prototype.coding = function() {
+    return "hello world";
+}
+
+//<new
+
+function Designer(name){
+    this.name = name;
+}
+Designer.prototype = new Person();
+Designer.prototype.design = function() {
+    return "hard working!";
+}
+
+//new>
+var p1 = new Programmer('Park');
+document.write(p1.introduce() + "<br />");
+document.write(p1.coding() + "<br />");
+
+var p2 = new Designer('codingbot');
+document.write(p2.introduce() + "<br />");
+document.write(p2.design() + "<br />");
+```
+
+`Person` 이라는 공통의 부모가 있고,  
+`Programmer` 와 `Designer` 가 상속받는다  
+
+<br>
+
+## prototype
+객체의 원형이라 할 수 있다  
+함수는 객체이고 생성자로 사용될 함수도 객체이다  
+**객체는 프로퍼티를 가질 수 있는데 prototype이라는 프로퍼티는 용도가 약속된 특수한 프로퍼티이다**
+
+```js
+function Ultra(){}
+Ultra.prototype.ultraProp = true;
+
+function Super(){}
+Super.prototype = new Ultra();
+
+function Sub(){}
+Sub.prototype = new Super();
+
+var o = new Sub();
+console.log(o.ultraProp);
+//true가 출력된다
+```
+
+`Sub` 에 접근했을 때 `ultraProp` 는 정의되어있지 않다  
+이 때 자바스크립트는 내부적으로 `Super`, `Ultra` 에서 `ultraProp` 를 찾게된다  
+
+이를 가능하도록 하는 핵심적인 역할을 **`prototype`** 이 한다   
+
+생성자는 함수이고 이 함수를 호출할 때 `new` 를 붙임으로서 생성자 함수가 된다  
+이는 새로운 객체를 만들어 리턴하기 때문에 `o` 변수 안에는 생성자 함수로 만들어진 객체가 들어가게 된다  
+
+**기본적인 프로퍼티값과 메소드를 가지도록 만들 수 있다**
+
+`Ultra.prototype.ultraProp = true` 라는 객체가 `new Ultra()` 를 통해 `Super.prototype` 이 되고,  
+이 `Super.prototype` 이 `new Super()` 를 통해 `Sub.prototype` 이 되고,  
+이 `Sub.prototype` 이 `new Sub()` 을 통해 `o` 이 되는 것이다 
+
+**이런 구조를 prototype chain** 이라 한다 
+
+```js
+function Ultra(){}
+Ultra.prototype.ultraProp = true;
+
+function Super(){}
+Super.prototype = new Ultra();
+
+function Sub(){}
+Sub.prototype = new Super();
+Sub.prototype.ultraProp = 2;
+
+var o = new Sub();
+console.log(o.ultraProp);
+//2출력
+```
+
+`Sub.prototype.ultraProp` 를 했고, 상속을 받았기 때문에 `ultraProp` 를 찾을 수 있다  
+
+```js
+function Ultra(){}
+Ultra.prototype.ultraProp = true;
+
+function Super(){}
+Super.prototype = new Ultra();
+
+function Sub(){}
+//<new
+var s = new Super();
+s.ultraProp = 3;
+sub.prototype = s;
+//new>
+
+var o = new Sub();
+console.log(o.ultraProp);
+//3이 출력된다
+```
+
+`o.ultraProp` 를 `o` 에서 찾는데 없으면 그 `o` 를 만든 생성자, 즉 `Sub` 의 `prototype` 에서 찾게된다  
+`sub.prototype = s` 이고 `s.ultraProp` 를 찾아서 3이 출력된다  
+
+### +주의해야할 점
+
+```js
+function Ultra() {}
+Ultra.prototype.ultraProp = true;
+
+function Super() {}
+Super.prototype = new Ultra();
+
+function sub() {}
+// Sub.prototype = new Super()
+Sub.prototype = Super.prototype;
+
+var o = new Sub();
+console.log(o.ultraProp);
+```
+
+**`객체명.prototype` 에 할당될 값에는 상속받고자 하는 객체를 넣어야 한다**  
+그렇게 안하고 `객체.prototype` 의 값으로 `상속받고자하는객체.prototype` 을 한다면   
+상속받고자하는객체 에게 영향을 줘서  
+하위객체에 어떤 값을 추가하는 것이 부모객체에 어떤 기능을 추가하는 것과 동일한 효과를 하기 때문이다
+
+<br>
+
+## 표준 내장 객체의 확장
+표준 내장 객체(Standard Built-in Object) 는 자바스크립트가 기본적으로 제공하는 객체이다 
+
+* Object
+* Function
+* Array
+* String
+* Boolean
+* Number
+* Math
+* Data
+* RegExp
+
+등이 있다
+
+우리가 직접 객체를 만들고 사용하는 것은 **사용자 정의 객체** 라고 한다
+
+### 배열의 확장
+내장 객체에 어떤 기능을 추가하는 방법  
+(prototype) 을 사용
+
+```js
+var arr = new Array('seoul', 'new york', 'ladarkh', 'pusan', 'Tsukuba');
+function getRandomValueFromArray(arr){
+    var index = (
+        Math.floor(arr.length * Math.random()));
+    // arr.length * Math.random();
+    //0부터 1사이의 소수를 제공
+    //10 * 0.1234 를 하면 정수부분은 0에서 9가 나오듯이
+    //5 * 0.1234 를 하면 정수부분은 0에서 4가 나온다
+    //값은 소수가 나오기 때문에 정수로 바꾸기 위해
+    //floor 를 사용한다
+    return arr[index];
+    //만든 수번째 인덱스를 리턴
+}
+console.log(getRandomValueFromArray(arr));
+```
+`Array` 는 배열을 만들기 위한 생성자 함수이다  
+
+`arr` 에 있는 도시들을 랜덤으로 값을 가져오기  
+인덱스 0, 1, 2, 3, 4 중 랜덤한 값을 가져와야한다   
+
+> 모든배열이 이런 랜덤으로 값을 뽑는 기능을 가지도록 하기
+
+```js
+var arr = new Array('seoul', 'new york', 'ladarkh', 'pusan', 'Tsukuba');
+
+//random이라는 메소드이름으로 만든다
+Array.prototype.random = function(){
+    var index = Math.floor(this.length * Math.random());
+    return this[index];
+}
+
+console.log(arr.random());
+```
+배열 생성자를 통해 만들어진 객체가 가지고 있는 `random` 이라는 함수 안에서 `this` 는 배열 생성자를 통해 만들어진 배열 객체가 되기 때문에 `this` 를 사용할 수 있다   
+
+<br>
+
+## Object
+Object라는 이름을 가진 객체(object)가 있다  
+Object객체는 객체의 가장 기본적인 형태를 가지고 있는 객체이다  
+**모든 객체들의 부모이다**
+
+```js
+function Ultra() {}
+Ultra.prototype.ultraProp = true;
+
+function Super() {}
+Super.prototype = new Ultra();
+
+function sub() {}
+Sub.prototype = new Super()
+
+var o = new Sub();
+console.log(o.ultraProp);
+```
+
+이런식으로 `prototype` 을 통해 상속이 된다  
+요기서 부모인 `Ultra` 는 아무런 상속을 받지 않았지만  
+암시적으로 `Object` 라는 객체를 상속받고 있는 것이다
+
+즉 `Object` 라는 객체의 속성은 모든 객체가 가지고 있는 프로퍼티가 된다  
+이는 `object` 가 가지고 있는 `prototype` 은 모든 객체가 사용할 수 있는 기능이라는 뜻이다  
+
+### Object AIP 사용법
+<a href = "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object" target = "_blank" title = "참고자료">MDN Object</a>
+
+Object.keys 사용 (예시)  
+키값만을 배열로 만들어 리턴  
+주어진 객체의 속성 이름들을 반복문과 동일한 순서로 순회
+```js
+var arr = ["a","b","c"];
+console.log('Object.key(arr)' , Object.keys(arr));
+//Object.key(arr) ['0', '1', '2'] 가 출력
+```
+```js
+var o ={"name":"Park", "age":17, "city" : "seoul"};
+console.log(Object.keys(o));
+//['name', 'age', 'city'] 가 출력   
+```
+
