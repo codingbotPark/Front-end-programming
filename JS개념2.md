@@ -1821,5 +1821,296 @@ console.log('Object.key(arr)' , Object.keys(arr));
 var o ={"name":"Park", "age":17, "city" : "seoul"};
 console.log(Object.keys(o));
 //['name', 'age', 'city'] 가 출력   
+``` 
+
+Object.prototype.toString()
+```js
+var o = new Object();
+console.log('o.toString()',o.toString());
+``` 
+
+**메소드가 중요한 게 아니고 `prototype.toString` 인게 중요하다**
+
+Object.keys 는 `Object.key(arr)` 의 형식으로 사용하고,  
+Objcet.prototype.toString() 은 `o.toString()` 의 형식으로 사용한다
+
+`Object.key(arr)` 에서 `Object` 는 생성자 함수이다   
+`Object.keys = function`
+
+<br>
+
+근데 Object.prototype.toString() 은 `prototype` 소속이다  
+`Object.prototype.toString = function`
+
+어떤 메소드가 `prototype` 소속이라는 건
+
+생성자함수를 통해 `new Object()` 를 하는 순간에    
+어떤 객체를 만들고 그 객체는 `prototype` 이라는 특수한 프로퍼티에 저장된 객체를 원형으로 하는 객체가 생성되는 것이다  
+그렇게 생성되는 객체는 `toString` 이라는 메소드를 사용할 수 있게된다
+
+<br>
+
+이렇게 `prototype` 이 있고 없고에 따라 메소드 사용 방법이 달라진다  
+이 사용 방법을 이해한다면 다른 메소드들의 사용방법의 정보를 이해할 수 있다
+
+`Object` 라는 표준 내장 객체는 자바스크립트의 모든 객체들의 공통적,최초의 조상이다  
+즉 `Object` 가 가지고 있는 메소드 중 `prototype` 이 있는 메소드들은 모든 객체들이 상속받고 있는 공통의 기능이 된다는 말이 된다  
+또 모든 객체들이 공통적으로 가져야할 기능을 `Object` 의 `prototype` 객체 수정을 통해 만들 수 있다    
+
+### + Object 객체 확장으로 모든 객체가 사용가능한 메소드 만들기
+
+```js
+var o = {'name':'Park', 'city':'Deagu'}
+console.log(o.contain('Park'));
+```
+contain메소드를 만들어 인자값(`Park`)가 있다면 True 없다면 False를 리턴하는 메소드  
+
+객체만이 아닌, 자바스크립트의 모든 객체들(배열 등등)에게 이 메소드를 적용하려고 할 때
+
+
+>프로그램을 만들 때 만들고자 하는 것에 대한 대략적인 인상이 있다면 나중엔 불편해 질 수 있다  
+그래서 만들기 전 내가 만든 것이 어떻게 사용될 지를 설계하는 것도 좋은 방법 -egoing-
+
+
+모든 객체에 적용할 수 있는 메소드를 만들 때 `Object` 의 `prototype` 을 수정하면 된다
+
+```js
+Object.prototype.contain = function(needle){
+    for(var name in this){
+        //this는 그 메소드가 소속된 객체
+        //즉 contain사용에서
+        //Park의 소속은 o,
+        //GitHub의 소속은 a이다
+        if (this[name] === needle){
+            return true;
+        }
+    }
+    return false;
+}
+
+var o = {'name':'Park', 'city':'Deagu'}
+console.log(o.contain('Park'));
+var a = ['Park','codingbot','GitHub'];
+console.log(a.contain('GitHub'));
 ```
 
+**이 Object객체를 수정하는 방법은 좋은 방법이 아니다**
+이렇게 Object객체 확장을 하는 이유는 **모든 객체에게 영향을 주기 때문이다**  
+하지만 **모든 객체에게 영향을 주기 때문에** 신중하게 사용해야 한다
+
+<br>
+
+앞의 Object.prototype.contain을 실행하고  
+아래의 for문을 돌려보면
+```js
+for (var name in o){
+    console.log(name);
+}
+```
+prototype에 포함된 `contain`이 출력되는 것을 확인할 수 있다  
+for 문 안 a 로 바꿔도
+```js
+for (var name in a){
+    console.log(name);
+}
+```
+배열에 대한 열거 중 `contain`이 추가된 것을 확인할 수 있다
+
+이런 현산을 `hasOwnProperty` 를 사용함으로써 해결할 수 있다
+
+```js
+for (var name in o){
+    if (o.hasOwnProperty(name)){
+        console.log(name);
+    }
+}
+
+for (var name in a){
+    if (o.hasOwnProperty(name)){
+        console.log(name);
+    }
+}
+```
+상속받지 않는, 객체가 직접적으로 소유하는지를 체크한다
+
+<br>
+
+## 원시 대이터 타입과 객체 
+> 데이터타입을 분류, 비교  
+
+데이터 타입은 크게 두 가지로 구분할 수 있다  
+원시(기본) 데이터 타입 = primitive type,   
+객체(참조) 데이터 타입(잘 부르지 않는다)
+
+### 원시 데이터 타입, 객체(참조) 데이터 타입
+
+* 숫자
+* 문자열
+* 불리언 
+* null
+* undefined
+
+이것들을 제외한 것들은 모두 객체(참조) 데이터 타입이다
+
+### 레퍼 객체
+원시 데이터 타입과 객체 데이터 타입이 서로 다르게 동작하는 과정
+
+```js
+var str = 'coding';
+console.log(str.length);//이 출력된다
+console.log(str.charAt(0))//'c' 가 출력된다
+```
+객체가 아닌 것 = 객체 데이터 타입, 문자열은 데이터 타입이다  
+하지만 `str.length`,`str.charAt(0)` 에 나온 `.` 은 객체처럼 동작하는것을 확인할 수 있다  
+이 `.` 의 정식명칭은 **Object access Operator** , 즉 객체 접근 연산자이다  
+`.` 앞에있는 무엇이 객체인 것을 의미(메소드,프로퍼티가 존재)
+
+왜그러냐면 **자바스크립트에서 문자열은 원시데티어타입이 맞지만, 그 문자열을 제어(작업)하기 위해 객체와 같이 접근을 해야한다**  
+
+1행과 2행 사이에서는 `str = new String('coding')` 과 같은 동작을 한다
+
+`str` 이라는 변수는 `String` 이라는 객체를 가지고 있고, 그 객체가 가지고 있는 기능, 메소드를 통해 `length` 값과 `charAt(0)` 의 값을 구할 수 있는 것이다  
+
+그 증거로
+
+```js
+var str = 'coding';
+str.prop = 'everybody';
+console.log(str.prop);
+//undefined
+```
+
+에러 대신 `undefined` 가 뜬 것을 보면  
+문자열을 객체처럼 사용하려 하면 자바스크립트가 내부적으로 객체와 시키는 것을 알 수 있다
+
+`str.prop = 'everybody'` 순간에는 객체가 만들어 졌지만  
+이 순간이 끝난 후 객체를 제거, 원래의 원시 데이터 타입으로 변경  
+
+이 때, 원시데이터타입을 객체처럼 사용하려 할 때 자바스크립트에서 자동으로 만들어지는 객체를 **레퍼 객체, wrapper Object** 라고 한다  
+말 그대로 원시 데이터를 객체로 **감싸주는** 객체이다  
+이런 레퍼가 존재해서 원시 데이터 타입을 객체처럼 사용 가능한 것이다  
+
+다시 원시데이터 타입에서
+* 숫자 -> Number
+* 문자열 -> String
+* 불리언(true/false) -> Boolean
+* null -> 레퍼객체존재X
+* undefined -> 레퍼객체존재X
+
+<br>
+
+## 참조
+복제와 참초를 알아보고 비교
+
+### 복제
+복제는 전자화된 시스템의 가장 중요한 특징이다  
+<img alt = "복제" src = "https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/516/2131.png" height = "400" title = "참고자료">
+
+```js
+var a = 1;
+var b = a;
+b = 2;
+console.log(a);
+//1출력
+```
+쉽게 b의 값은 a의 값을 복제한 것이다  
+
+`a = 1` 에서 `1` 은 원시데이터타입이다  
+
+### 참조
+하지만 변수에 담겨있는 데이터가 객체라면 변수 안에는 데이터에 대한 참조 방법이 들어있다
+
+<img alt = "참조" src = "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F9903C4405A4CA6D402B3AE" height = "400px" title = "참고자료">
+
+```js
+var a = {'id':1};
+var b = a;
+b.id = 2;
+console.log(a.id);
+//2가 출력된다
+```
+
+`var a = {'id' : 1}` 에서 `a` 라는 변수가 생기고 그 변수에 `id` 가 `1` 인 값이 생기게 된다  
+`a` 는 그 객체를 가르키고 있다  
+
+`var b = a` 는 복제와같이 `a` 의 값을 복제해서 `b` 는 그 복제하너 값을 참조 했지만  
+
+객체는 새로 만들어진 `b` 도 똑같이 참조를 하게 된다  
+이에 따라 `b.id = 2` 에 의해 `a.id` 는 2가 된다  
+
+이러한 것을 **참조** 라 한다
+
+즉 복제는 연결되지 않는 별도의 데이터,  
+참조는 연결된, 같은 데이터를 가르키는 것 이다
+
+```js
+var a = {'id' : 1};
+var b = a;
+b = {'id':2};
+console.log(a.id);
+//1이 출력된다
+```
+
+2가 출력되는 이유는  
+`b = {'id' : 2}` 에서 새로운 객체 가 생성되었기 때문에,  
+`b` 라는 객체는 `a` 가 가르키는 객체를 가르키는 것이 아닌,  
+다른 객체를 바라보게 되는 것이다
+
+쉽게 생각하자면
+
+```js
+var a = 1;
+var b = a;
+b = 12;
+console.log(a);
+//1이 출력된다
+```
+
+굳이 두 예제의 차이를 생각한다면  
+`var b = a` 이다  
+객체를 사용하는 첫 번째 예제에서는 똑같은 객체를 바라보게 되고,  
+원시 데이터를 사용하는 두 번째 예제에서는 별개의 값을 바라보게 되는 것이다
+
+### 함수와 참조
+함수와 참조, 복제의 비교
+
+원시 데이터 타입을 인자로 넘겼을 때
+```js
+var a = 1;
+function func(b){
+    b = 2;
+}
+func(a);
+console.log(a);
+//1이 출력된다
+```
+
+참조 데이터 타입을 인자로 넘겼을 때
+```js
+var a = {'id' : 1};
+function func(b){
+    b = {'id' : 2};
+}
+func(a);
+console.log(a);
+//1이 출력된다
+```
+`b = {'id' : 2}` 에서 새로운 객체를 바라보게 된다
+
+```js
+var a = {'id' : 1};
+function func(b){
+    b.id = 2;
+}
+func(a);
+console.log(a.id);
+//2가 출력된다
+```
+`b` 는 계속 `a` 와 같은 객체를 참조하기 때문에 값이 변경된다
+
+다시한번  
+* 문자열
+* 숫자
+* 블리언
+은 객체처럼 사용할 수 있지만 실제로는 원시 데이터 타입이다  
+이 원시 데이터 타입을 객체처럼 사용할 수 있는 이유는 레퍼 객체로 감싸져 있기 때문이다

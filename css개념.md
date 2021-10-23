@@ -4061,7 +4061,7 @@ flex:1 1 40%;
 .flex-container-2-5-1{
     background-color:gray;
     display:flex;
-    flex-flow:row column;
+    flex-flow:row wrap;
     height:180px;
 }
 .flex-item-2-5-1{
@@ -4097,7 +4097,7 @@ flex:1 1 40%;
 .flex-container-2-5-1{
     background-color:gray;
     display:flex;
-    flex-flow:row column;
+    flex-flow:row wrap;
     height:180px;
 }
 .flex-item-2-5-1{
