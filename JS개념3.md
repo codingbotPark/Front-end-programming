@@ -195,3 +195,106 @@ func();
 <br>
 
 ## location
+location객체는 문서의 주소와 관련된 객체이다  
+이 객체를 이용해 윈도우 문서 url변경, 문서 위치와 관련해 다양한 정보를 얻을 수 있다
+
+현재 윈도우의 url 알아내기
+```js
+console.log(location.toString());
+console.log(location.href);
+```
+현재 웹페이지의 url이 출력되는 것을 확인할 수 있다
+
+```js
+console.log(location);
+//location객체에 대한 정보들이 출력된다
+```
+```js
+alert(location)
+//현재 url이 출력된다
+```
+
+`console.log` 와 `alert` 의 출력값이 다른 이유는  
+`console.log` 를 하면 그 객체의 프로퍼티들을 분석해서 객체에 대한 정보를 출력한다  
+`alert` 는 인자로 들어오는 값이 문자열 이여야 하기 때문에 자바스크리브가 `location` 이라는 인자를 문자화 시킨 후 출력한다  
+그리고 이 출력된 값은 `location.toString()` 과 같다  
+
+<br>
+
+```js
+console.log(location.protocol)
+```
+현재 브라우저 창이 사용하고 있는 프로토콜을 알아낼 수 있다
+
+<br>
+
+```js
+console.log(location.host)
+```
+host는 서비스를 식별하는 주소이다
+
+<br>
+
+```js
+console.log(location.port)
+```
+host가 컴퓨터(서버)를 식별하는 것이라면,  
+port는 그 컴퓨터에서 돌아가는 여러가지 소프트웨어들을 식별하는 것이다  
+
+<br>
+
+```js
+console.log(location.pathname)
+```
+pathname은 웹서버에 접속했을 때 웹서버가 가지고 있는 정보 중 구체적인 정보를 요청하는 정보
+
+<br>
+
+<img alt = "웹 주소의 구성" src = "http://www.codns.com/image/url11.png" title = "참고자료" height = "400">
+
+이렇게 protocol, host, port, pathname, search, hash 등을 `location` 을 통해 알아낼 수 있다  
+
+### 문서 주소를 변경
+`location`객체는 현재 웹페이지의 주소 알수만 있는 것이 아닌,  
+현재 웹페이지의 주소를 변경, 리로드 할 수 있다
+
+```js
+location.href = "https://github.com/codingbotPark"
+```
+`location.href` 는 현재 웹 페이지의 url을 알려줬지만  
+읽기도 가능하기 때문에 어떤 값을 지정해주면 그 값에 해당하는 url로 문서를 이동시킬 수도 있다
+
+이런 기능을 사용자를 다른 url로 이동시켜야 할 때 사용할 수 있다
+
+```js
+location.href = location.href;
+location.href = reload
+```
+
+웹페이지를 리로드 할 수 있다
+
+<br>
+
+## Navigator 객체
+현재 자바스크립트가 실행되고 있는 브라우저의 정보에 따른 특성에 맞는 코딩을 할 수 있도록 돕는 객체이다
+
+먼저 알아야 할 것은 **크로스 브라우징**이다
+
+### 크로스브라우징
+브라우저들이 동작방법은 **W3C** 라는 국제 표준화 기구에 따라 브라우저를 만든다  
+하지만 디테일한 부분들은 조금씩 다르게 구성되어 있다
+
+자바스크립트는 어떤 브라우저인지 체크함을 통해 브라우저에 맞는 코딩을 하도록 하는 것이 네비게이터 객체이고, 이렇게 브라우저마다 다르게 동작하는 것을 **크로스브라우징** 이라 한다
+
+<br>
+
+### Navigator 객체
+
+```js
+console.dir(navigator.appName);
+//Microsoft Internet Explorer = IE
+//파이어폭스, 크롬 = Nesape
+```
+
+## 창 제어
+window.open 메소드는 새 창을 생성한다
