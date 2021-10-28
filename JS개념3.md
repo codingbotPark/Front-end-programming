@@ -297,4 +297,208 @@ console.dir(navigator.appName);
 ```
 
 ## 창 제어
-window.open 메소드는 새 창을 생성한다
+window객체는 전역객체이고,  
+어떻게 보면 브라우저에서 가장 큰 단위를 제어하는 객체이다
+
+그래서 window객체의 메소드에는 window를 제어하는것 과 관련된 많은 기능이 있다
+
+대표적으로 적인 window의 메소드를 알아보자
+
+### window.open 
+문서를 로드한다  
+첫 번째 인자는 새 텝에 로드할 문서의 url이다   
+인자를 생략하면 이름이 붙지 않는 새창이 만들어진다  
+```js
+window.open('https://github.com/codingbotPark')
+```
+
+두 번째 인자는 새 텝의 이름  
+_self는 스크립트가 실행되는 텝  
+_blank는 새 텝  
+
+```js
+window.open('https://github.com/codingbotPark', '_self')
+//현재 창에서 로드가 된다
+```
+
+```js
+window.open('https://github.com/codingbotPark', '_blank')
+//새 창에서 로드가 된다
+```
+
+창에 이름을 줄 수 있다    
+open을 재실행 했을 때 동일한 이름의 창이 있다면 그곳에서 문서가 로드된다
+
+```js
+window.open('https://www.instagram.com/','is')
+//로드 후 다시 로드----------- 
+window.open('https://www.instagram.com/','is')
+```
+
+세 번째 인자는 새 창과 관련되있다
+
+```js
+window.open('https://github.com/codingbotPark','_blank','width = 200, height = 200, resizeable = yes');
+```
+크기를 지정할 수 있고,  
+크기 수정 여부 설정 등을 할 수 있다
+
+보안적인 측면을 막기 위해 기능을 제안하는 경우도 있다(예) 팝업)
+
+<br>
+
+## 제어대상을 찾기
+DOM을 통해 문서를 제어하기 위해서는 제일 먼저 제어의 대상을 찾아야 한다
+
+### document.getElementsByTagName
+document객체의 메소드이고,  
+이름 그대로 get(가져온다) Elements(태그(들)) ByTagName(태그 이름을 통해)
+
+```html
+<!-- html파일 -->
+<ul>
+    <li>HTML</li>
+    <li>css</li>
+    <li>JavaScript</li>
+</ul>
+<script>
+    var lis = document.getElementsByTagName('li');
+    for (var i = 0;lis.length;i++){
+        lis[i].style.color = 'red';
+    }
+</script>
+```
+
+document는 문서 전체를 의미,   
+li태그들을 가져와서 유사배열(배열은 아니지만 배열과 같이 작동)  
+반복문을 통해 li의 개수만큼(lis.length) 반복
+
+<br>
+
+만약 ul 태그 하위태그의 li태그들을 선택하고 싶다면?
+```html
+<!-- html파일 -->
+<ul>
+    <li>HTML</li>
+    <li>css</li>
+    <li>JavaScript</li>
+</ul>
+<ol> 
+    <li>HTML</li>
+    <li>css</li>
+    <li>JavaScript</li>
+</ol>
+<script>
+    var ul = document.getElementsByTagName('ul')[0];
+    var lis = ul.getElementsByTagName('li');
+    for (var i = 0;lis.length;i++){
+        lis[i].style.color = 'red';
+    }
+</script>
+```
+
+ul이라는 유사 배열의 0 번째 인덱스에 ul테그를 넣은 것이다 
+ul.getElementsByTagName을 통해 ul하위 테그를 선택  
+
+<br>
+
+### document.getElementsByClassName
+class속성값을 기준으로 테그를 조회  
+html에서 class = js에서 classname
+
+```html
+<!-- html파일 -->
+<div class = "ch">codingbot</div>
+<div>Park</div>
+<div class = "ch">coding</div>
+<script>
+    var div = document.getElementsByClassName('ch')
+    for (var i = 0;div.length;i++)
+    div[i].style.color = 'yellowgreen'
+</script>
+```
+
+class 의 이름으로 태그를 조회해서 스타일을 바꿧다
+
+<br>
+
+### document.getElementById
+getElementById는    
+getElementsByClassName, getElementsByTagName 와 다르게   
+단수이다 = 하나의 결과만 갖는다  
+
+ById이기 때문에 Id값을 기준으로 조회를 한다  
+가장 성능이 좋다
+
+```html
+<!-- html파일 -->
+<ul>
+    <li>HTML</li>
+    <li id = "ch">CSS</li>
+    <li>JavaScript</li>
+</ul>
+<script>
+    var ch = document.getElementById('ch');
+    ch.style.color = 'yellowgreen';
+</script>
+```
+
+getElementById는 단수이기 때문에 유사배열의 형태가 아닌 것을 확인할 수 있다
+
+<br>
+
+### document.querySelector
+CSS의 선택자를 인자로 받아서 엘리먼트를 선택할 수 있다
+
+```html
+<!-- html파일 -->
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ul>
+<ol>
+    <li>HTML</li>
+    <li class = "ch">CSS<li>
+    <li>JavaScript<li>
+</ol>
+<script>
+    var li = document.querySelector('li');
+    li.style.color = 'yellowgreen';
+    var ch = document.querySelector('.ch');
+    ch.style.color = 'yellow';
+</script>
+```
+
+querySelector은 단수의 엘리먼트를 선택,  
+querySelectorAll은 복수의 엘리먼트를 선택할 수 있다  
+
+querySelector은 단수의 엘리먼트를 선택하기 때문에 'li' 는 첫 번째에 오는 HTML 이 선택된다  
+CSS 에서 class 를 선택하듯이 .ch 는 CSS 가 선택된다
+
+querySelectorAll은 복수의 엘리먼트를 선택
+
+```html
+<!-- html파일 -->
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ul>
+<script>
+    var lis = document.querySelectorAll('li');
+    for (var name in li){
+        lis[name].style.color = 'yellowgreen';
+    }
+</script>
+```
+
+이렇게 DOM을 이용해 웹페이지의 내용을 변경하려 한다면 제일먼저 엘리먼트를 선택해야한다
+
+<br>
+
+## jQuery
+jQuery는 자주 사용하는 로직을 재사용할 수 있도록 고안된 라이브러리이다  
+
+앞에서 DOM을 활용해 엘리먼트를 조회, 제어 했지만 더 쉽게 조회, 제어 할 수 있다  
+
