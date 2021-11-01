@@ -4952,8 +4952,22 @@ ad
 어떠한 그래픽 대상에게 효과를 줄 수 있다  
 (예) 흑백사진으로 만들기 등)
 
+
 <a href = "https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jsy930609&logNo=221671999277" target = "_blank" title = "참고자료">CSS filter</a>
 
+```html
+<style>
+.filter-img-1{
+    filter:grayscale(100%);
+}
+.filter-text-1{
+    filter:blur(3px);
+}
+</style>
+
+<h3 class = "filter-text-1">The Great Wave</h3>
+<img alt = "The Great Wave" src = "https://mblogthumb-phinf.pstatic.net/MjAxODA1MTNfNTIg/MDAxNTI2MTY2NjUwMDIy.kXXYNwqNcZTdtrmo7tTiGPJV-uPsUd2Dswi7bKMjGY8g.Sx5UDiIgfRhSRYdgTBmrQIa7NxfynNTkBc_ObYoJTWYg.JPEG.brucelee55/The_Great_Wave_off_Kanagawa.jpg?type=w2" class = "filter-img-1" height="300px">
+```
 
 <style>
 .filter-img-1{
