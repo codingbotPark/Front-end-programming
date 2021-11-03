@@ -2,11 +2,11 @@
 all of my FrontEnd
 
 ## organization
-* ### [html개념](https://github.com/codingbotPark/Front-end-programing/blob/main/html%EA%B0%9C%EB%85%90.md)  
+* ### [html개념](https://github.com/codingbotPark/Front-end-programming/blob/main/html%EC%88%9C%EC%84%9C.md)  
 
-* ### [css개념](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md)
- 
-* ### [JS개념-1](https://github.com/codingbotPark/Front-end-programing/blob/main/JS%EA%B0%9C%EB%85%90.md)
+* ### [css개념](https://github.com/codingbotPark/Front-end-programming/blob/main/css%EC%88%9C%EC%84%9C.md)
+
+
 
 ## projects
 * [momentum](https://github.com/codingbotPark/Momentum)
