@@ -56,5 +56,6 @@
 * [filter](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#filter)
 * [blend](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#blend)
 * [transform](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#transform)
+* [transition](https://github.com/codingbotPark/Front-end-programming/blob/main/css%EA%B0%9C%EB%85%90.md#transition)
 * [link, import](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#link-import)
 * [miniy](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#miniy)
