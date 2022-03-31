@@ -6,6 +6,9 @@ all of my FrontEnd
 
 * ### [css개념](https://github.com/codingbotPark/Front-end-programming/blob/main/css%EC%88%9C%EC%84%9C.md)
 
+* ### [JS개념1](https://github.com/codingbotPark/Front-end-programming/blob/main/JS%EA%B0%9C%EB%85%901.md)
+
+* ### [JS개념2](https://github.com/codingbotPark/Front-end-programming/blob/main/JS%EA%B0%9C%EB%85%902.md)
 
 
 ## projects
