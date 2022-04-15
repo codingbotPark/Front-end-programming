@@ -41,7 +41,6 @@
     * [justify-content](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#justify-content)
     * [align-items](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#align-items)
     * [align-content](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#align-content)
-
     * [flex-basis](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#flex-basis)
     * [flex-grow](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#flex-grow)
     * [flex-shrink](https://github.com/codingbotPark/Front-end-programing/blob/main/css%EA%B0%9C%EB%85%90.md#flex-shrink)
