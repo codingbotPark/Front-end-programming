@@ -55,3 +55,38 @@ class User {
     // 그래서 생성장에서 값을 할당할 때 setter에서 값을 변경시켜줄 수 있다
 } new User('Steve','job',-1);
 ```
+
+
+## 자바스크립트7
+f
+#### Property value shorthand
+객체를 계속 만들면 번거로워 져서 함수로 만들 수 있다
+
+```js
+const person 1 = {name : 'bob', age : 2}
+function makePerson(name,age){
+    return {
+        name:name,
+        age:age,
+    }
+}
+// 위와같이 key와 value가 같은 객체에는
+// 아래와같이 값을 생략해도 된다
+function makePerson1(name,age){
+    return {
+        name,
+        age
+    }
+}
+const person2 = makePerson("park",1)
+const person3 = makePerson("che",1)
+```
+
+그리고 class처럼 만들어 줘서 함수가 아래와 같이 된다
+
+```js
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+```

@@ -1,16 +1,6 @@
 
-
-function calculate(command,a,b){
-    console.log(calObj[command](a,b))
-}
-
-calObj = {
-    add : (a,b) => a+b,
-    substract : (a,b) => a-b,
-    divide : (a,b) => a/b,
-    multiply : (a,b) => a*b,
-    remainder : (a,b) => a%b
-}
-
-calculate("add",1,2)
-
+arr = [1,2,3]
+console.log(arr.length)
+arr.push(1)
+arr.unshift(2)
+console.log(arr)
