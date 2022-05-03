@@ -53,7 +53,5 @@ class User {
     // age라는 setter를 정의하면, age는 setter를 호출하게 된다
 
     // 그래서 생성장에서 값을 할당할 때 setter에서 값을 변경시켜줄 수 있다
-}
-const user1 = new User('Steve','job',-1);
+} new User('Steve','job',-1);
 ```
-
