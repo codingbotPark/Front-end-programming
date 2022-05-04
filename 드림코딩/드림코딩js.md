@@ -90,3 +90,52 @@ function Person(name,age){
     this.age = age;
 }
 ```
+
+## 자바스크립트 11
+동기와 비동기
+
+js는 동기적이다
+위에서 하나하나씩 내려가는,,
+
+호이스팅 =  `var` `function` 이 가장 먼저 읽혀서 선언
+
+그래서 호이스팅 된 후 위에서 하나하나씩 내려간다
+
+
+## 자바스크립트 12
+
+```js
+// producer
+const promise = new Promise((resolve,reject) => {
+    console.log("doing something");
+    setTimeout(() => {
+        resolve("ellie");
+    },2000);
+})
+
+// cunsumers
+promise.then(value => {
+    console.log(value);
+}).catch(error => {
+    console.log(error);
+}).finally(() => {
+    console.log("finally")
+})
+```
+
+**promise chaining**
+```js
+const fetchNumber = new Promise((resolve,reject) => {
+    setTimeout(() => resolve(1),1000);
+})
+
+fetchNumber
+.then(num => num * 2)
+.then(num => num * 3)
+.then(num => {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => resolve(num-1),1000)
+    })
+.then(num => console.log(num));
+})
+```
