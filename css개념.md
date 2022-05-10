@@ -4087,7 +4087,7 @@ flex:1 1 40%;
     justify-content:center;
     align-items:center
 }
-.flex-item-2-6-1:nth-child(1){order:3;}
+.flex-item-2-6-1:nth-child(1){order:2;}
 /* 변경후의 위치를 기준으로 order을 사용해서 child(2)를 바꿈 */
 .flex-item-2-6-1:nth-child(2){order:1;}
 </style>
@@ -4117,7 +4117,7 @@ flex:1 1 40%;
     justify-content:center;
     align-items:center
 }
-.flex-item-2-6-1:nth-child(1){order:3;}
+.flex-item-2-6-1:nth-child(1){order:2;}
 /* 변경후의 위치를 기준으로 order을 사용 */
 .flex-item-2-6-1:nth-child(2){order:1;}
 </style>
