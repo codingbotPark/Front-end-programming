@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="js/three.js"></script>
+    <script>
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // --------------
+
+        const shape = new THREE.Shape();
+        shape.moveTo(0, 1.5);
+		shape.bezierCurveTo(2, 3.5, 4, 1.5, 2, -0.5);
+		shape.lineTo(0, -2.5);
+		shape.lineTo(-2, -0.5);
+		shape.bezierCurveTo(-4, 1.5, -2, 3.5, 0, 1.5);
+
+        const geometry1 = new THREE.BufferGeometry();
+        const points = shape.getPoints();
+        geometry1.setFromPoints(points);
+        
+
+        // --------------
+
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            cube.rotation.x += 0.001;
+            cube.rotation.y += 0.01;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        var axes = new THREE.AxesHelper(50);
+        scene.add(axes)
+
+        var gridHelper = new THREE.GridHelper(100, 5);
+        scene.add(gridHelper);
+    </script>
+</body>
+
+</html>
