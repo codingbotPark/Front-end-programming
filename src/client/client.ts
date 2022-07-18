@@ -2,19 +2,23 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 
+// -------------
 class App{
-
-
+    
+    
     // 컨트롤러 세팅
     _setupControls(){
         new OrbitControls(camera, renderer.domElement)
     }
+
+
 }
 
 // 생성될 때 App 생성
 window.onload = function(){
     new App();
 }
+// -------------
 
 
 
