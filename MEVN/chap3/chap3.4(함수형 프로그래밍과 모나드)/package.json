@@ -1,0 +1,14 @@
+{
+  "name": "chap3.4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chap3.4.1(순수함수).js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.28.0"
+  }
+}
