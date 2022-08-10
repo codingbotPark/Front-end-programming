@@ -1,0 +1,17 @@
+/* 값이 0이라면 0px이 아니라 0으로 하기 */
+article{
+    margin:0;
+    padding:0;
+}
+
+/* short hand를 사용하기 */
+article{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+/* == */
+article{
+    margin:10px 0px;
+}
+
+/* 하위 선택자는 쫌 더 깔끔하게 만들기 */
