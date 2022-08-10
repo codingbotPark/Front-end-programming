@@ -1,0 +1,16 @@
+{
+  "name": "chap3-5",
+  "version": "1.0.0",
+  "description": "* 초기값 할당 연산자\r null 또는 undefined일 때 ??= 으로 초기값을 할당할 수 있다(node.js 15부터가능)",
+  "main": "chap3.5.1(배열 안에서 차례대로 작동하는 비동기로직).js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "capture-website": "^2.4.0",
+    "fxjs": "^0.21.3"
+  },
+  "type": "module"
+}
