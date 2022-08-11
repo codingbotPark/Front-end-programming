@@ -1,0 +1,14 @@
+{
+  "name": "chap4-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chap4.2.1(일부러 중지되는 서버 만들기).js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pm2": "^5.2.0"
+  }
+}
