@@ -1,0 +1,15 @@
+{
+  "name": "chap4-3",
+  "version": "1.0.0",
+  "description": "express의 핵심적인 3가지 특징인 \r 1. 쉬운 미들웨어 설정\r 2. 쉬운 라우팅\r 3. 쉬운 정적 자원 제공 서버",
+  "main": "simple_middleware.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  }
+}
