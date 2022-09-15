@@ -17,6 +17,7 @@
             <span @click="setActive(2)" :class="{active: currIdx === 2}"></span>
         </div>
     </div>
+    
 </template>
 
 <script>
