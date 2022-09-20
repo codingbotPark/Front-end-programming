@@ -20,11 +20,7 @@ function App() {
   const [bodypixnet,setBodypixnet] = useState();
   const [prevClassName,setPrevClassName] = useState();
 
-  useEffect(() => {
-    bodyPix.load().then((net) => {
-      setBodypixnet(net);
-    })
-  },[])
+
 
   const drawimage = async (
     webcam,
@@ -78,6 +74,8 @@ function App() {
   // --------
 
   const videoConstraints = {
+    // width:0,
+    // height:0,
     width:1280,
     height:720,
     facingMode:"user"
@@ -89,16 +87,26 @@ function App() {
   //     console.log(imageSrc)
   //   },[webcamRef])
 
+  useEffect(() => {
+    bodyPix.load().then((net) => {
+      setBodypixnet(net);
+    })
+    // clickHandler("schoolMain")
+  },[])
+
 
   return (
     <div className="App">
         <Webcam 
           ref={webcamRef}
           audio={false}
+          // height={0}
+          // width={0}
           height={720}
           width={1280}
           screenshotFormat="image/jpeg"
           videoConstraints={videoConstraints}
+          style={{visibility:"hidden"}}
         />
         <canvas ref={canvasRef} style={{width:"1280px",height:"720px", backgroundSize:"cover"}} />
         <button onClick={() => clickHandler("schoolMain")}>schoolMain</button>
