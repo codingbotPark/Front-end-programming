@@ -32,7 +32,7 @@ all of my FrontEnd
 > 2022년 1하기 해커톤으로 진행, 학교 마크 맵을 three.js 를 활용해 웹에 띄어 구경할 수 있고 방에 들어가 회의 채팅을 할 수 있다, 캐릭터 부분(중력, 이동)과, 채팅을 위한 방체크, 요구함수 구현(블록 렌더링 함수)을 했다
 
 * ['지미버스(Gym in bus)'](https://github.com/HealthyDGSWBoys/3DEngine)
-[대한민국 sw융합 해커톤](http://www.swhackathon.kr/ko/)에서 개발, 웹 캠과 ai를 통해 사람의 자세를 볼 수 있고 각도를 분석해 운동 유무를 파악 후 메타버스 상에서 캐릭터가 움직이도록 한다, 캐릭터 이동, 서버통신(로그인,socket) 부분을 했다
+> [대한민국 sw융합 해커톤](http://www.swhackathon.kr/ko/)에서 개발, 웹 캠과 ai를 통해 사람의 자세를 볼 수 있고 각도를 분석해 운동 유무를 파악 후 메타버스 상에서 캐릭터가 움직이도록 한다, 캐릭터 이동, 서버통신(로그인,socket) 부분을 했다
 
 * ['DUCADEMY'(교육박람회)](https://github.com/Project-DUCADEMY/ducademy-web)
 > React + JS + recoil + styled-component 등 을 활용한 학교 동아리 [`두카미`](https://github.com/Project-DUCADEMY) 의 웹으로 교육박람회 제출, 박람회의 목적과 맞게 문제를 풀며 나에게 부족한 부분을 알려주고 그에 맞는 문제를 내주는 주요기능이 있다
