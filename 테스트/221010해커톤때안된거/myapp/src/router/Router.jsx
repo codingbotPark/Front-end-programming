@@ -7,6 +7,8 @@ import Footer from "../common/Footer";
 
 import routes from './routes'
 
+import React from 'react';
+
 const Core = styled.div`
   margin-top: ${props => props.nav ? "50" : "0"}px;
   width: 100%;
@@ -17,23 +19,23 @@ const Content = styled.div`
 `
 
 const Router = () => {
-  // const location = useLocation()
-  // const [renderInfo, setRenderInfo] = useState({
-  //     nav: false,
-  //     Footer: false
-  // })
 
-  // useLayoutEffect(() => {
-  //     let temp = routes.find(element => element.path === location.pathname.split('/')[1])
-  //     if(temp === undefined) {
-  //         temp = routes.find(element => element.path === "*")
-  //     }
-  //     setRenderInfo(temp)
-  // }, [location.pathname])
+  const location = useLocation()
+  const [renderInfo, setRenderInfo] = useState({
+      nav: false,
+      Footer: false
+  })
+
+  useLayoutEffect(() => {
+      let temp = routes.find(element => element.path === location.pathname.split('/')[1])
+      if(temp === undefined) {
+          temp = routes.find(element => element.path === "*")
+      }
+      setRenderInfo(temp)
+  }, [location.pathname])
 
   return (
-    <>
-      <Content>
+    <Content>
           {/* { renderInfo.nav ? <NavBar/> : null}
           <Core nav={renderInfo.nav}>
               <Routes>
@@ -49,9 +51,9 @@ const Router = () => {
           </Core> */}
           ㅎㅇ
       </Content>
-      {/* { renderInfo.nav ? <Footer/> : null} */}
-    </>
-  )
-}
+  );
+};
 
 export default Router;
+
+
