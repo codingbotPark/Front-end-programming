@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script src="./hello.js"></script>
+        <script src="./world.js"></script>
+    </head>
+    <body>
+        <h1>Hello,World</h1>
+        <div id="root"></div>
+        <script type="module">
+            import hello_word from "./hello.js";
+            import world_word from "./hello.js";
+            document.querySelector("#root").innerHTML = world_word
+        </script>
+    </body>
+</html>

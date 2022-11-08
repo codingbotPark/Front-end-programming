@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="비밀번호" id="password" type="password" />
+    <input placeholder="비밀번호확인" id="passwordCheck" type="password" />
+    <button onclick="checkPassword()">확인</button>
+
+    <script>
+        let password = document.getElementById("password");
+        let passwordCheck = document.getElementById("passwordCheck");
+
+        let flag = false;
+
+        function checkPassword(){
+            console.log(password.value);
+            console.log(passwordCheck.value);
+
+            flag = (password.value === passwordCheck.value)
+            if (flag){
+                alert("비밀번호가 맞음")
+            } else { 
+                alert("비밀번호가 일치하지 않음")
+            }
+        }
+    </script>
+</body>
+</html>
