@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="content">
 
@@ -15,85 +17,237 @@
         </div>
         <div id="section2"></div>
         <div id="section3">
-        <h1 id="mainSubTitle"></h1>
+            <div id="mainSubTitle"></div>
         </div>
+        <div id="section4"></div>
+        <div id="section5"></div>
+        <div id="section6"></div>
+        <div id="section7"></div>
+        <div id="section8"></div>
+
+        <div id="section9">
+            <div class="wrapper1">
+                <img src="./광화문1.jpg" />
+                <img src="./광화문2.jpg" />
+                <img src="./광화문3.jpg" />
+                <img src="./광화문4.jpg" />
+            </div>
+            <div class="wrapper2" >
+                <img src="./광화문5.jpg" />
+                <img src="./광화문6.jpg" />
+                <img src="./광화문3.jpg" />
+                <img src="./광화문4.jpg" />
+            </div>
+        </div>
+        <div id="section10"></div>
+
+        <div id="section11">
+            <h1>조선의 법궁 경복궁입니다</h1>
+            <img src="./광화문.png" />
+        </div>
+        <div id="section12"></div>
+
     </div>
 
     <style>
+        @keyframes onNoff {
+            0% {
+                opacity: 0;
+            }
 
-        @keyframes onNoff{
-            0% {opacity: 0;}
-            50% {opacity: 100;}
-            100% {opacity: 0;}
+            50% {
+                opacity: 100;
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
 
-        body{
+        body {
             margin: 0px;
             overflow-x: hidden;
         }
-        #content > div{
-            height:100vh;
+
+        #content>div {
+            height: 100vh;
         }
 
-        #section1{
+        #section1 {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            height:100%;
+            height: 100%;
         }
-        #section1 > h1{
-            margin-top:300px;
+
+        #section1>h1 {
+            margin-top: 300px;
             font-size: 50px;
             animation: onNoff 2s Infinite;
         }
-        #section1 > img{
+
+        #section1>img {
+            width: 100%;
+        }
+
+
+        #section9{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+        }
+        #section9 > div{
+            width:300px;
+        }
+        #section9 > div > img{
+            width:100%;
+            margin-top: 40px;
+        }
+        #section9 > .wrapper1{
+            margin-right:60px;
+        }
+        #section9 > .wrapper2{
+            margin-left:60px;
+        }  
+        #section10 {
+            background-color: coral;
+        }
+
+        #section11 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items:center;
+            background-color: powderblue;
+
+        }
+        #section11 > h1{
+            margin-top: 200px;
+            font-size: 60px;
+        }
+        #section11 > img{
             width:100%;
         }
-        #mainSubTitle{
+
+
+        #mainSubTitle {
             font-size: 45px;
         }
-        
+
+
+
+
+
+        #mainSubTitle>.front {}
+
+        #mainSubTitle>.back {
+            color: lightgray;
+        }
+
+        #mainSubTitle>.none {
+            opacity: 0;
+            /* display: none; */
+        }
 
     </style>
 
     <script>
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
 
-        const cont=document.querySelectorAll("#content > div")
-        
+        const cont = document.querySelectorAll("#content > div")
 
-        window.addEventListener("scroll",function(){
-            
+
+        window.addEventListener("scroll", function () {
+
             const wScroll = window.scrollY;
 
-            if (wScroll < (window.innerHeight * 5)){
+            if (wScroll < (window.innerHeight * 8)) {
 
                 const mainSubTitle = document.querySelector("#mainSubTitle")
                 const img1 = document.querySelector("#section1>img")
 
-                mainSubTitle.style.visibility="hidden"
+                mainSubTitle.style.visibility = "hidden"
 
-                if (wScroll < (window.innerHeight)){
+                let testValue = 0;
+
+                if (wScroll < (window.innerHeight)) {
                     img1.style.cssText = `
                     position:fixed; 
                     bottom:0px;
-                    width:${((Math.round((wScroll*50)/window.innerHeight)+100) + "%")}
+                    width:${((Math.round((wScroll * 50) / window.innerHeight) + 100) + "%")}
                     `
-                } else if (wScroll < (window.innerHeight * 2)){
-                    img1.style.transform=`translateX(${(wScroll - window.innerHeight)/2.5}px)`
-                } else if (wScroll < (window.innerHeight * 2.5)){
-                    mainSubTitle.style.cssText=`
+                } else if (wScroll < (window.innerHeight * 2)) {
+                    img1.style.transform = `translateX(${(wScroll - window.innerHeight) / 2.5}px)`
+                } else if (wScroll <= (window.innerHeight * 6)) {
+
+                    mainSubTitle.style.cssText = `
                     position:fixed;
                     left:200px;
-                    top:200px;
+                    top:300px;
                     `
-                    mainSubTitle.innerText="hi"
+
+                    if (wScroll < window.innerHeight * 3) {
+                        mainSubTitle.innerHTML = `
+                        <div class="front" >경복궁에서 가장 먼저 볼 수 있는</div>
+                        <div class="back" >광화문 입니다</div>
+                        <div class="none" >2번의 복구를 거쳐</div> 
+                        <div class="none" >2010년 현재모습입니다</div>
+                    `
+                    } else if (wScroll < window.innerHeight * 4){
+                        mainSubTitle.innerHTML = `
+                        <div class="back" >경복궁에서 가장 먼저 볼 수 있는</div>
+                        <div class="front" >광화문 입니다</div>
+                        <div class="back" >2번의 복구를 거쳐</div> 
+                        <div class="none" >2010년 현재모습입니다</div>
+                    `   
+                    } else if (wScroll < window.innerHeight * 5) {
+                        mainSubTitle.innerHTML = `
+                        <div class="none" >경복궁에서 가장 먼저 볼 수 있는</div>
+                        <div class="back" >광화문 입니다</div>
+                        <div class="front" >2번의 복구를 거쳐</div> 
+                        <div class="back" >2010년 현재모습입니다</div>
+                    `     
+                    } else if (wScroll < window.innerHeight * 6) {
+                        mainSubTitle.innerHTML = `
+                        <div class="none" >경복궁에서 가장 먼저 볼 수 있는</div>
+                        <div class="none" >광화문 입니다</div>
+                        <div class="back" >2번의 복구를 거쳐</div> 
+                        <div class="front" >2010년 현재모습입니다</div>
+                    `      
+                    }
+
+                    mainSubTitle.style.transform = `translateY(${-Math.round((60) * ((wScroll - (window.innerHeight*2)) /window.innerHeight))}px)`;
+
+                } else if (wScroll <= window.innerHeight * 7){
+                    // img1.style.width = 
+                    
+                    // 이전에 확대 되었던 150을 더해준다
+                    img1.style.width = ` ${150 + Math.round(((wScroll - (window.innerHeight * 6)) * 450) / window.innerHeight)}%`
+
+                    // console.log(` ${150 + Math.round(((wScroll - (window.innerHeight * 6)) * 50) / window.innerHeight) }`)
+                } else if (wScroll <= window.innerHeight * 8){
+                    img1.style.opacity = `${100 - Math.round(((wScroll - (window.innerHeight * 7)) * 100) / window.innerHeight)}%`
                 }
                 
-                console.log(wScroll)
+            } else if (wScroll < (window.innerHeight * 10)){ // chap2 8
+                // 이미지들
+            } else if (wScroll < (window.innerHeight * 12)){
+                
+                const title = document.querySelector("#section11 > h1")
+
+                if (wScroll < (window.innerHeight * 11)){
+                    console.log(wScroll)
+
+                    
+
+                }
+
+                
+
             }
-            
+
             // console.log("1",cont[0].getBoundingClientRect().top)
             // console.log("2",cont[1].getBoundingClientRect().top)
             // console.log("3",cont[2].getBoundingClientRect().top)
@@ -101,4 +255,5 @@
         })
     </script>
 </body>
+
 </html>
