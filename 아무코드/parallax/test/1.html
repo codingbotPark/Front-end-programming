@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+
+        <div id="section1">
+            <h1>스크롤을 아래로 내려주세요</h1>
+            <img src="./광화문.png" />
+        </div>
+        <div id="section2"></div>
+        <div id="section3">
+        <h1 id="mainSubTitle"></h1>
+        </div>
+    </div>
+
+    <style>
+
+        @keyframes onNoff{
+            0% {opacity: 0;}
+            50% {opacity: 100;}
+            100% {opacity: 0;}
+        }
+
+        body{
+            margin: 0px;
+            overflow-x: hidden;
+        }
+        #content > div{
+            height:100vh;
+        }
+
+        #section1{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height:100%;
+        }
+        #section1 > h1{
+            margin-top:300px;
+            font-size: 50px;
+            animation: onNoff 2s Infinite;
+        }
+        #section1 > img{
+            width:100%;
+        }
+        #mainSubTitle{
+            font-size: 45px;
+        }
+        
+
+    </style>
+
+    <script>
+        window.scrollTo(0,0)
+
+        const cont=document.querySelectorAll("#content > div")
+        
+
+        window.addEventListener("scroll",function(){
+            
+            const wScroll = window.scrollY;
+
+            if (wScroll < (window.innerHeight * 5)){
+
+                const mainSubTitle = document.querySelector("#mainSubTitle")
+                const img1 = document.querySelector("#section1>img")
+
+                mainSubTitle.style.visibility="hidden"
+
+                if (wScroll < (window.innerHeight)){
+                    img1.style.cssText = `
+                    position:fixed; 
+                    bottom:0px;
+                    width:${((Math.round((wScroll*50)/window.innerHeight)+100) + "%")}
+                    `
+                } else if (wScroll < (window.innerHeight * 2)){
+                    img1.style.transform=`translateX(${(wScroll - window.innerHeight)/2.5}px)`
+                } else if (wScroll < (window.innerHeight * 2.5)){
+                    mainSubTitle.style.cssText=`
+                    position:fixed;
+                    left:200px;
+                    top:200px;
+                    `
+                    mainSubTitle.innerText="hi"
+                }
+                
+                console.log(wScroll)
+            }
+            
+            // console.log("1",cont[0].getBoundingClientRect().top)
+            // console.log("2",cont[1].getBoundingClientRect().top)
+            // console.log("3",cont[2].getBoundingClientRect().top)
+
+        })
+    </script>
+</body>
+</html>
