@@ -1,0 +1,160 @@
+#map{
+  margin-top:20px;    
+  width:100vh;
+    height:600px;
+    position:fixed;
+    border:solid gray 1px;
+    justify-content: center;
+    margin-left:10px;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.map-container{
+  display: flex;
+  justify-content: center;
+}
+/* 버튼 css */
+
+  /* 버튼 css */
+  /*상단바*/
+  nav ul *{
+    display: inline;
+}
+
+nav ul li{
+    margin: 35px;
+}
+
+ nav li a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.menu ul{
+    padding-left: 0px;
+}
+
+.menu{
+    font-size: 20px;
+    font-style: italic;
+    align-items: center;
+    text-align: center;
+    padding-top: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+} 
+/*상단바*/
+
+nav{
+  font-size: 12pt;
+  font-family: 'PT Sans', Arial, Sans-serif;
+  position: relative;
+}
+nav ul{
+  padding: 0;
+  margin: 0 auto;
+  width: auto;
+}
+
+nav a{
+  line-height: 50px;
+  height: 50px;
+}
+nav li a{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: 50px;
+  height: 50px;
+}
+nav li:last-child a{
+  border-right: 0;
+    }
+nav a#pull{
+  display: none;
+}
+  html {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -webkit-tap-highlight-color:rgb(255, 255, 255);
+  }
+
+  nav ul{
+    /*list-style-type: none;*/
+    margin: 0;
+    padding: 0;
+    
+    text-align: center;
+  }
+  nav li{
+    /*position: relative;*/
+    display: inline-block;
+  }
+  nav li a{
+    font-size: 30px;
+    color: #000000;
+    text-align: center;
+    padding: 14.5px 16px;
+    text-decoration: none;
+  }
+  nav li a:hover{
+    /*color: #597812;*/
+    color: #2873d6d1;
+    font-weight: normal;
+  }
+  .menu {
+   width: 2000px;
+   height: 50px;
+   text-align: center;
+   max-width: 100%;
+   background-position: center;
+   background-size: cover;
+  
+   position: absolute;z-index: 1;
+   
+ }
+
+
+ /*사이드바*/
+ 
+
+
+
+
+ /* 사이드바 */
+
+ .sidebar{
+  position:fixed;
+  width:250px;
+  top:0;
+  left:0;
+  bottom:0;
+  background: #111;
+  padding-top:0px;
+ }
+ .sidebar a{
+  display:block;
+  padding:10px 20px;
+  color:white;
+  text-decoration: none;
+  font-family:"Rubik";
+  letter-spacing: 2px;
+ }
+ .sidebar a:hover{
+  margin-left:20px;
+  color:#44eee3d1;
+  transition: 0.4s;
+ }
+
+
+
+
+ /*//////////////////*/
+ 
